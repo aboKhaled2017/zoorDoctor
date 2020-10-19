@@ -1,0 +1,142 @@
+﻿@using tabeeb.Areas.doctors.languages
+@model Tuple<tabeeb.Areas.doctors.Models.doctorPageInfo,bool>
+@{
+    double rateValue = Model.Item1.rate * 20;
+}
+<div class="doc-card text-center">
+    <div style="position:relative" id="photoDiv">
+        <div class="changePhoto hidden">
+            <i class="glyphicon glyphicon-camera fa-lg" id="takeDoctorImage"></i>
+            <input type="file" id="doctorImage" accept="image/*">
+        </div>
+        <img src="~/Areas/doctors/doctorImages/@Model.Item1.image" class="center-block pull-left img-thumbnail" id="cardImage"/>
+    </div>
+    <div class="clearfix"></div>
+    <div class="doc-name center-block ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="right col-xs-2"><i class="fa fa-user-md fa-lg"></i></div>
+                <div class="left col-xs-10">@Resource1.doctor @Model.Item1.name</div>
+            </div>
+        </div>
+    </div>
+    <div class="doc-sp center-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-2 right"><i class="fa fa-stethoscope fa-lg"></i></div>
+                <div class="col-xs-10 left">@Model.Item1.professionName @Model.Item1.spName</div>
+            </div>
+        </div>
+    </div>
+    <div class="doc-addr center-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-2 right"><i class="fa fa-map-marker fa-lg"></i></div>
+                <div class="col-xs-10 left">@Model.Item1.cityname/@Model.Item1.destrictName</div>
+            </div>
+        </div>
+    </div>
+    @if(Model.Item2)
+    {//if this view was global view that will be visible for users
+     <div class="doc-phone center-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-2 right"><i class="fa fa-phone fa-lg"></i></div>
+                <div class="col-xs-10 left">@Model.Item1.phone</div>
+            </div>
+        </div>
+     </div>
+     <div class="doc-social center-block">
+        <div class="container-fluid">
+            <div class="row socials">
+                <a data-value="y" class="col-xs-2" href=""><i class="fa fa-youtube-play"></i></a>
+                <a data-value="l" class="col-xs-2" href=""><i class="fa fa-linkedin fa-lg"></i></a>
+                <a data-value="i" class="col-xs-2" href=""><i class="fa fa-instagram fa-lg"></i></a>
+                <a data-value="g" class="col-xs-2" href=""><i class="fa fa-google-plus fa-lg"></i></a>
+                <a data-value="t" class="col-xs-2" href=""><i class="fa fa-twitter fa-lg"></i></a>
+                <a data-value="f" class="col-xs-2" href=""><i class="fa fa-facebook fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+    }
+    <div class="doc-price center-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 head">@Resource1.doctorExaminPrice</div>
+                <div class="col-xs-12 base">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-2 icon text-center">
+                                <i class="fa fa-money fa-lg"></i>
+                            </div>
+                            <div class="col-xs-10 price">
+                                @Model.Item1.examinFee @Resource1.pounds
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="doc-time center-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 head">@Resource1.workAppointements</div>
+                <div class="col-xs-12 base">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-2 icon text-center">
+                                <i class="fa fa-clock-o fa-lg"></i>
+                            </div>
+                            <div class="col-xs-10 time">
+                                @Model.Item1.availableTime
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="doc-rate center-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 head hasNoBase">
+                    <div class="text-center pull-left">
+                        <p>@Resource1.evalution</p>
+                    </div>
+                    <div class="pull-right rating">
+                        <div>
+                            @for (byte i = 0; i < 5; i++)
+                            {
+                                <i class="fa fa-star-o fa-lg"></i>
+                            }
+                        </div>
+                        <div class="rateValue" style="width:@rateValue%">
+                            @for (byte i = 0; i < 5; i++)
+                            {
+                                <i class="fa fa-star fa-lg"></i>
+                            }
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="doc-services center-block hidden">
+        <h3><i class="fa fa-road fa-lg"></i> @Resource1.myService</h3>
+        <div class="services center-block text-center">
+            <!--services of doctor will be loaded here by javascript-->
+        </div>
+    </div>
+
+    <div class="doc-info center-block">
+        <h3><i class="fa fa-info fa-lg"></i> @Resource1.infoAboutDoctor</h3>
+        <div class="info center-block text-center">
+            <p class="text-left">
+                @Model.Item1.aboutDoc
+            </p>
+        </div>
+    </div>
+</div>

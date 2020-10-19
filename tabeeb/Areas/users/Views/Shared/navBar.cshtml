@@ -1,0 +1,33 @@
+﻿<div class="header">
+    <nav class="cd-main-nav-wrapper">
+        <ul class="cd-main-nav">
+            <li><a href="/">@Resource1.home</a></li>
+            @if (Html.getCurrentlanguage() == "en")
+            {
+                <li><a href="/@Html.getDefaultPathFor("users","language")/ar">العربية</a></li>
+            }
+            else
+            {
+                <li><a href="/@Html.getDefaultPathFor("users","language")/en">English</a></li>
+            }
+            <li class="subPage hidden" onclick="location.href = '/#ourServices'; handleLocations();"><a href="">@Resource1.ourServices</a></li>
+            <li class="subPage" onclick="location.href = '/#aboutSelf';handleLocations();"><a href=''>@Resource1.areWe</a></li>
+            <li class="subPage" onclick="location.href = '/#callUs'; handleLocations();"><a href="" class="callUsLink">@Resource1.callUs</a></li>
+            <li><a target="_blank" href="/@Html.getDefaultPathFor("doctors")">@Resource1.doctorSite</a></li>
+            <li class="otherPages">
+                <a href="#" class="cd-subnav-trigger"><span>@Resource1.otherPages</span></a>
+                <ul>
+                    <li class="go-back"><a href="#">@Resource1.otherPages</a></li>
+                    <li><a href="/@Html.getDefaultPathFor("users", "specialities")">@Resource1.Specialities</a></li>
+                    <li><a href="/@Html.getDefaultPathFor("users", "search")">@Resource1.search</a></li>
+                    <li><a href="/@Html.getDefaultPathFor("users", "advices")">@Resource1.doctorAdvices</a></li>
+                    <li><a href="/privacy">@Resource1.privacy</a></li>
+                </ul>
+            </li>
+        </ul> <!-- .cd-main-nav -->
+    </nav> <!-- .cd-main-nav-wrapper -->
+    <a href="#0" class="cd-nav-trigger">
+        <span></span>
+    </a>
+</div>
+

@@ -1,0 +1,19 @@
+﻿<div class="pull-left">
+    <div class="pagingControl pull-left">
+        <div class=" paging">
+            <div><i class="fa fa-caret-right" onclick="nextPage()"></i></div>
+            <div><i class="fa fa-caret-left" onclick="prevPage()"></i></div>
+        </div>
+        <div class=" paging">
+            <label>عدد الحقول</label><input type="number" min="0" onkeyup="getRecords(this,true)" id="pagingBtn" value="10" />
+        </div>
+    </div>
+    <!--loading icon-->
+    <div class="loading hidden pull-right">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>

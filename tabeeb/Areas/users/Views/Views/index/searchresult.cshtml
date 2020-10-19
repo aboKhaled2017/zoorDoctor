@@ -1,0 +1,64 @@
+﻿@using tabeeb.Models
+@model Tuple<List<doctorCard>,int,string>
+@{
+    ViewBag.Title = "searchresult";
+    Layout = Html.getUsersSiteLayout();
+    ViewBag.inputSearch = Model.Item3;
+}
+@{
+    int doctorCount = Model.Item2;
+    int end = (int)Math.Ceiling(doctorCount / 9.0);
+    string lange = Html.getCurrentlanguage();
+}
+@{Html.RenderPartial("reserving");} 
+<div id="goToSearchResult"></div>
+<h2 class="pageHeader text-center"> @Resource1.searchResult</h2>
+<section id="searchResult-section" class="search-result">
+    <div class="container-fluid">
+        <div class="row">
+         @if(doctorCount==0)
+         {
+            <div class="alert alert-danger">@Resource1.noResultMatch</div> 
+         }
+         else
+         {
+            foreach (var doctor in Model.Item1)
+           {
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                @{ Html.RenderPartial("doctorCard",doctor); }
+            </div>
+           }
+         }
+        </div>
+    </div>
+    @{Html.RenderPartial("doctorCardOnClicked");}
+</section>
+<div class="cloned">
+    <div class="outerCard hidden col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        @{doctorCard newcard = new doctorCard();
+        newcard.rate = 0;
+        newcard.viewers = 0;
+        newcard.timing = "";
+        newcard.spName = "";
+        newcard.price = 0;
+        newcard.phone = "";
+        newcard.lname = "";
+        newcard.image = "";
+        newcard.id =Guid.Empty;
+        }
+        @{ Html.RenderPartial("doctorCard", newcard); }
+    </div>
+</div>
+@{
+    if (doctorCount <= 9) { 
+        Html.RenderPartial("pagination", new Tuple<int, int, string, string>(doctorCount, end, "hidden", "noAjax"));
+    }
+    else
+    {
+        Html.RenderPartial("pagination", new Tuple<int, int, string, string>(doctorCount, end, "", "noAjax"));
+    }
+}
+@{Html.RenderPartial("doctorInformationPage");}
+   
+
+

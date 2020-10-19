@@ -1,0 +1,11 @@
+﻿@model Tuple<string,string> 
+@{
+    string dir = (Html.getCurrentlanguage() == "en") ? "ltr" : "rtl";
+}
+<html>
+<body dir="@dir" lang="@Html.getCurrentlanguage()">
+    <h2>@Resource1.welcom @Model.Item1</h2>
+    <p>@Resource1.clickOnResetLink</p><br>
+    <a href="@Model.Item2">@Resource1.clickLinkToChangePassword</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@{
+    string lang = Html.getCurrentlanguage();
+}
+<meta name="description" content="@Resource1.metaDescription" />
+<meta name="keywords" content="@Resource1.metaKeywords" />
+<meta name="google-site-verification" content="GqkqK6IanibnwSNsavAolEJjPxb85H-euVqhTAMJsio" />
+<meta name="google-signin-client_id" content="<786343369128-t1tsgsfn3eikttv4sv2t7gt7puft812o.apps.googleusercontent.com>.apps.googleusercontent.com.apps.googleusercontent.com">
+<meta charset="utf-8">
+<!--IE compatibility meta-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--first mobile meta-->
+<meta name="viewport" content="width=device-width,intial-scale=1" />
+<!--[if It IE 9]>
+<script src="js/html5shiv.min.js"></script>
+<script src="images/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!--for internet explorer to understand bootstrap
+i can download this file directlly but instead we
+cdn as source for these filles-->
+
+@if(lang == "ar")
+{<link rel='stylesheet' href='~/css/bootstrap-ar.css' />}
+else
+{
+    <link rel='stylesheet' href='~/css/bootstrap.css' />
+}
+<link rel="stylesheet" href="~/css/font-awesome.min.css">
+<link href="~/Areas/users/css/style.css" rel="stylesheet" />
+<link href="~/css/commonDoctorsAndUsers.css" rel="stylesheet" media="all" />
+<link href="~/Areas/users/css/default-theme.css" rel="stylesheet" />
+<link href="~/Areas/users/css/secNavStyle.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<link href="~/css/commonMediaDoctorsAndUsers.css" rel="stylesheet" media="all" />
+<link href="~/Areas/users/css/media.css" rel="stylesheet" />
+<link href="~/Areas/users/css/media_mobile.css" rel="stylesheet" />
+@if (lang == "en")
+{
+<link href="~/Areas/users/css/styleEng.css" rel="stylesheet" />
+}
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/Areas/users/js/extension.js"></script>
+<script src="~/Areas/users/js/mainPage.js"></script>

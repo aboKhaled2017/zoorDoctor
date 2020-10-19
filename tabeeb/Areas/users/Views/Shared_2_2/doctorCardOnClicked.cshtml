@@ -1,0 +1,109 @@
+﻿<div class="docCardClicked">
+    <div class="back hidden">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="docInfo">
+                        <div class="head">
+                            <img class="img-circle img-thumbnail img-responsive" />
+                            <div>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="foot">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form class="reservationForm" method="get" action="/users/reservation/reservation" onsubmit="return validateRegistrationForm(name.value,phone.value)">
+                        <div>ادخل بيانات الحجز</div>
+                        <div class="errorMessage">
+
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="text" name="name" placeholder="اسم المريض" title="ادخل اسم صحيح" />
+                            <i class="fa fa-wheelchair"></i>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="tel" name="phone" placeholder="رقم المحمول" pattern="[0-9]{11}" title="ادخل رقم محمول صحيح" />
+                            <i class="fa fa-mobile"></i>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="email" name="mail" placeholder="البريد الالكترونى" title="ادخل بريد الكترونى صحيح" />
+                            <i class="fa fa-envelope-o"></i>
+                        </div>
+                        <input type="hidden" name="clinicAdd" />
+                        <input type="hidden" name="date" />
+                        <input type="hidden" name="time" />
+                        <input type="hidden" name="docID" />
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-danger">احجز</button>
+                            <button type="button" class="btn btn-default">الغاء</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="front">
+        <i class="fa fa-close" onclick="closeAppointementPage(this);"></i>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 hidden-sm hidden-xs">
+                    @{Html.RenderPartial("doctorCard",new tabeeb.Models.getSearchResult_Result());}
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="appointementReserving text-center">
+                        <h4><i class="fa fa-calendar-check-o fa-lg"></i> احجز موعدك</h4>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-2 col-sm-1 col-xs-2 translate">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>
+                                </div>
+                                <div class="col-lg-10 col-md-8  col-sm-10 col-xs-8" style="padding:0">
+                                    <img src="~/images/ajax-loading.gif" style="width:10%" />
+                                    <div class="reservingTables hidden">
+                                        @{bool stat = (User.Identity.IsAuthenticated && !Roles.IsUserInRole("admin") && !Roles.IsUserInRole("doctor"));}
+                                        <div data-value="@stat" class="tables center-block">
+                                            @for (int i = 0; i < 31; i++)
+                                            {
+                                                <table data-value="@DateTime.Now.AddDays(i).Year-@DateTime.Now.AddDays(i).Month-@DateTime.Now.AddDays(i).Day">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                @if (i == 0) { Write("اليوم"); }
+                                                                else if (i == 1) { Write("غدا"); }
+                                                                else { Write(DateTime.Now.AddDays(i).Day + "/" + DateTime.Now.AddDays(i).Month); }
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <!--Appointements will be here by javascript-->
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr><th><i class="fa fa-send"></i> احجز</th></tr>
+                                                    </tfoot>
+                                                </table>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-md-2  col-sm-1 col-xs-2 translate">
+                                    <i class="glyphicon glyphicon-chevron-left"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

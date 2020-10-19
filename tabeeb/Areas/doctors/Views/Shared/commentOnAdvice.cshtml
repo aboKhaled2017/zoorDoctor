@@ -1,0 +1,32 @@
+﻿
+<div class="modal fade" id="commentsOnAdvice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close pull-right" data-dismiss="modal">×</button>
+                <button class="pull-left btn btn-default newComments hidden">
+                    <i class="fa fa-arrow-left"></i>
+                </button>
+                <button class="pull-left oldComments btn btn-default hidden">@Resource1.showOldComments
+                   <span class="hint"></span>
+                </button>               
+            </div>
+            <div class="modal-body">
+                    <div class="all-comments">                       
+                        <div class="loadingComment">@Resource1.loadingComments <i class="fa fa-circle-o-notch fa-spin"></i></div>
+                        <div class="container-fluid comments">
+                            <!--comments are loaded here by javascript-->
+                        </div>
+                        <!--form control is hidden now in doctor site-->
+                        <form class="form-inline text-center hidden">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="comment" placeholder="@Resource1.giveYourComment">
+                                <button><i class="fa fa-comment-o fa-lg"></i> @Resource1.addComment</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

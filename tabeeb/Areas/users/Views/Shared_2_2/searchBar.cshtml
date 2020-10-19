@@ -1,0 +1,121 @@
+﻿@using tabeeb.Models
+@using tabeeb.Controllers;
+@{
+    globalController global = new globalController();
+    var db = global.db; 
+    string lang = Session["usersPageLang"].ToString();
+    var cities = (lang == "ar")
+    ? db.cities.Select(c => new { c.id,name=c.nameAr }).ToList()
+    : db.cities.Select(c => new { c.id,name=c.nameEng }).ToList();
+    var destricts =(lang == "ar")
+    ?db.destricts.Select(d => new { d.cityID,name=d.nameAr, d.id }).ToList()
+    :db.destricts.Select(d => new { d.cityID,name=d.nameEng, d.id }).ToList();
+    var specialities =(lang == "ar")
+    ?db.specialities.Select(s => new { s.id,name=s.nameAr }).ToList()
+    :db.specialities.Select(s => new { s.id,name=s.nameEng }).ToList();
+    var doctors =db.doctorInfoes.Select(doc => new
+    {
+        id = doc.doctorID,
+        fnameAr = doc.fnameAr,
+        lnameAr = doc.lnameAr,
+        fnameEng = doc.fnameEng,
+        lnameEng = doc.lnameEng,
+    }).ToList();
+}
+<div class="reserving-search">
+    <!--<h3>الانتقال لخدمة الحجز المفضل</h3>-->
+    <form id="searchForm" onsubmit="return submitSearch(this, 1,'search')" method="post" action="/users/index/searchresult" class="form-inline container-fluid">
+        <input type="hidden" name="education" value="" />
+        <input type="hidden" value="" name="type" />
+        <input type="hidden" name="price" value="" />
+        <div class="row">
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="@if (lang == "ar") { Write("pull-right"); } else { Write("pull-left"); }"><i class="fa fa-stethoscope fa-lg"></i>@Resource1.searchingForSpeciality</span>
+                        <span class="glyphicon glyphicon-triangle-top @if (lang == "ar") { Write("pull-left"); } else { Write("pull-right"); }"></span>
+                        <div style="clear:both"></div>
+                        <div>@Resource1.selectSpeciality</div>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach (var speciality in specialities)
+                        {
+                            <li data-value="@speciality.id" onclick="setValueOfSelected(this)"><a href=" ">@speciality.name</a></li>
+                        }
+                    </ul>
+                    <input type="hidden" name="specialityID" value="0" />
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="@if (lang == "ar") { Write("pull-right"); } else { Write("pull-left"); }"><i class="fa fa-map-marker fa-lg"></i> @Resource1.atCityOf</span>
+                        <span class="glyphicon glyphicon-triangle-top @if (lang == "ar") { Write("pull-left"); } else { Write("pull-right"); }"></span>
+                        <div style="clear:both"></div>
+                        <div>@Resource1.selectCity</div>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach (var city in cities)
+                        {
+                            <li data-value="@city.id" onclick="updateDestrictsMenu(@Json.Encode(new{city.id}));setValueOfSelected(this);">
+                                <a href="">@city.name</a>
+                            </li>
+                        }
+                    </ul>
+                    <input type="hidden" name="cityID" value="0" />
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="@if (lang == "ar") { Write("pull-right"); } else { Write("pull-left"); }"><i class="fa fa-map-marker fa-lg"></i> @Resource1.atDestrictOf</span>
+                        <span class="glyphicon glyphicon-triangle-top @if (lang == "ar") { Write("pull-left"); } else { Write("pull-right"); }"></span>
+                        <div style="clear:both"></div>
+                        <div>@Resource1.selectDestrict</div>
+                    </button>
+                    <ul class="dropdown-menu destricts">
+                        @foreach (var destrict in destricts)
+                        {
+                            <li data-value="@destrict.id-@destrict.cityID" onclick="setValueOfSelected(this)">
+                                <a href="">@destrict.name</a>
+                            </li>
+                        }
+                    </ul>
+                    <input type="hidden" name="destrictID" value="0" />
+
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="@if (lang == "ar") { Write("pull-right"); } else { Write("pull-left"); }"><i class="fa fa-user-md fa-lg"></i> @Resource1.orSelectDoctorname </span>
+                        <span class="glyphicon glyphicon-triangle-top @if (lang == "ar") { Write("pull-left"); } else { Write("pull-right"); }"></span>
+                        <div style="clear:both"></div>
+                        <div>@Resource1.selectDocName</div>
+                    </button>
+                    <ul class="dropdown-menu doctors">
+                        <li data-value="0" class="hasInput">
+                            <input autocomplete="off" type="text" name="doctor" placeholder="ابحث عن دكتور" onkeyup="filterDoctors(this,doctor.value)" />
+                        </li>
+                        @foreach (var doctor in doctors)
+                        {
+                            <li class="ar @if(lang == "en") { Write("hidden"); }" data-value="@doctor.id" onclick="setValueOfSelected(this);">
+                                <a href="">@doctor.fnameAr @doctor.lnameAr</a>
+                            </li>
+                            <li class="en @if(lang == "ar") { Write("hidden"); }" data-value="@doctor.id" onclick="setValueOfSelected(this);">
+                                <a href="">@doctor.fnameEng @doctor.lnameEng</a>
+                            </li>
+                        }
+                    </ul>
+                    <input type="hidden" value="0" name="docID" />
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <button type="submit">
+                    <i class=" fa fa-search fa-lg"></i>  @Resource1.search
+                    <img src="~/images/ajax-loader.gif" class="hidden img-responsive center-block" />
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

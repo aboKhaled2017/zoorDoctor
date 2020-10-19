@@ -1,0 +1,74 @@
+ .box-option .color-option,
+ .box-option i.fa-gear,
+ .main-background-color,
+ .links .dropdown-menu li:hover,
+ .reserving .fast-search button,
+ .scroll-btn i,
+ .doc-card .base button,
+ .sec-nav1 .main-links .dropdown-menu >li:hover,
+ .top-search button.form-control,
+ .sec-nav .main-links .dropdown-menu >li:hover,
+ .login-section .login-box .login button.form-control,
+ .reserve-section .register-section .login-section .login-box h2,
+ .sec-nav .main-dropdown-menu,
+ .reserving form .dropdown .dropdown-menu>li:not(.next):hover,
+ .reserving form .dropdown .dropdown-menu>li:first-of-type,
+ .navbar-toggle .icon-bar{
+    background-color: #337AB7;
+}/*for background color*/
+.links .dropdown-menu,
+.reserving  .fast-search input.form-control,
+.reserving .fast-search button,
+.sec-nav1 .main-links .dropdown-menu,
+.top-search input.form-control,
+.login-section .login,
+.sec-nav .main-links .dropdown-menu,
+.reserve-section .register-section .login-section .login-box .login,
+.reserving-search form .dropdown>button{
+    border: 2px solid #337AB7;
+}/*for border volor*/
+.reserving-search,
+.reserving form .dropdown .dropdown-menu{
+	border: 3px solid #337AB7;
+}/*for border color*/
+ .top-nav,
+ .our-self,
+ .doctor-info .doc-card .base{
+	border-bottom: 3px solid #337AB7;
+}
+.doctor-profile .doc-card .doc-name,
+.doctor-profile .doc-card .doc-sp,
+.doctor-profile .doc-card .doc-addr,
+.doctor-profile .doc-card .doc-phone{
+	border-bottom: 2px solid #337AB7;
+}/*for border bottom*/
+.doctor-info .doc-card .base,
+.doctor-profile .doc-card .doc-name,
+.doctor-profile .doc-card .doc-sp,
+.doctor-profile .doc-card .doc-addr,
+.doctor-profile .doc-card .doc-phone{
+    border-right: 3px solid #337AB7;
+}/*for border right*/
+ .main-color,
+ .top-nav .log a:hover,
+ .call-us form .form-group>i[title='send'],
+ .reserving .reserving-search form label i,
+ footer .upper-part .pages h3,
+ footer .upper-part .speciality h3,
+ footer .upper-part .adv h2,
+ .video-services h2,
+ .stats .item p,
+ .call-us h1,
+ .call-us form .form-group>i[title='user'],
+ .call-us form .form-group>i[title='message'],
+ .stats .h1,
+ .our-self .h1,
+ .video-services .overlay h3,
+ .our-services h2,
+ .doc-card .base ul>li>i,
+ .login-section .login-box .login form>div:nth-of-type(4) a,
+ .login-section .login-box .another-login .new-login p,
+ .register-section .login-section .login-box  .new-login p,
+ .specialities h2{
+	color:#337AB7;
+}/*for font color*/

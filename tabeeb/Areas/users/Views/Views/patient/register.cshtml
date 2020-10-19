@@ -1,0 +1,167 @@
+﻿@using System.Web.Optimization;
+@model  tabeeb.Models.patient
+@{
+    Layout = Html.getUsersSiteLayout();
+    Page.Title =Resource1.titleJoin;
+}
+<!--start register section------>
+<section id="registerSection" class="register-section">
+    <div class="login-section">
+        <div class="login-box center-block">
+            <h2>@Resource1.signHeading</h2>
+            <div class="login center-block">
+                <div class="another-login text-center">
+                    <div class="facebook">
+                        <button onclick="facebookLogin(this)" class="btn"><i class="fa fa-facebook fa-lg"></i> @Resource1.facebookRegister</button>
+                    </div>
+                    <div class="gmail">
+                        <button class="btn" id="googleSignIn"><i class="fa fa-google-plus fa-lg"></i> @Resource1.googleRegister</button>
+                    </div>
+                    <div class="circle circle-top">
+                        أو
+                    </div>
+                </div>
+                @using (Html.BeginForm("register", "patient", FormMethod.Post, new { id = "registerForm", onsubmit = "return validatePatientForm(this)" }))
+                {
+                    @Html.ValidationMessage(string.Empty)
+                    <input type="hidden" name="id" value="@Guid.Empty"/>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-user-o fa-lg"></i>
+                             @Resource1.userName 
+                            <i class="fa fa-star fa-xs"></i>
+                            <i class="hidden fa fa-circle-o-notch fa-spin"></i>
+                            <i class="hidden glyphicon glyphicon-ok-sign fa-lg"></i>
+                            <i class="hidden fa fa-close fa-lg"></i>
+                        </label>
+                        @Html.TextBoxFor(patient => patient.username, new {onblur = "checkPatientProperty(this,'username')"})
+                        @Html.ValidationMessageFor(p => p.username)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-envelope-o fa-lg"></i> 
+                            @Resource1.mail 
+                            <i class="fa fa-star fa-xs"></i>                        
+                        </label>
+                        @Html.TextBoxFor(patient => patient.mail, new {type="email"})
+                        @Html.ValidationMessageFor(p => p.mail)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-mobile fa-lg"></i> 
+                            @Resource1.phoneNumber 
+                            <i class="fa fa-star fa-xs"></i>
+                            <i class="hidden fa fa-circle-o-notch fa-spin"></i>
+                            <i class="hidden glyphicon glyphicon-ok-sign fa-lg"></i>
+                            <i class="hidden fa fa-close fa-lg"></i>
+                        </label>
+                        @Html.TextBoxFor(patient => patient.phone, new { onblur = "checkPatientProperty(this,'phone')" })
+                        @Html.ValidationMessageFor(p => p.phone)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-calendar fa-lg"></i> @Resource1.birthDate <i class="fa fa-star fa-xs"></i>
+                        </label>
+                        @Html.TextBoxFor(patient => patient.birthDate, new {type="date"})
+                        @Html.ValidationMessageFor(p => p.birthDate)
+                    </div>
+                    <div class="form-group" style="height: 30px;">
+                        <label style="display: block;" class="pull-right">
+                            <img src="~/icon/type1.png"> @Resource1.gender
+                        </label>
+                        <div class="pull-left">
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(p=>p.type,true) @Resource1.male
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(p => p.type, false) @Resource1.female
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(p => p.type)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-eye fa-lg"></i> @Resource1.passString <i class="fa fa-star fa-xs"></i>
+                        </label>
+                        @Html.TextBoxFor(patient => patient.password, new { type = "password", autocomplete = "new-password" })
+                        @Html.ValidationMessageFor(p => p.password)
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="agree">
+                        <label class="agree">@Resource1.agreeOn <span><a href="/rulesAndCondition">@Resource1.rolesAndCondictions</a></span></label>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg form-control"><i class="fa fa-send fa-lg"></i> @Resource1.signNow </button>
+                    </div>
+                    <div class="circle circle-bottom">
+                        @Resource1.or
+                    </div>
+                }
+                <div class="new-login text-center">
+                    <p> @Resource1.areYouRegistered </p>
+                    <a href="/users/patient/login">@Resource1.loginNow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="externalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="overlay hidden">
+                <div class="center-block"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+            </div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="externalForm">
+                    <p class="form-alert">@Resource1.pleaseEnterPhone</p>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-mobile fa-lg"></i>
+                            @Resource1.portablePhoneNumber
+                            <i class="fa fa-star fa-xs"></i>
+                        </label>
+                        @Html.TextBoxFor(patient => patient.phone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.phone)
+                    </div>  
+                    <div class="form-group birthDate hidden">
+                        <label>
+                            <i class="fa fa-calendar fa-lg"></i> @Resource1.birthDate <i class="fa fa-star fa-xs"></i>
+                        </label>
+                        @Html.TextBoxFor(patient => patient.birthDate, new { type = "date", @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.birthDate)
+                    </div> 
+                    <div class="form-group gender hidden">
+                        <label style="display: block;" class="pull-right">
+                            <img src="~/icon/type1.png"> @Resource1.gender
+                        </label>
+                        <div class="pull-left">
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(p => p.type, true) @Resource1.male
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(p => p.type, false) @Resource1.female
+                            </label>
+                        </div>
+                        <div class="clearfix"></div>
+                        @Html.ValidationMessageFor(p => p.type)
+                    </div>            
+                    <button type="button" class="btn btn-primary" onclick="validateExternalForm(this)">@Resource1.login</button>
+                    <button type="button" class="closeModal btn btn-default" data-dismiss="modal">@Resource1.close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end register section-->
+<!--<script src="~/Areas/users/js/registerAndLogin.js"></script>-->
+@*Scripts.Render("~/validationLinks")*@
+<!--<script src="https://apis.google.com/js/platform.js?onload=onLoadGoogleCallback" async defer></script>-->
+<script>
+    /// <reference path="mainPage.js" />
+    $(function () {
+        loadLocalScript('/Areas/users/js/registerAndLogin.js');
+    });
+</script>

@@ -1,0 +1,78 @@
+﻿@using tabeeb.Models
+@model Tuple<doctorCard, string>
+@{
+    var doctorInfo = Model.Item1;
+    string lange = Model.Item2;
+    string direction = (lange == "en") ? "ltr" : "rtl";
+     string pound = (lange == "en") ? "pound" : "جنية";
+     string doctorVisitors = (lange == "en") ? "Of doctor visitors" : "من زوار الطبيب";
+}
+<div class="doc-card">
+    <img src="/Areas/doctors/doctorImages/@doctorInfo.image" class=" center-block img-responsive" onclick="getDoctorInfo(this,@doctorInfo.id);"/>
+    <div class="base" dir="@direction">
+        <ul class="list-unstyled center-block">
+            <li>
+                <p>
+                    <i class="fa fa-user-md fa-2x"></i>
+                    <span>
+                        @doctorInfo.fname @doctorInfo.lname
+                    </span>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fa fa-stethoscope fa-2x"></i>
+                    <span>
+                       @doctorInfo.education @doctorInfo.spName
+                    </span>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <span>
+                        @doctorInfo.clinicAddress
+                    </span>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fa fa-money fa-2x"></i>
+                    <span>
+                        <span>@doctorInfo.price</span> @pound
+                    </span>
+                </p>
+            </li>
+            <li class="timing">
+
+                <p>
+                    <i class="glyphicon glyphicon-time fa-2x"></i>
+                    <span>
+                       @doctorInfo.timing
+                    </span>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fa fa-phone fa-2x"></i>
+                    <span>
+                        @doctorInfo.phone
+                    </span>
+                </p>
+            </li>
+        </ul>
+        <p class="rate @if (lange == "ar") { Write("pull-right"); } else { Write("pull-left"); }">           
+            @for (byte i = 0; i < doctorInfo.rate; i++)
+            {
+               <i class="fa fa-star fa-lg"></i> 
+            }
+            @for (byte i = 0; i < 5 - doctorInfo.rate; i++)
+            {
+                <i class="fa fa-star-o fa-lg"></i>
+            }
+        </p>
+        <p class="viewers @if (lange == "ar") { Write("pull-left"); } else { Write("pull-right"); }"><span>@doctorInfo.viewers</span> @doctorVisitors</p>
+        <div style="clear:both"></div>
+        <button data-value="@doctorInfo.id" onclick="handleReserveDetailsOnClick(this)" class="center-block"><i class="	glyphicon glyphicon-info-sign"></i> @Resource1.bookingDetails</button>
+    </div>
+</div>

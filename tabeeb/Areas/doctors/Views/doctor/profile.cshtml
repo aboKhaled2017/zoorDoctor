@@ -1,0 +1,324 @@
+﻿@using System.Web;
+@using System.Web.Optimization;
+@model tabeeb.Models.doctorInfo
+@{
+    ViewBag.Title =Resource1.titleDoctorProfile;
+    Layout = "~/Areas/doctors/Views/Shared/doctorLayout.cshtml";
+    Dictionary<byte, string> educations =ViewBag.professions;
+    educations[10] = "-------------------";
+    var educaionList=educations.Select(item=>new{key=item.Key,value=item.Value}).OrderByDescending(item=>item.key).ToList();
+    var selecedEducation = (Model == null || Model.education == null) ? 10 : Model.education;
+    SelectList educationItems=new SelectList(educaionList,"key","value",selecedEducation);
+    bool profileIsCompleted = ViewBag.profileStat;  
+}
+<div class="container-fluid">
+    <h2 class="welcomingHeader">@Resource1.welcom<span class="userName">@User.Identity.Name</span></h2>
+    @if (profileIsCompleted)
+    {
+        <div class="successfullyRegistered">
+        <h4>
+            <i class="glyphicon glyphicon-ok-sign fa-lg"></i>
+            @Resource1.successAccountCreated <a href="/@Html.getDefaultPathFor("doctors")/account">@Resource1.editMyAccount</a>
+        </h4>
+        <h4>
+            <i class="glyphicon glyphicon-ok-sign fa-lg"></i>
+            @Resource1.successProfileCreated <a href="/@Html.getDefaultPathFor("doctors")/doctorPage">@Resource1.goToDoctorPage</a>
+        </h4>
+        <h4 class="download hidden">
+            <span><i class="glyphicon glyphicon-ok-sign fa-lg notSuccess"></i> @Resource1.toCompleteDownload</span>
+            <button class="btn btn-danger badge">
+                <i class="fa fa-mobile-phone fa-lg"></i> @Resource1.downloadApp <i class="fa fa-arrow-down"></i>
+            </button>
+        </h4>       
+         <h4 class="preview">
+             <span> @Resource1.previewProfile </span>
+             <button class="btn btn-success badge" onclick="$('#engProfileCard').modal('show');">@Resource1.previewEnglishProfile</button>
+             <button class="btn btn-success badge" onclick="$('#arProfileCard').modal('show');">@Resource1.previewArabic_profil</button>
+         </h4>
+    </div>
+    }
+    @if (!profileIsCompleted)
+    {
+        <h4>
+            <i class="glyphicon glyphicon-ok-sign fa-lg"></i>
+             @Resource1.successAccountCreated <a href="/@globalController.defaultPathForDoctorsArea/account">@Resource1.editMyAccount</a>
+        </h4>
+        <h4 class="bg-info">@Resource1.pleaseFillRequiredFields</h4>
+    }
+    <div class="row">
+        <div class="col-md-8">           
+            @using (Html.BeginForm("profile", "doctor", FormMethod.Post, new { enctype = "multipart/form-data", id = "profileForm", @class = "doctorProfileForm", onsubmit = "return validateProfileForm(this)" }))
+            {
+                if (profileIsCompleted)
+                {
+                    <div class="upIndicator">
+                        <div class="upControls">
+                            <div>
+                                <button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)">@Resource1.previous <i class='fa fa-arrow-left'></i></button>
+                                <button type="button" id="nextBtn" class="btn btn-danger" onclick="nextPrev(1)">@Resource1.next <i class='fa fa-arrow-right'></i></button>
+                            </div>
+                        </div>
+                        <div class="steps">
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                        </div>
+                    </div>
+                }
+                <div class="validationSummary">
+                    @Html.ValidationMessage(string.Empty);
+                </div>
+                <div class="engProfile tab">
+                    <label class="mainLabel">@Resource1.profileWithEnLanguage</label>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.firstName *
+                        </label>
+                        @Html.TextBoxFor(d => d.fnameEng, new {title = Resource1.firstNametitle, required = "required", placeholder =Resource1.firstNameEx, @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.fnameEng)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.lastName *
+                        </label>
+                        @Html.TextBoxFor(d => d.lnameEng, new {title = Resource1.lastnameTitle, required = "required", placeholder = Resource1.lastNameEx, @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.lnameEng)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.professionaltitle *
+                        </label>
+                        <p class="alert alert-info">@Resource1.professionDoctorSign</p>
+                        @Html.TextAreaFor(d => d.profTitleEng, new { title = Resource1.titleProfessionaltitle, required = "required", placeholder =Resource1.professionTitleDescrip+"...", @class = "form-control", style = "height:60px" })
+                        @Html.ValidationMessageFor(d => d.profTitleEng)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.aboutDoctor *
+                        </label>
+                        @Html.TextAreaFor(d => d.aboutDocEng, new { title = Resource1.aboutDoctorTitle, required = "required", placeholder = Resource1.aboutDoctorDescrip, @class = "form-control", style = "height:80px" })
+                        @Html.ValidationMessageFor(d => d.aboutDocEng)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.aboutClinic
+                        </label>
+                        @Html.TextAreaFor(d => d.aboutClnicEng, new { placeholder = Resource1.aboutClinic, @class = "form-control", style = "height:100px" })
+                        @Html.ValidationMessageFor(d => d.aboutClnicEng)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.clinicAddress*
+                        </label>
+                        @Html.TextAreaFor(d => d.clinicAddressEng, new { title = Resource1.clinicAddressTitle, required = "required", placeholder = Resource1.clinicAddressDescrip, @class = "form-control", style = "height:80px" })
+                        @Html.ValidationMessageFor(d => d.clinicAddressEng)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.availableTime*
+                        </label>
+                        @Html.TextAreaFor(d => d.availableTimeEng, new { title = Resource1.availableTimetitle, required = "required", placeholder =Resource1.availableTimeDescrip, @class = "form-control", style = "height:80px" })
+                        @Html.ValidationMessageFor(d => d.availableTimeEng)
+                    </div>
+                </div>
+                <div class="arProfile tab">
+                    <label class="mainLabel">@Resource1.profileWithArabicLanguage</label>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.firstName *
+                        </label>
+                        @Html.TextBoxFor(d => d.fnameAr, new {title = Resource1.firstNametitle, required = "required", placeholder = Resource1.firstNameEx, @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.fnameAr)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.lastName *
+                        </label>
+                        @Html.TextBoxFor(d => d.lnameAr, new {title = Resource1.lastnameTitle, required = "required", placeholder = Resource1.lastNameEx, @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.lnameAr)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.professionaltitle *
+                        </label>
+                        <p class="alert alert-info">@Resource1.professionDoctorSign</p>
+                        @Html.TextAreaFor(d => d.profTitleAr, new { title = Resource1.titleProfessionaltitle, required = "required", placeholder = Resource1.professionTitleDescrip, @class = "form-control", style = "height:60px" })
+                        @Html.ValidationMessageFor(d => d.profTitleAr)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.aboutDoctor *
+                        </label>
+                        @Html.TextAreaFor(d => d.aboutDocAr, new { title = Resource1.aboutDoctorTitle, required = "required", placeholder = Resource1.aboutDoctorDescrip, @class = "form-control", style = "height:80px" })
+                        @Html.ValidationMessageFor(d => d.aboutDocAr)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.aboutClinic
+                        </label>
+                        @Html.TextAreaFor(d => d.aboutClnicAr, new { placeholder = Resource1.aboutClinic, @class = "form-control", style = "height:100px" })
+                        @Html.ValidationMessageFor(d => d.aboutClnicAr)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.clinicAddress *
+                        </label>
+                        @Html.TextAreaFor(d => d.clinicAddressAr, new { title = Resource1.clinicAddressTitle, required = "required", placeholder = Resource1.clinicAddressDescrip, @class = "form-control", style = "height:80px" })
+                        @Html.ValidationMessageFor(d => d.clinicAddressAr)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.availableTime *
+                        </label>
+                        @Html.TextAreaFor(d => d.availableTimeAr, new { title = Resource1.availableTimetitle, required = "required", placeholder =Resource1.availableTimeDescrip, @class = "form-control", style = "height:80px" })
+                        @Html.ValidationMessageFor(d => d.availableTimeAr)
+                    </div>
+                </div>
+                <div class="generalProfile tab">
+                    <div class="form-group type">
+                        <label>
+                            @Resource1.gender *
+                        </label>
+                        <div>
+                            <label>@Resource1.male:</label> @Html.RadioButtonFor(d => d.type, true, new { required = "required" })
+                            <label>@Resource1.female:</label> @Html.RadioButtonFor(d => d.type, false, new { required = "required" })
+                        </div>
+                        @Html.ValidationMessageFor(d => d.type)
+                    </div>
+                    <div class="form-group type">
+                        <label>
+                            @Resource1.reservationType *<a class="showReservationTypeDescrip" onclick="$('#descripContenet').slideToggle()">@Resource1.whatMeanByReservationtype</a>
+                        </label>
+                        <p class="alert alert-info" id="descripContenet" style="display:none">
+                            @Resource1.reservationTypeDesc
+                        </p>
+                        <div>
+                            <label>@Resource1.priorityToAttendance:</label> @Html.RadioButtonFor(d => d.reservingType, true, new { required = "required" })
+                            <label>@Resource1.onSceduale:</label> @Html.RadioButtonFor(d => d.reservingType, false, new { required = "required" })
+                        </div>
+                        @Html.ValidationMessageFor(d => d.reservingType)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.professionalDegree*
+                        </label>
+                        @Html.DropDownListFor(d => d.education, educationItems, new { @class = "form-control selectpicker", style = "width:60%" })
+                        @Html.ValidationMessageFor(d => d.education)
+                    </div>
+                    <div class="form-group doctorSocial">
+                        <label>@Resource1.socialMediaOptional</label>
+                        <p class="hint">
+                            @Resource1.socialMediaHint
+                        </p>
+                        <div>
+                            <label>
+                                <i class="fa fa-youtube fa-lg"></i>
+                            </label>
+                            <input class="form-control" type="url" placeholder="@Resource1.youtubeUrl" data-class="y" />
+                        </div>
+                        <div>
+                            <label>
+                                <i class="fa fa-linkedin fa-lg"></i>
+                            </label>
+                            <input class="form-control" type="url" placeholder="@Resource1.linkedInUrl" data-class="l" />
+                        </div>
+                        <div>
+                            <label>
+                                <i class="fa fa-instagram fa-lg"></i>
+                            </label>
+                            <input class="form-control" type="url" placeholder="@Resource1.instgramUrl" data-class="i" />
+                        </div>
+                        <div>
+                            <label>
+                                <i class="fa fa-google-plus fa-lg"></i>
+                            </label>
+                            <input class="form-control" type="url" placeholder="@Resource1.googleUrl" data-class="g" />
+                        </div>
+                        <div>
+                            <label>
+                                <i class="fa fa-twitter fa-lg"></i>
+                            </label>
+                            <input class="form-control" type="url" placeholder="@Resource1.twitterUrl" data-class="t" />
+                        </div>
+                        <div>
+                            <label>
+                                <i class="fa fa-facebook fa-lg"></i>
+                            </label>
+                            <input class="form-control" type="url" placeholder="@Resource1.facebookurl" data-class="f" />
+                        </div>
+                        @Html.HiddenFor(d => d.urls)
+                        <br>@Html.ValidationMessageFor(d => d.urls)
+                    </div>
+                    @if (Model == null || (Model != null && Model.image != null))
+                    {
+                        <div class="form-group">
+                            <label>
+                                @Resource1.personalImageTitle
+                            </label>
+                            <input title="@Resource1.personalImageTitle" type="file"
+                                   class="form-control" id="uploadProfileImage"
+                                   name="img"
+                                   style="@if (Model != null && Model.image == null) { Write("color:red;"); }"
+                                   accept=".png,.jpg,.gif,.jpeg,.PNG,.JPG,.GIF,.JPEG" />
+                            @Html.HiddenFor(d => d.image)
+                            <progress id="imageProgress" class="progress hidden" value="0" max="100"> </progress>
+                            @Html.ValidationMessageFor(d => d.image)
+                        </div>
+                    }
+                    <div class="form-group">
+                        <label>
+                            @Resource1.examineFee *
+                        </label>
+                        @Html.TextBoxFor(d => d.examinFees, new { required = "required", placeholder = Resource1.examineFee, @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.examinFees)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Resource1.waitingTimeDesc *
+                        </label>
+                        @Html.TextBoxFor(d => d.waitingTime, new { required = "required", placeholder =Resource1.waitingTimeDesc, @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.waitingTime)
+                    </div>
+                </div>
+                if (!profileIsCompleted)
+                {
+                    <div class="downIndicator">
+                        <div class="downControls">
+                            <div>
+                                <button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)">@Resource1.previous <i class='fa fa-arrow-left'></i></button>
+                                <button type="button" id="nextBtn" class="btn btn-danger" onclick="nextPrev(1)">@Resource1.next <i class='fa fa-arrow-right'></i></button>
+                            </div>
+                        </div>
+                        <!-- Circles which indicates the steps of the form: -->
+                        <div class="steps">
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="col-md-4 hidden" id="previewCard">
+            @{Html.RenderPartial("~/Areas/users/Views/Shared/doctorCard.cshtml", new doctorCard());}
+        </div>
+    </div>
+    <!--end of form-->
+    <!--hidden modals-->
+    @if(profileIsCompleted)
+    {
+        doctorCard arabicProfileCard = Model.getDoctorCard("ar");
+        doctorCard englishProfileCard = Model.getDoctorCard("en");
+        arabicProfileCard.cardLanguage = "ar";
+        englishProfileCard.cardLanguage = "en";
+        Html.RenderPartial("doctorCardPreview", arabicProfileCard);
+        Html.RenderPartial("doctorCardPreview", englishProfileCard);
+    }
+</div>
+<script src="~/Areas/doctors/js/profileJs.js"></script>
+@Scripts.Render("~/validationLinks")
+<script src="~/js/ImageTools.js"></script>
+@if(profileIsCompleted)
+{//fill urls fields with links
+    <script>fillUrlInputFieldsWithLinks();</script>
+}

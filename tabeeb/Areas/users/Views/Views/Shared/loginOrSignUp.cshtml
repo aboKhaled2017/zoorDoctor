@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "can not access page";
+    Layout = "~/Areas/users/Views/Shared/layout.cshtml";
+}
+
+<div class="container text-center noAccessToPage">
+    <h4 class="alert alert-danger">@Resource1.cannotAccessPageLoginFirst</h4>
+    <div>
+        <a style="text-decoration:underline" href="/users/patient/register">@Resource1.signUp</a> @Resource1.or 
+        <a style="text-decoration:underline" href="/users/patient/login">@Resource1.login</a>
+    </div>
+</div>
+

@@ -1,0 +1,82 @@
+﻿@using tabeeb.Controllers;
+@{
+    string phoneNumber = "19666";
+    string lange = Html.getCurrentlanguage();
+    string dir =(lange=="ar")?"rtl":"ltr";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @{Html.RenderPartial("headContent");}
+</head>
+<body dir="@dir" lang="@lange">
+    <header>
+        <!--start option box-->
+        @{/*Html.RenderPartial("colorBox");*/}
+        <!--end option box-->
+        <!--the top navbar-->
+        <section class="top-nav text-center">
+            <div class="container-fluid">
+                <div class="row center-block">
+                    <div class="col-sm-3 col-xs-12 log">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <div class="not-loged">
+                                <a href="/@Html.getDefaultPathFor("users","patient")/login">@Resource1.login</a>
+                                <span>@Resource1.or</span>
+                                <a href="/@Html.getDefaultPathFor("users","patient")/register" class="main-color">@Resource1.signUp</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="loged">
+                                <p>
+                                    <i class="glyphicon glyphicon-user fa-lg"></i>
+                                    <span class="name">@Request.getUserCookieData().username</span>
+                                </p>
+                                <div class="profile">
+                                    <ul class="list-unstyled">
+                                        @Html.Action("patientMenuLinks","index")
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <div>@Resource1.withYouAnyWhere</div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 call-div">
+                        <div>
+                            @Resource1.forCallUs @phoneNumber
+                            <i class="fa fa-phone fa-lg main-color"></i>
+                        </div>
+                        <div class="pull-center">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="~/images/logo3.png" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--the end of top navbar-->
+        <!--start second nav bar-->
+        @{Html.RenderPartial("navBar");}
+        <!--end of second  nav bar-->
+    </header>
+    <!--end of header-->
+    @RenderSection("reserving", required: false) 
+    <div class="bodyOfPage">
+        @RenderBody()
+    </div>
+    <!--start fooetr-->
+    @{Html.RenderAction("footer", "index");}
+    <!--end footer-->
+    <script>
+        var isAuthenticated = ('@User.Identity.IsAuthenticated' == 'False') ? false : true;
+        localStorage.setItem('isAuthenticated',isAuthenticated);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿
+<div class="patient-view" id="patient-view">
+    <h2 class="text-center">
+        <i class="fa fa-star-o fa-lg"> اراء المرضى</i>
+    </h2>
+    <div class="loadingComments text-center center-block">
+      <i class="loading-circle fa fa-circle-o-notch fa-lg"></i>
+    </div>
+    <div class="alert alert-info hidden"></div>
+    <div id="viewControls">
+        <button class="btn btn-default hidden" id="prevViews" onclick="getPatientViewsOnDoctor(-1)">
+            Previous views <i class="fa fa-arrow-left"></i>
+        </button>
+        <button class="btn btn-default hidden" id="moreViews" onclick="getPatientViewsOnDoctor(1)">
+            More views <i class="fa fa-arrow-right"></i>
+        </button>        
+    </div>
+    <div class="patients">
+        <button class="btn btn-default hidden">الاراء السابقة</button>
+        <div class="body">
+            <!--all patients views will be loaded here by javascript-->
+        </div>
+    </div><!--end patient view-->
+</div>

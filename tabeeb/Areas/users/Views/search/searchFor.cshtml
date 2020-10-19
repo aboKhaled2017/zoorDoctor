@@ -1,0 +1,44 @@
+﻿@model  Tuple<paginationInfo, List<doctorCard>>
+@{   
+    Page.Title = Resource1.titleFastSearch;
+    Layout = Html.getUsersSiteLayout();
+}
+  @{Html.RenderPartial("reserving");}
+@if(Model!=null)
+{
+    if (Model.Item2.Count == 0)
+    {
+        <div class="alert alert-danger">@Resource1.noResultMatch</div>
+    }
+    else
+    {
+        MvcHtmlString pagination = Html.paginationLinks(Model.Item1, n => Url.Action("searchFor",
+        new
+        {
+            specialityIDs = Request.getQueryStringValue("specialityIDs"),
+            cityID = Request.getQueryStringValue("cityID"),
+            destrictID = Request.getQueryStringValue("destrictID"),
+            docName = Request.getQueryStringValue("docName"),
+            q = Request.getQueryStringValue("q"),
+            pageNumber = n
+        }));
+        MvcHtmlString searchResultHeaderString = MvcHtmlString.Create("<h3 class='text-center main-color'>" + Resource1.searchResult + "</h3>");
+        Html.RenderPartial("showDoctorCards",
+                new Tuple<List<doctorCard>, MvcHtmlString, MvcHtmlString>
+                    (Model.Item2,
+                    searchResultHeaderString,
+                    pagination
+                    ));
+    }
+<!--start search result section-->
+}
+ <script>
+     onMainJsLoaded = function () {
+         setSearchedValuesPatternsToForms();
+         makeScrollTopAnimation("#searchResult-section");
+     }
+ </script>
+
+
+
+

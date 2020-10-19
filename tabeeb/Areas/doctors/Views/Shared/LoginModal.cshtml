@@ -1,0 +1,36 @@
+﻿
+<div class="modal fade" id="LogIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="overlay hidden">
+                <div class="center-block"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+            </div>
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <p class="errorMessage hidden" style="color:red">@Resource1.loginValidation</p>
+                    <div class="form-group">
+                        <label for="name">@Resource1.username</label>
+                        <input type="text" class="form-control" id="userName" placeholder="@Resource1.username" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">@Resource1.password</label>
+                        <label class="evaluatePassword"></label>
+                        <input type="password" id="password" onkeyup="evaluatePassword(this)" class="form-control" placeholder="@Resource1.password" />
+                    </div>
+                    <div class="form-group pull-left">
+                        <label for="remember">@Resource1.rememberMe</label>                  
+                        <input type="checkbox" name="checkMe" value="false" id="checkBox" onchange="if (checkMe.value == 'true') checkMe.value = 'false'; else checkMe.value = 'true'" />                        
+                    </div>
+                    <a href="/@Html.getDefaultPathFor("doctors")/resetPassword" class="pull-right">@Resource1.canNotRememberPassword</a>
+                    <div class="clearfix"></div>
+                    <button type="button" class="btn btn-primary" onclick="tryLogin()">@Resource1.login</button>
+                    <button type="button" class="closeModal btn btn-default" data-dismiss="modal">@Resource1.close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

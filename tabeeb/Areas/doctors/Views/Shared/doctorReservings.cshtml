@@ -1,0 +1,24 @@
+﻿
+<div class="today-reseveing text-center">
+    <h3><i class="fa fa-calendar-check-o fa-lg"></i> @Resource1.todayReservings</h3>
+    <div class="statis text-left">
+        <p>@Resource1.statistics</p>
+        <p>@Resource1.youHave <span> <span id="examinsNumber"></span> @Resource1.examinations </span> @Resource1.and <span><span id="consultsNumber"></span> @Resource1.consults</span> @Resource1.today</p>
+    </div>
+    <div class="table-reserving">
+        <h3>@Resource1.reservingTable</h3>
+        <i class="loading-circle fa fa-circle-o-notch fa-lg"></i>
+        <div class="alert alert-info hidden"></div>
+        <table class="table-responsive">
+            <thead>
+                <tr>
+                    <th>@Resource1.serial</th>
+                    <th>@Resource1.patientName</th>
+                    <th>@Resource1.mobileNumber</th>
+                    <th>@Resource1.examinationOrConsult</th>
+                </tr>
+            </thead>
+            <tbody>@*the data will be loaded by javascript here*@</tbody>
+        </table>
+    </div>
+</div>

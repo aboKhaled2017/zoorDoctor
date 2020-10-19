@@ -1,0 +1,34 @@
+﻿@using tabeeb.Controllers
+@model Tuple<string,string,string,bool>
+           @if (Model.Item1 == "emailNotVerified")
+           {
+               <div class="alert alert-warning">
+                   <h5>@Resource1.verifyAccountPartOne @Model.Item2 @Resource1.verifyAccountPartTwo</h5>
+                   <h5>@Resource1.icannotFindVerificationMessage @Html.ActionLink(Resource1.sendMeAgain, "reSendEmailVerification", "doctor", new { id = Model.Item3, email = Model.Item2 }, null)</h5>
+               </div>
+           }
+           else if(Model.Item1=="notAccepted")
+           {
+               <div class="alert alert-warning">
+                   <h5>@Resource1.waitingAcceptfromAdmin</h5>
+                   <h5>@Resource1.thisWilltakeLitteltime</h5>
+                   <h5>@Resource1.afterAcceptFromAdminstration</h5>
+               </div>
+           }
+           else if(Model.Item1=="notAllowed")
+           {//doctor profile is timely banned from admin
+            <div class="alert alert-danger">
+              <i class="fa fa-alert"></i>
+                <h2>@Resource1.profileHasbeenBanned</h2>
+                <ul>
+                    <li>@Resource1.pleaseCommunicateWithTabeebakAboutBanning</li>
+                    <li>@Resource1.youNotPaidForWebsite</li>
+                    <li>@Resource1.banningMeanLose</li>  
+                    <li>@Resource1.callusOn @Model.Item2</li>                 
+                </ul>
+            </div>
+           }
+           <script>
+               var isProfileCreated=('@Model.Item4'=="True")?true:false;
+               localStorage.setItem("doctorStatus",isProfileCreated);
+           </script>

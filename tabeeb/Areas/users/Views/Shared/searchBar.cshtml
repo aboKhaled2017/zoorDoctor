@@ -1,0 +1,149 @@
+﻿@model Tuple<List<tabeeb.Areas.doctors.Models.specialityData>, List<tabeeb.Areas.doctors.Models.cityData>,List<doctorDataList>>
+@{
+
+    string lang = Html.getCurrentlanguage();
+    var cities = Model.Item2;
+    var specialities = Model.Item1;
+    var doctorNames = Model.Item3;
+    string submitButtonType = (TempData["submitType"]!=null) ? TempData["submitType"].ToString() : "submit";
+    submitButtonType = "submit";
+}
+<div class="reserving-search">
+    <!--<h3>الانتقال لخدمة الحجز المفضل</h3>-->
+    <form id="searchForm" method="get" action="/@Html.getDefaultPathFor("users","search")/searchFor" class="form-inline container-fluid">
+        <div class="row">
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <div class="buttonTop">
+                            <span class="pull-left"><i class="fa fa-stethoscope fa-lg"></i>@Resource1.searchingForSpeciality</span>
+                            <span class="glyphicon glyphicon-triangle-top pull-right"></span>
+                            <div style="clear:both"></div>
+                        </div>
+                        <div class="text-left selectedValue">@Resource1.selectSpeciality</div>
+                    </button>
+                    <ul class="dropdown-menu" data-pagelength="@if (specialities.Count > 10) { Write("9"); } else { Write("10"); }">
+                        @if(specialities.Count>10)
+                        {
+                         <li class="text-center tarnslatePage">
+                            <i class="glyphicon glyphicon-chevron-right" onclick="translateMenu(this,1)"></i>
+                            <i class="glyphicon glyphicon-chevron-left" onclick="translateMenu(this,-1)"></i>
+                        </li>
+                        }
+                        <li class="default" data-value="0" data-name="@Resource1.allSpecialities" onclick="setSelectedSearchValue(this)"><a href=" ">@Resource1.allSpecialities</a></li>
+                        @foreach (var speciality in specialities)
+                        {
+                            <li data-value="@speciality.id" data-name="@speciality.name" onclick="setSelectedSearchValue(this)"><a href=" ">@speciality.name</a></li>
+                        }
+                    </ul>
+                    <input type="hidden" name="specialityIDs" value="0" />
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <div class="buttonTop">
+                            <span class="pull-left"><i class="fa fa-map-marker fa-lg"></i> @Resource1.atCityOf</span>
+                            <span class="glyphicon glyphicon-triangle-top pull-right"></span>
+                            <div style="clear:both"></div>
+                        </div>
+                        <div class="text-left selectedValue">@Resource1.selectCity</div>
+                    </button>
+                    <ul class="dropdown-menu" data-pagelength="@if (cities.Count > 10) { Write("9"); } else { Write("10"); }">
+                        @if (cities.Count > 10)
+                        {
+                            <li class="text-center tarnslatePage">
+                                <i class="glyphicon glyphicon-chevron-right" onclick="translateMenu(this,1)"></i>
+                                <i class="glyphicon glyphicon-chevron-left" onclick="translateMenu(this,-1)"></i>
+                            </li>
+                        }
+                        <li class="default" data-value="0" data-name="@Resource1.selectCity" onclick="updateDestrictsMenu(); setSelectedSearchValue(this);">
+                            <a href="">--------------</a>
+                        </li>
+                        @foreach (var city in cities)
+                        {
+                            var destrictIDs = city.destricts.Select(d => d.id);
+                            <li data-value="@city.id" data-name="@city.name" onclick="updateDestrictsMenu(@Json.Encode(destrictIDs)); setSelectedSearchValue(this);">
+                                <a href="">@city.name</a>
+                            </li>
+                        }
+                    </ul>
+                    <input type="hidden" name="cityID" value="0" />
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <div class="buttonTop">
+                            <span class="pull-left"><i class="fa fa-map-marker fa-lg"></i> @Resource1.atDestrictOf</span>
+                            <span class="glyphicon glyphicon-triangle-top pull-right"></span>
+                            <div style="clear:both"></div>
+                        </div>
+                        <div class="text-left selectedValue">@Resource1.selectDestrict</div>
+                    </button>
+                    @{
+                        int totalDestricts=0;
+                        foreach (var city in cities)
+                        {totalDestricts += city.destricts.Count;}
+                    }
+                    <ul class="dropdown-menu" id="destrictsMenu" data-pagelength="@if (totalDestricts > 10) { Write("9"); } else { Write("10"); }">
+                        @if (totalDestricts > 10)
+                        {
+                            <li class="text-center tarnslatePage">
+                                <i class="glyphicon glyphicon-chevron-right" onclick="translateMenu(this,1)"></i>
+                                <i class="glyphicon glyphicon-chevron-left" onclick="translateMenu(this,-1)"></i>
+                            </li>
+                        }
+                        <li class="default" data-value="0" data-name="@Resource1.allDestricts" onclick="setSelectedSearchValue(this)">
+                            <a href="">@Resource1.allDestricts</a>
+                        </li>
+                        @foreach (var city in cities)
+                        {
+                            var destricts = city.destricts;
+                            foreach (var destrict in destricts)
+                            {
+                                <li data-value="@destrict.id" data-name="@destrict.name" onclick="setSelectedSearchValue(this)">
+                                    <a href="">@destrict.name</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                    <input type="hidden" name="destrictID" value="0" />
+
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <div class="buttonTop">
+                            <span class="pull-left"><i class="fa fa-user-md fa-lg"></i> @Resource1.orSelectDoctorname </span>
+                            <span class="glyphicon glyphicon-triangle-top pull-right"></span>
+                            <div style="clear:both"></div>
+                        </div>
+                        <div class="text-left selectedValue">@Resource1.selectDocName</div>
+                    </button>
+                    <ul class="dropdown-menu doctors">
+                        <li data-value="0" class="hasInput">
+                            <input autocomplete="off" class="form-control" type="text" placeholder="@Resource1.searchingForDoc" onkeyup="filterDoctors(this)" />
+                        </li>
+                        @foreach (var doctor in doctorNames)
+                        {
+                            var displayedName = (lang == "en") ? doctor.nameEng : doctor.nameAr;
+                            <li data-namear="@doctor.nameAr" data-nameeng="@doctor.nameEng" data-value="@displayedName" data-name="@displayedName" onclick="setSelectedSearchValue(this);">
+                                <a href="">@displayedName</a>
+                            </li>
+                        }
+                    </ul>
+                    <input type="hidden" value="" name="docName" />
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-sm-12 col-xs-12">
+                <input type="hidden" name="pageNumber" value="1" />
+                <button id="submitButton" type="button" onclick="validateFastSearchForm(this)">
+                    <i class=" fa fa-search fa-lg"></i>  @Resource1.search
+                    <img src="~/images/ajax-loader.gif" class="hidden img-responsive center-block" />
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

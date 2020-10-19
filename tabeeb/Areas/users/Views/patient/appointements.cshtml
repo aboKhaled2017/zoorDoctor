@@ -1,0 +1,98 @@
+﻿@using tabeeb.Models
+@model List<tabeeb.Areas.users.Models.reservingData>
+@{
+    Page.Title = Resource1.titleAppointements;
+    Layout = Html.getUsersSiteLayout();
+    bool type = (ViewBag.currentAppoint ==  "present") ? true : false;
+ }
+<h2 class="page-header">@Resource1.myAppointement</h2>
+<section class="patientAppointement">
+    <ul class="tabs list-unstyled">
+        <li class="@if (type) { Write("active"); }">@Resource1.nextAppointement <i class="fa fa-circle-o-notch fa-spin hidden"></i></li>
+        <li class="@if (!type) { Write("active"); }">@Resource1.prevAppointement <i class="fa fa-circle-o-notch fa-spin hidden"></i></li>
+    </ul>
+   <div class="container">
+      @if(Model.Count==0)
+      {
+        <div class="alert alert-danger">@Resource1.noAppointementBefor</div>  
+      }
+      @if(type)
+      {
+         <div class="allAppoints">
+          @foreach (var reserving in Model)
+          {
+              <div class="col-xs-12 oneAppont">
+                  <div class="container-fluid">
+                      <div class="row appointement">
+                          <div class="@if (type) { Write("col-md-3"); } else { Write("col-md-4"); } col-sm-4 col-xs-6">
+                              <h4>@Resource1.doctorName </h4>
+                              <p>@reserving.name</p>
+                          </div>
+
+                          <div class="@if (type) { Write("col-md-3"); } else { Write("col-md-4"); } col-md-3 col-sm-4 col-xs-6">
+                              <h4>@Resource1.clinicAddress</h4>
+                              <p>@reserving.clinicAddress</p>
+                          </div>
+                          <div class="@if (type) { Write("col-md-3"); } else { Write("col-md-4"); } col-md-3 col-sm-4 col-xs-12">
+                              <h4>@Resource1.details</h4>
+                              <p>@reserving.reservingDate.Day @reserving.reservingDate.getMonthName(Html.getCurrentlanguage()) @reserving.reservingDate.Year</p>                              
+                              <p>@reserving.interval.converToTime(Html.getCurrentlanguage())</p>
+                              <p>@reserving.patientName</p>
+                          </div>
+                          @if(type)
+                          {
+                          <div class="col-md-3 col-sm-4 col-xs-12">
+                              <i class="fa fa-close cancelAppointement fa-2x" data-value="@reserving.id"></i>
+                          </div>
+                          }                         
+                      </div>
+                  </div>
+              </div>
+          }
+      </div> 
+      }       
+      else
+      {
+       <div class="col-xs-12 oneAppont appointementHead">
+                  <div class="container-fluid">
+                      <div class="row appointement">
+                          <div class="col-xs-4">
+                              <h3>@Resource1.doctorName</h3>
+                          </div>
+
+                          <div class="col-xs-4">
+                              <h3>@Resource1.clinicAddress</h3>
+                          </div>
+                          <div class="col-xs-4">
+                              <h3>@Resource1.details</h3>
+                          </div>                        
+                      </div>
+                  </div>
+             </div>
+       <div class="allAppoints">    
+          @foreach (var reserving in Model)
+          {
+              <div class="col-xs-12 oneAppont">
+                  <div class="container-fluid">
+                      <div class="row appointement">
+                          <div class="col-md-4 col-lg-4  col-sm-4 col-xs-6">
+                              <p>@reserving.name</p>
+                          </div>
+
+                          <div class="col-md-4 col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                              <p>@reserving.clinicAddress</p>
+                          </div>
+                          <div class="col-md-4 col-lg-4 col-md-3 col-sm-4 col-xs-12">
+                              <p>@reserving.reservingDate.Day @reserving.reservingDate.getMonthName(Html.getCurrentlanguage()) @reserving.reservingDate.Year</p>                              
+                              <p>@reserving.interval.converToTime(Html.getCurrentlanguage())</p>
+                              <p>@reserving.patientName</p>
+                          </div>                         
+                      </div>
+                  </div>
+              </div>
+          }
+      </div>
+      }   
+  </div>
+</section>
+

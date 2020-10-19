@@ -1,0 +1,24 @@
+﻿@model Tuple<List<doctorCard>, MvcHtmlString,MvcHtmlString>
+@{
+    var doctors = Model.Item1;
+}
+<section id="searchResult-section" class="search-result">
+    @Model.Item2
+    <div class="container-fluid">
+        <div class="row cards">
+            @for (int i = 0; i < doctors.Count; i++)
+            {
+                <div class="outerCard col-md-4 col-sm-6 col-xs-6">
+                    @{Html.RenderPartial("doctorCard", doctors[i]);}
+                </div>
+            }
+        </div>
+    </div>
+    <!--this is pagination section that will modified by javascript-->
+    <div class="pull-left btn-group pagination" id="pagination">
+        @Model.Item3
+    </div>
+    <div class="clearfix"></div>
+    <!--end search result section-->
+</section>
+

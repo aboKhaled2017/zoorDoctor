@@ -1,0 +1,82 @@
+﻿@using tabeeb.Areas.doctors.Models
+@model Tuple<bool,byte,appointementData, List<appointementData>>
+@{
+    bool bookingType = Model.Item1;
+    var defaultAppointementForAllDayes = Model.Item3;
+    List<appointementData> appointements = Model.Item4;
+    string appointementsString = appointements.getAppointementString();//extension function added by developer
+    string defaultAppointementPeriods = (defaultAppointementForAllDayes == null) ? "[]" : defaultAppointementForAllDayes.interval;
+    byte numberOfAppointementrecords = Model.Item2;
+}
+<div class="appointements priority" @if (!bookingType) { Write("hidden"); }>
+    <h4>@Resource1.setAppointementsTime</h4>
+    <p>@Resource1.setTimeIntervalsDesc</p>
+    <div class="w3-accordion appointementRecords w3-light-grey">
+        @*ponus 1 is for default appointement*@
+        @for (int i = 0; i < numberOfAppointementrecords+1; i++)
+        {
+            var date = (i == 0) ? DateTime.Now.AddDays(-1) : DateTime.Now.AddDays(i - 1);
+            int dayNumber = (i == 0) ? 0 : date.DayOfYear;
+            string appointementDate = date.ToShortDateString();
+          <div class="appointementRecord">             
+              <button data-daynumber="@dayNumber" onclick="showAccordianContent(this)" class="w3-btn-block appointementButton w3-left-align">
+                  @if (i == 0)
+                  { Write(Resource1.setDefaultAppoint); }
+                  else if (i == 1)
+                  { Write(Resource1.addTodayAppoint); }
+                  else if (i == 2)
+                  { Write(Resource1.addNextdayAppoint); }
+                  else { Write(Resource1.addNthDayAppoint + DateTime.Now.AddDays(i - 1).Date.ToShortDateString()); }
+              </button>
+              <div class="w3-accordion-content w3-container">
+                  <div class="">
+                      <div class="row">
+                          <div class="col-sm-4 col-xs-12 controls">
+                              <div class="selectTime">
+                                  <div>
+                                      <label>
+                                          @Resource1.from
+                                      </label>
+                                      <input type="time" class="form-control" />
+                                  </div>
+                                  <div>
+                                      <label>
+                                          @Resource1.to
+                                      </label>
+                                      <input type="time" class="form-control" />
+                                  </div>
+                                  <button onclick="addNewIntervalPeriod(this)" class="btn btn-primary"><i class="fa fa-plus"></i> @Resource1.addNewInterval</button>
+                              </div>
+                          </div>
+                          <div class="col-sm-8 col-xs-12">
+
+                              @*Html.RenderPartial("periodsOfAppointementsrecord",recorddata);*@
+
+                              <div class="periods">
+                                  <!--this div represent one period of time-->
+                              </div>
+                              <button data-appointementDate="@appointementDate" onclick="saveAppointement(this)" class="btn btn-danger save">
+                                  @Resource1.save <i class="fa fa-circle-o-notch fa-spin hidden"></i>
+                              </button>
+                              @if(i!=0)
+                              {//this button not exists in default secion Appointement
+                              <button  onclick="setDefaultAppointement(this)" class="btn btn-primary setDefault">
+                                  @Resource1.setDefaultTimePeriods
+                              </button>
+                              }
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        }
+    </div>
+</div>
+@if(bookingType)
+{
+ <script>
+    $(function () {
+        mapPeriodsIntervalsToFields('@defaultAppointementPeriods', '@appointementsString', true);
+    });
+</script>
+}

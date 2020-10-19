@@ -1,0 +1,902 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutCallUs" xml:space="preserve">
+    <value>يمكنك ارسال اقتراحاتك وأرائك عن الموقع</value>
+  </data>
+  <data name="aboutDocReserve" xml:space="preserve">
+    <value>تهدف شركتنا الى طريقة وصول وحجز عند الاطباء سهلة وبسيطة وذات كفاءة عالية حيث توفير الوقت والمجهود عند المريض وتقلل من الازدحام</value>
+  </data>
+  <data name="aboutHospitals" xml:space="preserve">
+    <value>زور دكتور يقدم لك وسيلة اتصال مباشرة مع مجموعة كبيرة من المستشفيات والاطلاع على الاسعار والخدمات الخاصة بها وامكانية حجز الخدمات</value>
+  </data>
+  <data name="aboutLabAnalysis" xml:space="preserve">
+    <value>زور دكتور توفر لك دليل شامل بأماكن خدمات واسعار المعامل والتحاليل الطبية القريبة منك مع امكانية الحجز الالكترونى دون عناء</value>
+  </data>
+  <data name="aboutOtherServices" xml:space="preserve">
+    <value>نقدم لك من خلاك تطبيق زور دكتور خدمات شاملة لمعرفة توافر اماكن بالحضانات والمستشفيات وسيارات الاسعاف والمستلزمات الطبية</value>
+  </data>
+  <data name="aboutPharmacies" xml:space="preserve">
+    <value>زور دكتور توفر لك دليل شامل بأماكن الصيدليات القريبة من مكان تواجدك والخدمات المتوافرة بها دون القلق من تواجدك فى اى مكان لا تعرفه</value>
+  </data>
+  <data name="aboutPolicy" xml:space="preserve">
+    <value>لا يتضمن موقعنا أى ملفات تنتهك حقوق الملكية</value>
+  </data>
+  <data name="aboutRays" xml:space="preserve">
+    <value>زور دكتور يوفر لك دليل شامل بأماكن وخدمات اقرب مركز اشعه من مكان تواجدك وكذلك خدمة الحجز الالكترونى ويوفر عليك الوقت والجهد</value>
+  </data>
+  <data name="aboutSearchnotice" xml:space="preserve">
+    <value>لتحسين نتائج البحث يرجى اختيار عنصر من كل قسم لأنه فى حال عدم خيار عنصرسوف تظهر نتائج البحث كاملة</value>
+  </data>
+  <data name="aboutTabeebakSite" xml:space="preserve">
+    <value>شركة تهدف للوصول لشبكة طبية متكاملة من خلال الخدمات الطبية ويكون من السهل للمستخدم الوصول اليها فى الوقت الذى يريده من توقيع معلومات عن الخدمات وأماكن توافرها واسعارها ووسيلة الوصول اليها دون اى عناء</value>
+  </data>
+  <data name="advicesPage" xml:space="preserve">
+    <value>صفحة النصائح</value>
+  </data>
+  <data name="advices" xml:space="preserve">
+    <value>النصائح</value>
+  </data>
+  <data name="allDestricts" xml:space="preserve">
+    <value>كل المناطق</value>
+  </data>
+  <data name="anylisisCenter" xml:space="preserve">
+    <value>مركز تحاليل</value>
+  </data>
+  <data name="areWe" xml:space="preserve">
+    <value>من نحن؟؟</value>
+  </data>
+  <data name="bookingDetails" xml:space="preserve">
+    <value>تفاصيل الحجز</value>
+  </data>
+  <data name="browsing The Speciality" xml:space="preserve">
+    <value>تصفح التخصص</value>
+  </data>
+  <data name="callUs" xml:space="preserve">
+    <value>أتصل بنا</value>
+  </data>
+  <data name="cannotAccessPageLoginFirst" xml:space="preserve">
+    <value>ليس لديك صلاحية لهذه الصفحة من فضلك قم بتسجيل الدخول اولا قم بفتح الصفحة مرة اخرى</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>تعليق</value>
+  </data>
+  <data name="complainDone" xml:space="preserve">
+    <value> لقد تم ارسال الشكوى الخاصة بك سوف يتم الرد عليك فى اسرع وقت على الايميل الخاص بك</value>
+  </data>
+  <data name="complainThank" xml:space="preserve">
+    <value>شكرا على تقديمك الشكوى</value>
+  </data>
+  <data name="completeName" xml:space="preserve">
+    <value>الاسم بالكامل</value>
+  </data>
+  <data name="doctoor" xml:space="preserve">
+    <value>د.</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>طبيب</value>
+  </data>
+  <data name="doctorEducation" xml:space="preserve">
+    <value>لقب الطبيب</value>
+  </data>
+  <data name="doctorName" xml:space="preserve">
+    <value>اسم الطبيب</value>
+  </data>
+  <data name="doctorReserve" xml:space="preserve">
+    <value>حجز طبيب</value>
+  </data>
+  <data name="doctors" xml:space="preserve">
+    <value>اطباء</value>
+  </data>
+  <data name="doctorVisits" xml:space="preserve">
+    <value>من زوار الدكتور</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>البريد الاكترونى</value>
+  </data>
+  <data name="examinPrice" xml:space="preserve">
+    <value>سعر الكشف</value>
+  </data>
+  <data name="fastSearch" xml:space="preserve">
+    <value>البحث السريع</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="from100To200" xml:space="preserve">
+    <value>من 100 الى 200</value>
+  </data>
+  <data name="from50To100" xml:space="preserve">
+    <value>من 50 الى 100</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+  <data name="giveComment" xml:space="preserve">
+    <value>اعطى تعليقك</value>
+  </data>
+  <data name="helpingServices" xml:space="preserve">
+    <value>خدمات تساعدك</value>
+  </data>
+  <data name="helpingVideos" xml:space="preserve">
+    <value>شاهد بالفيديو طريقة الحجز والتسجسل والبحث بالموقع</value>
+  </data>
+  <data name="hideComments" xml:space="preserve">
+    <value>اخفاء التعليقات</value>
+  </data>
+  <data name="hospitals" xml:space="preserve">
+    <value>مستشفيات</value>
+  </data>
+  <data name="labAnalysis" xml:space="preserve">
+    <value>معامل التحاليل</value>
+  </data>
+  <data name="less50" xml:space="preserve">
+    <value>أقل من 50</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>دخول</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="more" xml:space="preserve">
+    <value>المزيد</value>
+  </data>
+  <data name="more100" xml:space="preserve">
+    <value>أكبر من 200</value>
+  </data>
+  <data name="moveToService" xml:space="preserve">
+    <value>الانتقال لخدمة</value>
+  </data>
+  <data name="noDoctorsInSpeciality" xml:space="preserve">
+    <value>لايوجد اطباء فى هذا القسم حتى الان</value>
+  </data>
+  <data name="noResultMatch" xml:space="preserve">
+    <value>لا يوجد نتائج تتطابق مع عناصر البحث</value>
+  </data>
+  <data name="notice" xml:space="preserve">
+    <value>ملحوظة</value>
+  </data>
+  <data name="onlyOneDoctor" xml:space="preserve">
+    <value>طبيب واحد فقط</value>
+  </data>
+  <data name="onlyTwoDoctors" xml:space="preserve">
+    <value>طبيبين فقط</value>
+  </data>
+  <data name="or" xml:space="preserve">
+    <value>أو</value>
+  </data>
+  <data name="otherServices" xml:space="preserve">
+    <value>خدمات اخرى</value>
+  </data>
+  <data name="ourServices" xml:space="preserve">
+    <value>خدماتنا</value>
+  </data>
+  <data name="ourServicesForYou" xml:space="preserve">
+    <value>خدمات يقدمها لك موقع زور دكتور</value>
+  </data>
+  <data name="personalCommunication" xml:space="preserve">
+    <value>التواصل الشخصى</value>
+  </data>
+  <data name="pharmacies" xml:space="preserve">
+    <value>صيدليات</value>
+  </data>
+  <data name="pharmacy" xml:space="preserve">
+    <value>صيدليه</value>
+  </data>
+  <data name="pleaseEnterCpompleteName" xml:space="preserve">
+    <value>من فضلك ادخل الاسم بالكامل</value>
+  </data>
+  <data name="pound" xml:space="preserve">
+    <value>جنيه</value>
+  </data>
+  <data name="privacyPolicy" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
+  <data name="rayCenter" xml:space="preserve">
+    <value>مركز اشعه</value>
+  </data>
+  <data name="raysCenter" xml:space="preserve">
+    <value>مراكز الاشعه</value>
+  </data>
+  <data name="registerMethod" xml:space="preserve">
+    <value>طريقة التسجيل</value>
+  </data>
+  <data name="reserveNow" xml:space="preserve">
+    <value>أحجز الان</value>
+  </data>
+  <data name="reservingMethod" xml:space="preserve">
+    <value>طريقة الحجز</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>ابحث</value>
+  </data>
+  <data name="searchForAdvice" xml:space="preserve">
+    <value>ابحث عن نصيحة فى تخصص او لدكتور</value>
+  </data>
+  <data name="searchMethod" xml:space="preserve">
+    <value>طريقة البحث</value>
+  </data>
+  <data name="searchResult" xml:space="preserve">
+    <value>نتائج البحث</value>
+  </data>
+  <data name="selectCity" xml:space="preserve">
+    <value>أختار المحافظة</value>
+  </data>
+  <data name="selectDestrict" xml:space="preserve">
+    <value>أختار المنطقة</value>
+  </data>
+  <data name="selectSpeciality" xml:space="preserve">
+    <value>اختار التخصص</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>أرسال</value>
+  </data>
+  <data name="serverProblem" xml:space="preserve">
+    <value>لقد حدثت مشكلة فى السيرفر يمكنك المحاولة فى وقت لاحق</value>
+  </data>
+  <data name="signUp" xml:space="preserve">
+    <value>انضم الينا</value>
+  </data>
+  <data name="socialCommunication" xml:space="preserve">
+    <value>التواصل الاجتماعى</value>
+  </data>
+  <data name="Specialities" xml:space="preserve">
+    <value>التخصصات</value>
+  </data>
+  <data name="speciality" xml:space="preserve">
+    <value>تخصص</value>
+  </data>
+  <data name="specializedDoctors" xml:space="preserve">
+    <value>الاطباء المتخصصين</value>
+  </data>
+  <data name="tabeebakWebsite" xml:space="preserve">
+    <value>موقع زور دكتور</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>مستخدم</value>
+  </data>
+  <data name="visitor" xml:space="preserve">
+    <value>زائر</value>
+  </data>
+  <data name="websiteStatis" xml:space="preserve">
+    <value>أحصائيات موقعنا</value>
+  </data>
+  <data name="whatSearch" xml:space="preserve">
+    <value>عما تبحث؟</value>
+  </data>
+  <data name="writeDoctorName" xml:space="preserve">
+    <value>اكتب او اختار اسم الدكتور</value>
+  </data>
+  <data name="yourMessage" xml:space="preserve">
+    <value>رسالتك</value>
+  </data>
+  <data name="agreeOn" xml:space="preserve">
+    <value>أوافق على</value>
+  </data>
+  <data name="alreadyNumerExist" xml:space="preserve">
+    <value>هذا الرقم موجود من قبل</value>
+  </data>
+  <data name="areYouRegistered" xml:space="preserve">
+    <value>هل مسجل بالفعل ؟</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>اغلاق</value>
+  </data>
+  <data name="facebookRegister" xml:space="preserve">
+    <value>انضم بأستخدام حساب الفيس بوك</value>
+  </data>
+  <data name="fullName" xml:space="preserve">
+    <value>الاسم بالكامل</value>
+  </data>
+  <data name="googleRegister" xml:space="preserve">
+    <value>انضم بأستخدام حساب الجميل</value>
+  </data>
+  <data name="signHeading" xml:space="preserve">
+    <value>الانضمام الينا</value>
+  </data>
+  <data name="loginNow" xml:space="preserve">
+    <value>دخول الان</value>
+  </data>
+  <data name="mail" xml:space="preserve">
+    <value>البريد الالكترونى</value>
+  </data>
+  <data name="manageProfile" xml:space="preserve">
+    <value>أدارة الصفحة الشخصية</value>
+  </data>
+  <data name="passString" xml:space="preserve">
+    <value>كلمة السر</value>
+  </data>
+  <data name="phoneNumber" xml:space="preserve">
+    <value>رقم الموبايل</value>
+  </data>
+  <data name="pleaseEnterPhone" xml:space="preserve">
+    <value>من فضلك ادخل رقم الهاتف الخاص بك لتكميل بيانات الدخول</value>
+  </data>
+  <data name="portablePhoneNumber" xml:space="preserve">
+    <value>رقم التليفون المحمول</value>
+  </data>
+  <data name="rolesAndCondictions" xml:space="preserve">
+    <value>القوانين والشروط</value>
+  </data>
+  <data name="saveData" xml:space="preserve">
+    <value>حفظ البيانات</value>
+  </data>
+  <data name="signNow" xml:space="preserve">
+    <value>انضم الان</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+  <data name="clinicAddress" xml:space="preserve">
+    <value>عنوان العيادة</value>
+  </data>
+  <data name="details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="myAppointement" xml:space="preserve">
+    <value>مواعيدى</value>
+  </data>
+  <data name="nextAppointement" xml:space="preserve">
+    <value>مواعيد الزيارات القادمة</value>
+  </data>
+  <data name="noAppointementBefor" xml:space="preserve">
+    <value>لايوجد اى مواعيد لك من قبل</value>
+  </data>
+  <data name="prevAppointement" xml:space="preserve">
+    <value>مواعيد الزيارات الماضية</value>
+  </data>
+  <data name="EnterPhoneNumber" xml:space="preserve">
+    <value>ادخل رقم الهاتف</value>
+  </data>
+  <data name="facebookLogin" xml:space="preserve">
+    <value>دخول بأستخدام حساب الفيس بوك</value>
+  </data>
+  <data name="forgotPassword" xml:space="preserve">
+    <value>هل نسيت كلمة السر؟</value>
+  </data>
+  <data name="googleLogin" xml:space="preserve">
+    <value>دخول بأستخدام حساب الجميل</value>
+  </data>
+  <data name="rememberMe" xml:space="preserve">
+    <value>تذكرنى</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="AreYouNewerUser" xml:space="preserve">
+    <value>هل انت مستخدم جديد؟</value>
+  </data>
+  <data name="bookingAppointDone" xml:space="preserve">
+    <value>لقد تم حجز ميعادك</value>
+  </data>
+  <data name="bookingDate" xml:space="preserve">
+    <value>تاريخ الحجز</value>
+  </data>
+  <data name="doctorInformedWithBook" xml:space="preserve">
+    <value>لقد ابلغنا الطبيب بحجزك</value>
+  </data>
+  <data name="haveBookingAlready" xml:space="preserve">
+    <value>انت بالفعل لديك حجز عند هذا الطبيب فى نفس اليوم</value>
+  </data>
+  <data name="patientName" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="atCityOf" xml:space="preserve">
+    <value>فى محافظة</value>
+  </data>
+  <data name="atDestrictOf" xml:space="preserve">
+    <value>فى منطقة</value>
+  </data>
+  <data name="orSelectDoctorname" xml:space="preserve">
+    <value>أو أختار اسم الطبيب</value>
+  </data>
+  <data name="searchingForSpeciality" xml:space="preserve">
+    <value>أبحث عن تخصص</value>
+  </data>
+  <data name="selectDocName" xml:space="preserve">
+    <value>أختار اسم الطبيب</value>
+  </data>
+  <data name="searchingForDoc" xml:space="preserve">
+    <value>أبحث عن دكتور</value>
+  </data>
+  <data name="bookOnlineOrCallOn" xml:space="preserve">
+    <value>أحجز أون لاين أو اتصل على</value>
+  </data>
+  <data name="searchForDocOrSpByquichSearch" xml:space="preserve">
+    <value>أبحث عن دكتور أو تخصص بأستخدام ميزة البحث السريع</value>
+  </data>
+  <data name="birthDate" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="loginHeading" xml:space="preserve">
+    <value>دخول</value>
+  </data>
+  <data name="metaDescription" xml:space="preserve">
+    <value>مجموعة من اكبر اساتذة الجامعة والاستشاريين، اعرف تقييم الناس ليهم وإحجز اونلاين.
+حجز فوري عند 2000 دكتور · اعرف تقييم الناس للدكاترة · احجز اونلاين او كلم 16676
+الخدمات: معرفة سعر الكشف قبل الحجز, حجز فوري مجاناَ, معرفة وقت انتظار بالعيادة</value>
+  </data>
+  <data name="metaKeywords" xml:space="preserve">
+    <value>حجز طبيب,حجز دكتور,حجز عيادة,طبيبك,حجز كشف,حجز افضل الاطباء,موقع طبيبك,افضل موقع للأطباء,حجز عيادة الان,زور دكتور</value>
+  </data>
+  <data name="indexTitle" xml:space="preserve">
+    <value>احجز مع افضل الاطباء وبسهوله مع زور دكتور</value>
+  </data>
+  <data name="forCallUs" xml:space="preserve">
+    <value>للأتصال بنا </value>
+  </data>
+  <data name="logOut" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
+  <data name="profilePage" xml:space="preserve">
+    <value>صفحتى الشخصية</value>
+  </data>
+  <data name="tabeebak" xml:space="preserve">
+    <value>زور دكتور</value>
+  </data>
+  <data name="withYouAnyWhere" xml:space="preserve">
+    <value>طبيبك معك اينما كنت</value>
+  </data>
+  <data name="aboutClinicValidationAr" xml:space="preserve">
+    <value>على الاكثر 300 حرف باللغة العربية فقط</value>
+  </data>
+  <data name="aboutClinicValidationEng" xml:space="preserve">
+    <value>على الكثر 300 حرف باللغة الانجليزية</value>
+  </data>
+  <data name="aboutDoctorLength" xml:space="preserve">
+    <value>على الاقل 20 حروف وعلى الاكثر 200 حرف</value>
+  </data>
+  <data name="aboutDoctorValidationAr" xml:space="preserve">
+    <value>على الاقل 20 حرف وعلى الاكثر 200 حرف باللغة العربية فقط</value>
+  </data>
+  <data name="aboutDoctorValidationEng" xml:space="preserve">
+    <value>على الاقل 20 حروف وعلى الاكثر 200 حرف باللغة الانجليزية فقط</value>
+  </data>
+  <data name="availableTimeRequired" xml:space="preserve">
+    <value>المواعيد المتاحة مطلوبة</value>
+  </data>
+  <data name="availableTimeValidationAr" xml:space="preserve">
+    <value>المواعيد المتاحة على الاقل 8 حروف وعلى الاكثر 50 حرف باللغة العربية</value>
+  </data>
+  <data name="availableTimeValidationEng" xml:space="preserve">
+    <value>عىل الاقل 8 حروف وعلى الا كثر 50 حرف باللغة الانجليزية</value>
+  </data>
+  <data name="avialableTimeLength" xml:space="preserve">
+    <value>على الاقل 8 حروف وعلى الاكثر 50 حرف</value>
+  </data>
+  <data name="birthDataIsRequired" xml:space="preserve">
+    <value>تاريخ الميلاد مطلوب</value>
+  </data>
+  <data name="bookingTypeRequired" xml:space="preserve">
+    <value>نوع الحجز مطلوب</value>
+  </data>
+  <data name="cityRequired" xml:space="preserve">
+    <value>اسم المحافظة مطلوب</value>
+  </data>
+  <data name="clinicAddressLength" xml:space="preserve">
+    <value>عنوان العيادة على الاقل 10 حروف</value>
+  </data>
+  <data name="clinicAddressrequired" xml:space="preserve">
+    <value>عنوان العيادة مطلوب</value>
+  </data>
+  <data name="clinicAddressValidationAr" xml:space="preserve">
+    <value>عنوان االعيادة على الاقل 10 حروف باللغة العربية فقط</value>
+  </data>
+  <data name="clinicAddressValidationEng" xml:space="preserve">
+    <value>عنوان العيادة على القل 10 حروف باللغة الانجليزية</value>
+  </data>
+  <data name="destrictnotValid" xml:space="preserve">
+    <value>اختار المنطقة او المدينة بشكل صحيح</value>
+  </data>
+  <data name="destrictRequired" xml:space="preserve">
+    <value>اسم المدينة مطلوب</value>
+  </data>
+  <data name="educationNotValid" xml:space="preserve">
+    <value>اخترة درجة مهنية صحيحة</value>
+  </data>
+  <data name="educationrequired" xml:space="preserve">
+    <value>الدرجة المهنية مطلوبة</value>
+  </data>
+  <data name="emailNotValid" xml:space="preserve">
+    <value>البريد الالكترونى غير صحيح</value>
+  </data>
+  <data name="emailRequired" xml:space="preserve">
+    <value>البريد الالكترونى مطلوب</value>
+  </data>
+  <data name="examinfeeRang" xml:space="preserve">
+    <value>سعر الكشف على الاقل 10 جنيهات</value>
+  </data>
+  <data name="examinFeeRequired" xml:space="preserve">
+    <value>سعر الكشف مطلوب</value>
+  </data>
+  <data name="firstNameNotValid" xml:space="preserve">
+    <value>الاسم الاول غير صحيح</value>
+  </data>
+  <data name="firstNamerequired" xml:space="preserve">
+    <value>الاسم الاول مطلوب</value>
+  </data>
+  <data name="firstNameValidation" xml:space="preserve">
+    <value>الاسم الاول على الاقل 3 حروف وعلى الاكثر 25 حرف</value>
+  </data>
+  <data name="genderIsRequired" xml:space="preserve">
+    <value>النوع مطلوب</value>
+  </data>
+  <data name="lastnameNotvalid" xml:space="preserve">
+    <value>الاسم الاخير غير صحيح</value>
+  </data>
+  <data name="lastNameRequired" xml:space="preserve">
+    <value>اسم العائلة او الاسم الاخير مطلوب</value>
+  </data>
+  <data name="lastnameValidation" xml:space="preserve">
+    <value>الاسم الاخير يتكون على الاقل من 3 حروف وعلى الاكثر من 25 حرف</value>
+  </data>
+  <data name="passwordRequired" xml:space="preserve">
+    <value>كلمة السر مطلوبه</value>
+  </data>
+  <data name="passwordValidation" xml:space="preserve">
+    <value>كلمة السر لا بد ان تحتوى على الاقل حرف كبير وحرف صغير ورقم وتتكون على الاقل من 6 حروف وعلى الاكثر 20 حرف</value>
+  </data>
+  <data name="personalImgNotValid" xml:space="preserve">
+    <value> الصورة الشخصية غير صحيحة</value>
+  </data>
+  <data name="personalImgrequired" xml:space="preserve">
+    <value>الصورة الشخصية مطلوبة</value>
+  </data>
+  <data name="phoneISAlreadyExists" xml:space="preserve">
+    <value>رقم الهاتف بالفعل محجوز من قبل</value>
+  </data>
+  <data name="phoneNotValid" xml:space="preserve">
+    <value>رقم الهاتف غير صحيح</value>
+  </data>
+  <data name="phoneRequired" xml:space="preserve">
+    <value>رقم الهاتف مطلوب</value>
+  </data>
+  <data name="professionImagerequired" xml:space="preserve">
+    <value>صور الشهادة المهنية او شهادة التخرج مطلوبة</value>
+  </data>
+  <data name="professiontitleisrequired" xml:space="preserve">
+    <value>العنوان المهنى مطلوب</value>
+  </data>
+  <data name="professiontitleValidationُAr" xml:space="preserve">
+    <value>العنوان المهنى على الاقل 10 حروف وعلى الاكثر 150 حرف باللغة العربية فقط</value>
+  </data>
+  <data name="reservationtyperequired" xml:space="preserve">
+    <value>نوع الحجز مطلوب</value>
+  </data>
+  <data name="selectAtLeastOneSubSpeciality" xml:space="preserve">
+    <value>من فضلك اختار على الاقل تخصص جزئى واحد</value>
+  </data>
+  <data name="specialityNotValid" xml:space="preserve">
+    <value>اختر تخصص بطريقة صحيحة</value>
+  </data>
+  <data name="specialityrequired" xml:space="preserve">
+    <value>التخصص مطلوب</value>
+  </data>
+  <data name="urlNotValid" xml:space="preserve">
+    <value>صيغة الرابط غير صحيحة</value>
+  </data>
+  <data name="userNameIsAlreadyExists" xml:space="preserve">
+    <value>اسم المستخدم محجوز فالفعل</value>
+  </data>
+  <data name="userNameMinimumLength" xml:space="preserve">
+    <value>اسم المستخد على الاقل يتكون من 3 حروف وعلى الاكثر 16 حروف</value>
+  </data>
+  <data name="usernameRequired" xml:space="preserve">
+    <value>اسم المستخدم مطلوب</value>
+  </data>
+  <data name="doctorAdvices" xml:space="preserve">
+    <value>نصائح الاطباء</value>
+  </data>
+  <data name="doctorSite" xml:space="preserve">
+    <value>موقع الاطباء</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="otherPages" xml:space="preserve">
+    <value>صفحات اخرى</value>
+  </data>
+  <data name="privacy" xml:space="preserve">
+    <value>الخصوصية</value>
+  </data>
+  <data name="directDownload" xml:space="preserve">
+    <value>تحميل مباشر</value>
+  </data>
+  <data name="downloadAppDescription" xml:space="preserve">
+    <value>حمل تطبيق زور دكتور الان وتمتع بكل خدامتنا مجانا دون عناء ووفر وقتك ومجهودك</value>
+  </data>
+  <data name="downloadAppNow" xml:space="preserve">
+    <value>حمل تطبيقنا الان</value>
+  </data>
+  <data name="pages" xml:space="preserve">
+    <value>الصفحات</value>
+  </data>
+  <data name="rightReserverdForTabeebakUsers" xml:space="preserve">
+    <value>جميع الحقوق محفوظة لفريق عمل موقع زور دكتور</value>
+  </data>
+  <data name="registerFaild" xml:space="preserve">
+    <value>لقد فشلت عملية التسجيل</value>
+  </data>
+  <data name="updateProfileFaild" xml:space="preserve">
+    <value>لقد فشلت عملية التعديل,من فضلك ادخل بيانات صحيحة</value>
+  </data>
+  <data name="changePassword" xml:space="preserve">
+    <value>تغيير كلمة السر</value>
+  </data>
+  <data name="changeYourPassword" xml:space="preserve">
+    <value>قم بتغيير كلمة السر</value>
+  </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة السر</value>
+  </data>
+  <data name="emailLink" xml:space="preserve">
+    <value>ارسال رابط الى البريد الالكترونى</value>
+  </data>
+  <data name="enterRegisteredPhone" xml:space="preserve">
+    <value>ادخل رقم الهاتف الذى سجلت به على زور دكتور من قبل</value>
+  </data>
+  <data name="enterRegisteredUsername" xml:space="preserve">
+    <value>ادخل اسم المستخدم او البريد الالكترونى الذى سجلت به من قبل على زور دكتور</value>
+  </data>
+  <data name="newPassword" xml:space="preserve">
+    <value>كلمة السر الجديدة</value>
+  </data>
+  <data name="pleaseClickOnLinkToChangePassword" xml:space="preserve">
+    <value>من فضلك اضغط على هذا الرابط لتغيير كلمة السر</value>
+  </data>
+  <data name="retrievePasswordByEmail" xml:space="preserve">
+    <value>استرجاع كلمة السر عن طريق ارسال رابك الى بريدك الالكترونى المسجل فى موقع زور دكتور</value>
+  </data>
+  <data name="retrievePasswordByPhone" xml:space="preserve">
+    <value>استرجاع كلمة السر عن طريق ارسال كود خاص الى تليفونك المحمول المسجل فى موقع زور دكتور</value>
+  </data>
+  <data name="sendCodeToMobile" xml:space="preserve">
+    <value>ارسال كود الى الهاتف المحمول</value>
+  </data>
+  <data name="titleAppointements" xml:space="preserve">
+    <value>مواعيدى-زور دكتور</value>
+  </data>
+  <data name="titleChangePassword" xml:space="preserve">
+    <value>تغيير كلمة السر-زور دكتور</value>
+  </data>
+  <data name="titleJoin" xml:space="preserve">
+    <value>انضم الى زور دكتور</value>
+  </data>
+  <data name="titleLogin" xml:space="preserve">
+    <value>الدخول الى زور دكتور</value>
+  </data>
+  <data name="titleProfile" xml:space="preserve">
+    <value>الصفحة الشخصية-زور دكتور</value>
+  </data>
+  <data name="titleRememerPassword" xml:space="preserve">
+    <value>طبيبك-استرجاع كلمة السر</value>
+  </data>
+  <data name="welcom" xml:space="preserve">
+    <value>مرحبا</value>
+  </data>
+  <data name="weRememberYouUsername" xml:space="preserve">
+    <value>انت لديك حساب باسم مستخدم</value>
+  </data>
+  <data name="linkExpired" xml:space="preserve">
+    <value>هذا الرابك لم يعد صالح للاستخدام</value>
+  </data>
+  <data name="noDataAboutPhone" xml:space="preserve">
+    <value>هذا الرقم الذى ادخلته غير مسجل بموقع زور دكتور من قبل</value>
+  </data>
+  <data name="noDataAboutUsernameOrEmail" xml:space="preserve">
+    <value>لا يوجد اسم مستخدم او بريد الكترونى فى موقع زور دكتور يتطابق مع البيانات التى ادخلتها ,من فضلك ادخل اسم مستخدم او بريد الكترونى صحيح</value>
+  </data>
+  <data name="passwordRecoveryTitleToEmail" xml:space="preserve">
+    <value>استرجاع كلمة السر-زور دكتور</value>
+  </data>
+  <data name="problemOnDoingOperationAtServer" xml:space="preserve">
+    <value>لم يتم تنفيذ العملية بنجاح ,من فضلك حاول مرة اخرى</value>
+  </data>
+  <data name="problemOnSendingResetLink" xml:space="preserve">
+    <value>حدثت مشكلة اثناء ارسال رابط الى بريدك الالكترونى,من فضلك حاول مرة اخرى</value>
+  </data>
+  <data name="userNameOrPasswordNotValid" xml:space="preserve">
+    <value>اسم المستخدم أو كلمة السر غير صحيحة</value>
+  </data>
+  <data name="allSpecialities" xml:space="preserve">
+    <value>كل التخصصات</value>
+  </data>
+  <data name="titleFastSearch" xml:space="preserve">
+    <value>ابحث واختار احسن الدكاترة مع زور دكتور</value>
+  </data>
+  <data name="titleSearch" xml:space="preserve">
+    <value>ابحث عن طبيبك المناسب</value>
+  </data>
+  <data name="titleSpecialities" xml:space="preserve">
+    <value>كل التخصصات</value>
+  </data>
+  <data name="titleSpecialityBrows" xml:space="preserve">
+    <value>تصفح التخصص والاطباء الموجود فيه</value>
+  </data>
+  <data name="rulesAndConditions" xml:space="preserve">
+    <value>الشروط والقوانين-زور دكتور</value>
+  </data>
+  <data name="titlePrivacy" xml:space="preserve">
+    <value>سياسة الخصوصية-زور دكتور</value>
+  </data>
+  <data name="titleDoctorPage" xml:space="preserve">
+    <value>صفحة الدكتور على موقع زور دكتور</value>
+  </data>
+  <data name="bookYourAppointement" xml:space="preserve">
+    <value>احجز موعدك</value>
+  </data>
+  <data name="invalidBookingData" xml:space="preserve">
+    <value>بيانات غير صحيحة للحجز,رقم الهاتف أو اسم المريض غير صحيح</value>
+  </data>
+  <data name="maxBookingNumber" xml:space="preserve">
+    <value>لا يمكن الحجز عند نفس الدكتور فى نفس المعاد اكثر من مرتين</value>
+  </data>
+  <data name="titleReservingDetailPage" xml:space="preserve">
+    <value>تفاصيل الحجز</value>
+  </data>
+  <data name="titleReservingDonePage" xml:space="preserve">
+    <value>شكرا لك على الحجز</value>
+  </data>
+  <data name="today" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="tomorrow" xml:space="preserve">
+    <value>غدا</value>
+  </data>
+  <data name="enterBookingData" xml:space="preserve">
+    <value>ادخل بيانات الحجز</value>
+  </data>
+  <data name="bookingAppointement" xml:space="preserve">
+    <value>موعد الحجز</value>
+  </data>
+  <data name="titleBookingDetails" xml:space="preserve">
+    <value>تفاصيل الحجز</value>
+  </data>
+  <data name="titleThankBooking" xml:space="preserve">
+    <value>شكرا لك على حجزك فى موقع زور دكتور</value>
+  </data>
+  <data name="visitPriorityToDoctor" xml:space="preserve">
+    <value>الدخول الى الطبيب حسب اسبقية الحضور فى الفترة المحجوزة</value>
+  </data>
+  <data name="enterFullPatientName" xml:space="preserve">
+    <value>ادخل اسم المريض ثلاثى</value>
+  </data>
+  <data name="pageNotFound" xml:space="preserve">
+    <value>الصفحة التى تبحث عنها غير موجودة</value>
+  </data>
+  <data name="waitingTimerequired" xml:space="preserve">
+    <value>وقت الانتظار مطلوب</value>
+  </data>
+  <data name="minute" xml:space="preserve">
+    <value>دقيقة</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>دقائق</value>
+  </data>
+  <data name="waitingTime" xml:space="preserve">
+    <value>انتظار قبل الدخول للدكتور</value>
+  </data>
+  <data name="noWaiting" xml:space="preserve">
+    <value>لا يوجد انتظار قبل الدخول للدكتور</value>
+  </data>
+  <data name="advicesPageTitle" xml:space="preserve">
+    <value>صفحة نصائح الاطباء</value>
+  </data>
+</root>

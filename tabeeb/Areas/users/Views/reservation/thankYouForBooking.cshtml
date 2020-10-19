@@ -1,0 +1,58 @@
+﻿@using System.Text.RegularExpressions;
+@model  thankForBookingData
+@{
+    ViewBag.Title =Resource1.titleThankBooking;
+    Layout = Html.getUsersSiteLayout();
+    string lange = Session["usersPageLang"].ToString();
+}
+  @functions{
+      string converIntervalObjectToTime(string interval)
+      {
+          return interval.Replace("{", "").Replace("}", "").Replace("\":\"", " ").Replace("\""," ").Replace(","," ");
+      }
+}  
+    <section class="reservationDone">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="notify">
+                    <img src="~/images/resrevDone.png" class="img-responsive" />
+                    <p><i class="glyphicon glyphicon-ok-sign fa-2x"></i> @Resource1.bookingAppointDone</p>
+                    <p>
+                        <i class="fa fa-envelope-o"></i> 
+                        @Resource1.doctorInformedWithBook
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h3 class="text-center main-color"><i class="fa fa-calendar-o"></i> @Resource1.bookingDetails</h3>
+                <div class="reserveDetails">
+                    <table>
+                        <tr>
+                            <td>@Resource1.patientName</td>
+                            <td>@Model.name</td>
+                        </tr>
+                        <tr>
+                            <td>@Resource1.bookingDate</td>
+                            <td>@Model.appointementDate.Day @Model.appointementDate.getMonthName(Html.getCurrentlanguage()) @Model.appointementDate.Year </td>
+                        </tr>
+                        <tr>
+                            <td>@Resource1.bookingAppointement</td>
+                            <td>@converIntervalObjectToTime(Model.interval).converToTime(Html.getCurrentlanguage())</td>
+                        </tr>
+                        <tr>
+                            <td>@Resource1.clinicAddress</td>
+                            <td>@Model.clinicAddress</td>
+                        </tr>
+                        <tr>
+                            <td class="alert alert-info" colspan="2">@Resource1.visitPriorityToDoctor</td>                            
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

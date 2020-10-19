@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "reserving page";
+    Layout = "~/Areas/admin/Views/adminLayout.cshtml";
+}
+
+<h2 class="pageHeader">صفحة الحجوزات</h2>;
+
+<div class="container">
+    @{Html.RenderPartial("pagingControl");}
+    <div class="tableContainer">
+        <div class="specifiedFilter specifiedFilterDate">
+            <i class="fa fa-close"></i>
+            <button class="order btn  btn-info" onclick="getSortedData(this,'reservingDate')">Order by date Asc</button>
+            <label>get records of date</label>
+            <input type="date" onchange="getDataBasedOn(this, 'reservingDate')" />
+        </div>
+        <div class="specifiedFilter specifiedFilterSpeciality">
+            <i class="fa fa-close"></i>
+            <select onchange="getDataBasedOn(this, $(this).find('option:selected').val().trim().replace('_', ' '))">
+            </select>
+        </div>
+        <div class="specifiedFilter specifiedFilterName">
+            <i class="fa fa-close"></i>
+            <input type="text" placeholder="enter your search" data-value="" onkeyup="getDataByNameSearch(this.value)" />
+        </div>
+        <table class=" table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        الرقم التسلسلى
+                    </th>
+                    <th data-value='doctor' class="filter filterName">
+                        اسم الطبيب
+                    </th>
+                    <th data-value='patient' class="filter filterName">
+                        اسم المريض
+                    </th>
+                    <th data-value='reservingDate' class="filter filterDate" style="position:relative">
+
+                        تاريخ الحجز
+                    </th>
+                    <th data-value="speciality" class="filter filterSp">
+                       نوع الكشف
+                    </th>
+                 </tr>                     
+            </thead>
+            <tbody class=@string.Concat(ViewBag.controller,"tbody")></tbody>
+        </table>
+    </div>
+</div>

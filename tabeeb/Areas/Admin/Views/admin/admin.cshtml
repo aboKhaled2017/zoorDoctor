@@ -1,0 +1,171 @@
+﻿@{
+    ViewBag.Title = "Admins page";
+    Layout = "~/Areas/admin/Views/adminLayout.cshtml";
+}
+<script>
+
+</script>
+<h2 class="pageHeader">صفحة المسؤلين</h2>
+
+<div class="container">
+    <button style="vertical-align:text-top" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox()">
+        <i class="fa fa-plus"></i>
+        أضافة مسؤل
+    </button>
+    <div class="loading pull-left">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="tableContainer">
+        <table class=" table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th data-value='id'>
+                        الرقم التسلسلى
+                    </th>
+                    <th data-value='name'>
+                        الاسم
+                    </th>
+                    <th data-value='dateOfJoin'>
+
+                        تاريخ التسجيل
+                    </th>
+                    <th data-value='phone'>
+                        رقم الهاتف
+                    </th>
+                    <th data-value='mail'>
+                        البريد الألكترونى
+                    </th>
+                    <th data-value='type'>
+                        النوع
+                    </th>
+                    <th data-value='periority'>
+                      الأولوية
+                    </th>
+                    <th>
+                        العملية على الحقل
+                    </th>
+                </tr>
+            </thead>
+            <tbody class=@string.Concat(ViewBag.controller,"tbody")></tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">أضف مسؤل جديد</h4>
+            </div>
+            <div class="modal-body">
+                <i class="updatingNow fa fa-circle-o-notch fa-spin hidden"></i>
+                <form>
+                    <label class="errorMessageValidation">هذا البريد الالكترونى أو الاسم  موجود بالفعل</label>
+                    <div class="form-group hidden">
+                        <input type="hidden" class="form-control" id="id" placeholder="Id" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">الاسم</label>
+                        <input onblur="validateUserName(this,'name','add')" type="text" class="form-control" id="name" placeholder="Name" required title="الاسم على الاقل 3 حروف" />
+                        <p class="text-center" style="color:red"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="phone" maxlength="11" pattern="[/d]{11}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">البريد الالكترونى</label>
+                        <input onblur="validateUserName(this,'email','add')" type="email" class="form-control" id="email" placeholder="email" />
+                    </div>
+                    <div class="form-group" style="position:relative">
+                        <label for="password">كلمة السر</label>
+                        <label class="evaluatePassword"></label>
+                        <input type="password" onkeyup="evaluatePassword(this)" class="form-control" id="password" placeholder="password" title="كلمة السر على الاقل من 6 حروف ارقام وحروف وحروف كبيرة وصغيرة" />
+                        <p class="text-center" style="color:red"></p>
+                        <i class="showPassword fa fa-eye"></i>
+                     </div>
+                    <div class="form-group">
+                        <label for="type">النوع</label>
+                        <div class="form-group" id="type" data-value="">
+                            <label>انثى</label><input type="radio" name="type" value="male" placeholder="type" onclick="getType('female')" />
+                            <label>ذكر</label> <input type="radio" name="type" value="female" placeholder="type" onclick="getType('male')" />
+                        </div>
+                    </div>                 
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return AddRecord('@ViewBag.controller');">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="UpdateRecord('@ViewBag.controller');">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">عرض معلومات المسؤول</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12 adminImage">
+                            <img class="img-responsive img-thumbnail center-block" src="" style=" height: 237px;" />
+                        </div>
+                        <div class="col-md-8 col-xs-12">
+                            <table class="table table-bordered table-hover table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th data-value='name'>
+                                            الاسم
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='dateOfJoin'>
+                                            تاريخ التسجيل
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='phone'>
+                                            رقم الهاتف
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='mail'>
+                                            البريد الالكترونى
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='type'>
+                                            النوع
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            الاولوية
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                شكرا على اطلاعك
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

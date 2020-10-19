@@ -1,0 +1,46 @@
+﻿@{
+    List<Tuple<Guid, DateTime?, string>> appointements =
+        (List<Tuple<Guid, DateTime?, string>>)ViewData.ToList().SingleOrDefault(a => a.Key == "appointements").Value;
+    byte scedualedDayesCount = (byte)ViewData.Single(a => a.Key == "scedualedDayesCount").Value;
+    var defaultAppointements=appointements.FirstOrDefault(s=>s.Item2==null);
+    }
+<div id="#doctorReserving">
+    <div class="appointementReserving text-center">
+        <h4 class="main-color"><i class="fa fa-calendar-check-o fa-lg"></i> @Resource1.bookYourAppointement</h4>
+        <img id="loadAppointements" src="~/images/ajax-loading.gif" style="width:7%" />
+        <div class="translate" id="translateUp" onclick="translateUp(this);">
+            <i class="glyphicon glyphicon-chevron-up"></i>
+        </div>
+        <div class="translate" id="translateDown" onclick="translateDown(this);">
+            <i class="glyphicon glyphicon-chevron-down"></i>
+        </div>
+        <div class="reservingTables pull-right">
+            <div data-totaltables="@scedualedDayesCount" class="tables center-block">
+                @for (int i = 0; i <scedualedDayesCount; i++)
+                {
+                    var tableAppointements = appointements.FirstOrDefault(a =>a.Item2!=null&&(a.Item2.Value.Date == DateTime.Now.AddDays(i).Date));
+                    tableAppointements = (tableAppointements == null) ? defaultAppointements : tableAppointements;
+                    string appointementsString = (tableAppointements == null) ? "" : tableAppointements.Item3;
+                    Guid appointementID = (tableAppointements == null) ? Guid.Empty : tableAppointements.Item1;
+                    <table data-appointementdate="@DateTime.Now.AddDays(i).Date.ToShortDateString()">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    @if (i == 0) { Write(Resource1.today); }
+                                    else if (i == 1) { Write(Resource1.tomorrow); }
+                                    else { Write(DateTime.Now.AddDays(i).Day + "/" + DateTime.Now.AddDays(i).Month + "/" + DateTime.Now.AddDays(i).Year); }
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody data-value="@appointementsString" data-id="@appointementID"></tbody>
+                        <tfoot>
+                            <tr><th class="bookNow text-center"><i class="fa fa-send"></i> @Resource1.reserveNow</th></tr>
+                        </tfoot>
+                    </table>
+                }
+            </div>
+        </div> 
+        <div class="clearfix"></div>     
+    </div>
+</div>
+

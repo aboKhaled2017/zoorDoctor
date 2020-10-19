@@ -1,0 +1,42 @@
+﻿@model adviceCard
+<div class="adviceRecord row">
+    <div class="col-lg-3 col-sm-4 col-xs-4" style="padding: 0;position: relative;">
+        <div class="card">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12 imgDiv">
+                        <img src="~/Areas/doctors/doctorImages/@Model.image"
+                             class="img-responsive img-thumbnail img-circle" />
+                    </div>
+                    <div class="col-sm-8 col-xs-12 text-left">
+                        <div class="name head"><i class="fa fa-user-md"></i> @Model.name</div>
+                        <div class="speciality head"><i class="fa fa-stethoscope"></i> @Model.speciality</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-xs-8">
+        <div class="container-fluid">
+            <div class="row">
+                <div>
+                    <div class="advice pull-right">
+                        @Model.content
+                    </div>
+                </div>
+                <div class="col-xs-12 notifications">
+                    <i class="fa fa-comments-o fa-lg" id="showComments"></i>
+                    <i class="fa fa-share fa-lg"></i>
+                    <i class="fa fa-eye fa-lg"></i>
+                    <i class="fa fa-heart fa-lg" onclick="incrementNotifByOne()"></i>
+                </div>
+                <div class="col-xs-12 notf-number">
+                    <div>@Model.comments</div>
+                    <div>@Model.shares</div>
+                    <div>@Model.seens</div>
+                    <div>@Model.likes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿ @model tabeeb.Models.admin
+@{
+    ViewBag.Title = "Profile page";
+    Layout = "~/Areas/admin/Views/adminLayout.cshtml";
+    HttpCookie mycookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(mycookie.Value);
+     string userImage = ticket.UserData;
+    }
+<script>
+
+</script>
+<h2 class="pageHeader">الصفحة الشخصية</h2>
+<div class="container profile">
+    <h3>عدل معلوماتك الشخصية</h3>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12 adminImage">
+            <img class="img-responsive img-thumbnail center-block" src="@userImage" style=" height: 237px;" />
+           <progress class="progress hidden" value="0" max="100"> </progress>
+            <div id="status"></div>
+            <form enctype="multipart/form-data">
+                    <div class="fileUpload btn btn-primary">
+                        <span>تحميل صورة شخصية</span>
+                        <i class="fa fa-upload fa-lg"></i>
+                        <input type="file" class="upload" id="img"/>
+                    </div>
+            </form>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <form class="formOfData">
+                <div class="form-group hidden">
+                    <input type="hidden" class="form-control" id="id" placeholder="Id" disabled="disabled" value="@Model.periority" />
+                </div>
+                <div class="form-group">
+                    <label for="name">الاسم</label>
+                    <input data-value="@User.Identity.Name" type="text" class="form-control" id="name" value="@Model.name" placeholder="Name" required title="الاسم على الاقل 3 حروف" onblur="validateUserName(this, 'name', 'update');"/>
+                    <p class="text-center" style="color:red"></p>
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <input type="tel" class="form-control" id="phone" value="@Model.phone" placeholder="phone" maxlength="11" pattern="[/d]{11}" />
+                </div>
+                <div class="form-group">
+                    <label for="mail">البريد الالكترونى</label>
+                    <label class="errorMessageValidation">هذا البريد الالكترونى موجود بالفعل</label>
+                    <input type="email" class="form-control" id="email" value="@Model.mail" placeholder="email"  onblur="validateUserName(this, 'email', 'update');" />
+                </div>
+                <div class="form-group" style="position:relative">
+                    <label for="password">كلمة السر</label>
+                    <label class="evaluatePassword"></label>
+                    <input type="password" onkeyup="evaluatePassword(this)" class="form-control" id="password" value="@Model.password" placeholder="password" title="كلمة السر على الاقل من 6 حروف ارقام وحروف وحروف كبيرة وصغيرة" />
+                    <p class="text-center" style="color:red"></p>
+                    <i class="showPassword fa fa-eye"></i>
+                </div>
+                <div class="form-group">
+                    <label class="pull-right" for="type">النوع</label>
+                    <div class="form-group pull-left" id="type" data-value="@ViewBag.type">
+                        <label>انثى</label><input type="radio" name="type" value="male" placeholder="type" onclick="getType('female')" @ViewBag.malechecked />
+                        <label>ذكر</label> <input type="radio" name="type" value="female" placeholder="type" onclick="getType('male')" @ViewBag.femalechecked />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="form-control btn btn-danger" onclick="UpdateRecord(this)">
+                        تعديل <i class="fa fa-edit fa-lg"></i>
+                    </button>
+                </div>
+            </form>
+         </div>
+      </div>
+   </div>

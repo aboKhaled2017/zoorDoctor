@@ -1,0 +1,31 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>logIn</title>
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/css/adminStyle.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/css/adminMediaStyle.css" rel="stylesheet" />
+</head>
+<body dir="rtl">
+    <div class="adminForm center-block">
+        <i class="fa fa-user"></i>
+        <form class="login" action="/admin/account/login" method="POST">
+            <h4 class="text-center">التسجييل كمسؤول</h4>
+            <p>@TempData["errorMessage"]</p>
+            <label class="pull-right">تذكرنى</label>
+            <input type="checkbox" name="remmember" value="1" class="pull-right" />
+            <input data-class='user' class="form-control" type="text" name="name"
+                   placeholder="اسم المستخدم" autocomplete="off"
+                   required />
+            <input class="form-control password" data-class='pass' type="password" name="password" placeholder="كلمة السر" autocomplete="off" required />
+            <input class="btn btn-primary btn-block" type="submit"
+                   value="سجل الدخول" required />
+        </form>
+    </div>
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Areas/Admin/js/adminJs.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "complains page";
+    Layout = "~/Areas/admin/Views/adminLayout.cshtml";
+}
+<script>
+
+</script>
+<h2 class="pageHeader">صفحة شكاوى الاطباء</h2>
+
+<div class="container">
+    @{Html.RenderPartial("pagingControl");}
+    <div class="tableContainer">
+        <div class="specifiedFilter specifiedFilterDate">
+            <i class="fa fa-close"></i>
+            <button class="order btn  btn-info" onclick="getSortedData(this,'dateOfJoin')">رتب على حسب التاريخ تصاعدى</button>
+            <label>get records of date</label>
+            <input type="date" onchange="getDataBasedOn(this, 'dateOfJoin')" />
+        </div>
+        <div class="specifiedFilter specifiedFilterName">
+            <i class="fa fa-close"></i>
+            <input type="text" placeholder="enter your search" onkeyup="getDataByNameSearch(this.value)" />
+        </div>
+        <table class=" table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th data-value='id'>
+                        الرقم التسلسلى
+                    </th>
+                    <th data-value='name' class="filter filterName">
+                        الاسم
+                    </th>
+                    <th data-value='mail'>
+                        البريد الالكترونى
+                    </th>
+                    <th data-value='dateOfJoin' class="filter filterDate" style="position:relative">
+                        تاريخ الشكوى
+                    </th>
+                    <th data-value='phone'>
+                        رقم الهاتف
+                    </th>
+                    <th data-value='comment'>
+                       محتوى الشكوى
+                    </th>
+                    <th>
+                        العملية على الحقل
+                    </th>
+                </tr>
+            </thead>
+            <tbody class=@string.Concat(ViewBag.controller,"tbody")></tbody>
+        </table>
+    </div>
+</div>
+
+

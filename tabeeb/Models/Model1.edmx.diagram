@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28173252fe9a4881ac5675cdee86f430" Name="Diagram1" ZoomLevel="109">
+        <EntityTypeShape EntityType="tabeebekModel.admin" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.advice" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.advRelatedPage" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.adv" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.appointement" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_Applications" Width="1.5" PointX="12.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_Membership" Width="1.5" PointX="18" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_Paths" Width="1.5" PointX="15" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="17.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="17.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_Profile" Width="1.5" PointX="22.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_Roles" Width="1.5" PointX="15" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_SchemaVersions" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_Users" Width="1.5" PointX="20.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.aspnet_WebEvent_Events" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.city" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.commentOnAdvice" Width="1.5" PointX="9.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.complain" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.destrict" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.doctor" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.doctorInfo" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.page" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.patient" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.patientView" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.reserving" Width="1.5" PointX="10.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.resetPasswordRequest" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.speciality" Width="1.5" PointX="7.5" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.subSpeciality" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_Applications" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_Profiles" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_Roles" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_Users" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tabeebekModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="tabeebekModel.FK_advice_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_commentOnAdvice_advice" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_advRelatedPage_advs" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_advRelatedPage_page" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_appointement_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Me__Appli__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Pa__Appli__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Ro__Appli__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Us__Appli__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Me__UserI__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Pe__PathI__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Pe__PathI__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Pe__UserI__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__aspnet_Pr__UserI__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__destrict__cityID__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_commentOnAdvice_patient" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK__doctor__destrict__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_doctorInfo_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_patientView_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_reserving_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_patientView_patient" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_reserving_patient" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.FK_speciality_speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="tabeebekModel.doctorsAndSpecialities" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="tabeebekModel.websiteInformation" Width="1.5" PointX="17.375" PointY="15.75" />
+        <EntityTypeShape EntityType="tabeebekModel.userVerification" Width="1.5" PointX="18.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

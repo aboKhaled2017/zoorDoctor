@@ -1,0 +1,690 @@
+﻿@media (max-width: 361px) {
+/*general tags*/
+h2{
+font-size:14px !important;
+}
+h4{
+    font-size:11px !important;
+}
+h3{
+    font-size:13px !important;
+}
+/*general tags*/
+.pageHeader{
+font-size: 15px;
+margin-top: 0;
+}
+.welcomingHeader {
+    color: #444;
+    margin-bottom: 13px;
+    margin-left: 3px;
+    margin-top: 0;
+}
+.doc-card .base ul>li >p{
+    font-size:9px;
+}
+.doctorProfileForm{
+width: 100%;
+}
+.alert-info {
+    font-size: 14px;
+}
+
+.today-reseveing .table-reserving {
+margin-top: 0;
+}
+.today-reseveing .statis p:first-of-type {
+   background-color: #ce201f;
+    width: 50%;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    display: block;
+height: inherit;
+line-height: initial;
+margin: 0 0 2px;
+}
+
+.today-reseveing > h3 {
+    font-size: 16px;
+}
+
+.today-reseveing .statis p:last-of-type {
+    width: 98%;
+    font-size: 10px;
+    padding: 5px;
+    margin: 0;
+}
+.today-reseveing .table-reserving table td, th,
+.today-reseveing .table-reserving table th {
+    font-size: 9px;
+}
+
+.today-reseveing .table-reserving table {
+    width: 98%;
+}
+
+
+.today-reseveing .table-reserving h3 {
+    font-size: 9px !important;
+    width: auto;
+    padding: 5px;
+    margin: 10px auto 5px;
+}
+.today-reseveing .table-reserving .alert{
+    font-size:9px;
+}
+.doctor-profile .doc-card .doc-social .socials {
+    padding: 6px 4px;
+}
+.today-reseveing {
+    padding: 8px 4px 8px;
+}
+h4.bg-info {
+    width: 90%;
+}
+.modal .doc-card .base .rate,.modal .doc-card .base .viewers{
+    font-size:10px;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+font-size: 14px;
+}
+.navbar > .container .navbar-brand:first-letter, .navbar > 
+.container-fluid .navbar-brand :first-letter{
+font-size:26px;
+}
+ .doctorProfileForm > .generalProfile .doctorSocial label>i {
+    font-size: 12px;
+}
+form .formHeader {
+font-size: 11px;
+text-align: center;
+}
+.navbar-brand > img {
+width: 142px;
+bottom: 9%;
+}
+welcomingHeader {
+font-size: 17px;
+}
+.doctorProfileForm, .doctorImageUpdate {
+width: 100%;
+}
+.upControls, .downControls{
+    margin-bottom:0;
+}
+.doctorProfileForm .form-group{
+    margin-bottom:0;
+}
+.doctorProfileForm {
+    margin-top: 20px;
+}
+.upIndicator{
+    margin-bottom:0;
+}
+ .generalProfile .form-group div label {
+    font-size: 10px;
+}
+/*profile page*/
+.registrationForm .form-control{
+font-size:11px;
+height:27px;
+}
+.registrationForm .form-group{
+font-size:12px;
+}
+.registrationForm .form-group label {
+font-size: 11px;
+}
+.registrationForm .form-group i {
+font-size: 15px;
+}
+.registrationForm .form-group .btn{
+font-size: 10px;
+padding: 5px;
+}
+.registrationForm .form-group .btn i{
+font-size:10px;
+}
+.form-group i.showPassword {
+top: 26px;
+left: 90%;
+font-size: 16px;
+}
+.registrationForm input[type="radio"] {
+width: 15px;
+height: 15px;
+vertical-align: bottom;
+}
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    vertical-align: sub;
+}
+h6.bg-info {
+width: 95%;
+}
+.generalProfile .doctorSocial div label {
+    width: 8%;
+}
+.doctorProfileForm .form-group label,
+.doctorProfileForm .form-group .form-control,
+.doctorProfileForm .form-group{
+font-size: 9px;
+}
+.upControls, .downControls {
+    overflow: auto;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.steps {
+    display: block;
+    margin: auto;
+}
+.doctorProfileForm input[type="radio"] {
+width: 15px;
+height: 15px;
+}
+doctorProfileForm > .generalProfile .doctorSocial label>i {
+font-size: 15px;
+}
+/*profile page*/
+.AppointSetting .bookingType {
+width: 100%;
+padding: 0;
+border: 0;
+}
+.AppointSetting .form-group>label{
+font-size:11px;
+}
+scedualing .text-warning {
+    font-size: 11px;
+}
+.AppointSetting .form-group>div label {
+width: 90%;
+font-size: 10px;
+}
+.AppointSetting .form-group .type input {
+width: 15px;
+height: 15px;
+vertical-align: inherit;
+}
+.AppointSetting {
+margin: 0 0;
+}
+.AppointSetting >.scedualing {
+    width: 100%;
+    padding: 6px;
+        font-size: 10px;
+}
+.AppointSetting >.scedualing .btn {
+    float: none !important;
+    padding: 1px 7px;
+    margin: 3px 0;
+}
+.AppointSetting .appointements>h4{
+font-size: 12px;
+text-align: center;
+}
+.AppointSetting >h4 {
+width: 100%;
+font-size: 11px;
+color: #f00;
+border: 1px solid #f00;
+background: #fff;
+}
+.AppointSetting .appointements{
+width:100%;
+}
+.AppointSetting .appointements > p {
+width: 100%;
+font-size: 10px;
+margin-bottom: 2px;
+}
+.w3-accordion-content div .controls .selectTime div label{
+font-size:11px;
+}
+.w3-accordion-content div .controls .selectTime div input {
+width: 78%;
+margin: 1px 4px;
+height: 25px;
+}
+.w3-accordion-content .periods {
+display: block;
+border-radius: 2px;
+padding: 5px;
+}
+.w3-btn-block {
+white-space: inherit;
+padding: 8px 7px;
+font-size: 9px;
+font-weight: bold;
+border-radius: 5px;
+}
+.w3-show {
+display: block !important;
+border: 3px solid #cf3938;
+border-radius: 10px;
+border-top: 0;
+border-bottom: 0;
+}
+.w3-accordion-content div button {
+margin: 0;
+padding: 3px;
+font-size: 12px;
+ margin-top: 2px;
+ width: 100%;
+}
+.w3-accordion-content div .periods > div {
+font-size: 9px;
+font-weight: bold;
+margin: 3px auto;
+background: #fff;
+border: 1px solid #cf3938;
+text-align: center;
+}
+.w3-accordion-content div .controls button {
+width: 96%;
+font-size: 10px;
+height: inherit;
+margin-left: 0;
+}
+.w3-accordion-content div .controls .selectTime {
+margin-bottom: 10px;
+}
+.doctorProfileForm .mainLabel {
+    font-size: 10px;
+}
+/*appointement page end*/
+.successfullyRegistered
+{
+width:100%;
+margin:10px auto;
+}
+.successfullyRegistered h4{
+line-height: 18px;
+background:#eee;
+    padding: 3px;
+}
+.successfullyRegistered button{
+font-size: 8px;
+    display: block;
+    margin:auto;
+    margin-top: 1px;
+    border-radius: 0;
+    width: 80%;
+}
+.successfullyRegistered{
+    border:0;
+    padding: 3px;
+}
+.doctorProfileForm > .generalProfile .doctorSocial .form-control {
+    width: 90%;
+}
+successfullyRegistered .preview button {
+    margin-top: 1px;
+    width: 50%;
+    border-radius: 0;
+}
+}
+@media (min-width: 361px)and (max-width: 767px) {
+/*general tags*/
+h2{
+font-size:20px;
+}
+h4{
+    font-size:12px;
+}
+form .formHeader {
+    font-size: 13px;
+}
+.registrationForm .form-group label {
+    font-size: 12px;
+}
+    .doctor-profile .doc-card img {
+        width: 30%;
+        width: 30%;
+    border-radius: 5px;
+    margin-bottom: 1px;
+    border: 1px solid #31708f;
+    }
+/*general tags*/
+.pageHeader{
+font-size:18px;
+}
+h6.bg-info {
+width: 80%;
+}
+.AppointSetting .bookingType {
+width: 100%;
+padding: 5px;
+}
+.AppointSetting .form-group>label{
+font-size:13px;
+}
+.AppointSetting >.scedualing .btn {
+    float: none !important;
+    padding: 1px 7px;
+    margin: 3px 0;
+}
+.AppointSetting >.scedualing>div{
+float: none !important;
+}
+.AppointSetting >.scedualing {
+    width: 100%;
+    padding: 6px;
+    font-size: 11px;
+}
+.doc-card .base ul>li >p{
+    font-size:12px;
+}
+.modal .doc-card .base .rate,.modal .doc-card .base .viewers{
+    font-size:14px;
+}
+.AppointSetting .form-group>div label {
+width: 90%;
+font-size: 10px;
+}
+.AppointSetting .form-group .type input {
+width: 15px;
+height: 15px;
+vertical-align: inherit;
+}
+.AppointSetting {
+margin: 20px 10px;
+}
+.AppointSetting .appointements>h4{
+font-size:12px;
+}
+.AppointSetting >h4 {
+width: 100%;
+font-size: 15px;
+}
+.AppointSetting .appointements{
+width:100%;
+}
+.AppointSetting .appointements > p {
+width: 100%;
+font-size: 12px;
+}
+.w3-accordion-content .periods {
+display: block;
+border-radius: 5px;
+}
+.w3-btn-block {
+white-space: inherit;
+padding: 8px 7px;
+font-size: 12px;
+border-radius: 10px;
+}
+.w3-show {
+display: block !important;
+border: 3px solid #cf3938;
+border-radius: 10px;
+border-top: 0;
+border-bottom: 0;
+}
+.w3-accordion-content div button.save {
+margin: 0;
+}
+.w3-accordion-content div .periods > div {
+font-size: 12px;
+margin: 3px auto;
+text-align: center;
+display: inline-block;
+margin: 1px 2px;
+width: 48%;
+}
+.w3-accordion-content div .controls button {
+width: 80%;
+}
+.w3-accordion-content div .controls .selectTime {
+margin-bottom: 10px;
+}
+.doctorProfileForm{
+width: 90%;
+}
+.alert-info {
+    font-size: 15px;
+}
+h4.bg-info {
+    width: 80%;
+}
+.successfullyRegistered
+{
+width:100%;
+margin:10px auto;
+}
+.successfullyRegistered h4 button{
+   margin-top: 10px;
+}
+.successfullyRegistered .preview :first-child,
+.successfullyRegistered .download span:first-child{
+    display:block;
+}
+/*registration form*/
+.registrationForm .form-group i {
+font-size: 15px;
+}
+.registrationForm .form-group .btn{
+font-size:13px;
+}
+.form-group i.showPassword {
+top: 30px;
+left: 93%;
+font-size: 20px;
+}
+.registrationForm input[type="radio"] {
+width: 15px;
+height: 15px;
+vertical-align: bottom;
+}
+.doctorProfileForm .mainLabel{
+    font-size:13px;
+}
+  .generalProfile .form-group div label {
+    font-size: 11px;
+}
+/*registration form*/
+.today-reseveing .table-reserving{
+margin-top:0;
+}
+.today-reseveing .table-reserving h3{
+font-size: 9px;
+padding:6px;
+}
+.today-reseveing .table-reserving .alert{
+    font-size:10px;
+}
+.today-reseveing .table-reserving table{
+width: 95%;
+}
+.today-reseveing
+.table-reserving table td, th{
+font-size: 13px;
+}
+.today-reseveing
+.table-reserving table th{
+font-size: 9px;
+}
+}
+@media(min-width:768px)and (max-width:991px ){
+ input[type="radio"] {
+    width: 16px;
+    height: 16px;
+}
+ h4{
+     font-size:14px;
+ }
+.pageHeader{
+        font-size:22px;
+    }
+.successfullyRegistered
+{
+width:90%;
+}
+.successfullyRegistered h4{
+font-size:14px;
+}
+.AppointSetting .bookingType
+{
+width:77%;
+}
+.AppointSetting .form-group>label {
+    font-size: 14px;
+}
+.AppointSetting .form-group>div label {
+    width: 93%;
+    font-size: 11px;
+}
+.AppointSetting >h4{
+width:60%;
+}
+.AppointSetting .appointements{
+width:100%;
+}
+.AppointSetting .appointements>p{
+width:100%;
+font-size: 12px;
+}
+.AppointSetting >.scedualing .btn {
+    float: none !important;
+    margin: 7px 0;
+}
+.appointementRecords>div:last-of-type .w3-container{
+    background:rgba(255,255,255,.15);
+}
+.w3-btn-block:first-child{
+font-size:12px;
+}
+.AppointSetting .prescribed .w3-accordion-content div .controls .selectTime{
+width:100%;
+}
+.AppointSetting .prescribed .w3-accordion-content div .controls button{
+font-size:12px;
+}
+.w3-accordion-content div .controls .selectTime div label {
+width: 17%;
+font-size: 12px;
+}
+.w3-accordion-content div .controls .selectTime div input{
+width:79%;
+}
+.w3-accordion-content div .controls button {
+width: 100%;
+font-size: 12px;
+margin: 5px auto;
+}
+/*doctor profile*/
+.doctor-profile .doc-card img {
+width: 20%;
+margin-left: 0;
+height: inherit;
+display:inline-block;
+border-radius:5%;
+}
+.doctor-profile .doc-card .doc-name{
+display: inline-block;
+vertical-align: bottom;
+}
+/*doctor profile*/
+.today-reseveing .table-reserving{
+margin-top:0;
+}
+.today-reseveing
+.table-reserving table th{
+font-size:12px;
+}
+}
+@media(min-width:992px)and (max-width:1199px ){
+.successfullyRegistered h4{
+font-size:15px;
+}
+ .doctorProfileForm {
+    width: 95%;
+}
+.AppointSetting .bookingType
+{
+width:77%;
+}
+.AppointSetting >h4{
+width:44%;
+}
+.AppointSetting .appointements{
+width:100%;
+}
+.today-reseveing .table-reserving h3{
+    font-size: 14px;
+    padding: 10px
+}
+.today-reseveing .table-reserving table th,
+.today-reseveing.table-reserving table td, th{
+font-size:11px;
+}
+}
+/*other media*/
+@media(min-width:500px )and (max-width:767px){
+.doctor-profile .doc-card {
+width: 85%;
+}
+.doctor-profile .doc-card .row .left {
+font-size: 11px;
+}
+.doctor-profile .doc-card .row .right {
+font-size: 15px;
+}
+}
+@media(min-width:361px )and (max-width:500px) {
+    .successfullyRegistered h4{
+        line-height:1.6;
+    }
+    .doctorProfileForm .form-group>label {
+    font-size: 11px;
+}
+    .successfullyRegistered h4 a{
+        display:block;
+    }
+}
+@media (max-width: 767px) {
+    #ContactUS form label {
+    font-size: 11px;
+}
+    .btn {
+        padding: 5px 10px;
+        font-size:9px;
+    }
+    .arProfile, .engProfile, .generalProfile {
+        border: 1px solid #337ab7;
+        border-radius: 0;
+    }
+    .w3-accordion-content div .controls .selectTime div label{
+        font-size:11px;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover {
+color: #2350a3 !important;
+    background-color: #ce201f !important;
+    border: 1px solid #286090;
+    }
+    .pageHeader{
+        font-size:17px;
+    }
+    p.hint {
+    font-size: 10px;
+}
+input[type="radio"] {
+    width: 14px;
+    height: 14px;
+}
+ .doctorProfileForm > .generalProfile .doctorSocial label>i {
+    font-size: 12px;
+}
+    .step {
+        height: 12px;
+        width: 12px;
+    }
+}
+

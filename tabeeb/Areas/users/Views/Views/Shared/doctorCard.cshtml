@@ -1,0 +1,112 @@
+﻿@model doctorCard
+@{
+    var doctorInfo = Model;
+    string lange = (doctorInfo.cardLanguage == null) ? Html.getCurrentlanguage() : doctorInfo.cardLanguage;
+    if (doctorInfo.cardLanguage != null)
+    {
+        globalController.setCurrentLanguage(lange);
+    }
+    string pound = (lange == "en") ? "pound" : "جنية";
+    string direction = (lange == "en") ? "ltr" : "rtl";
+    string doctorVisitors = (lange == "en") ? "Of doctor visitors" : "من زوار الطبيب";
+    string minute = (doctorInfo.waitingTime > 2 && doctorInfo.waitingTime < 11) ? Resource1.minutes : Resource1.minute;
+    minute = doctorInfo.waitingTime + " " + minute;
+    string waitingTime = (doctorInfo.waitingTime < 3) ? Resource1.noWaiting : minute + " " + Resource1.waitingTime;
+    double rateValue=doctorInfo.rate*20;
+}
+<div class="doc-card" id="doctor-card">
+    <div id="cardHead">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-3 imgPart">
+                    <img src="/Areas/doctors/doctorImages/@doctorInfo.image"
+                         class="img-responsive img-thumbnail" 
+                         onclick="location.href = '/@Html.getDefaultPathFor("users","doctor")/@Model.id'"
+                         alt="@doctorInfo.professionTitle"
+                         title="@doctorInfo.professionTitle" />
+                </div>
+                <div class="col-xs-9 infoPart">
+                    <ul class="list-inline">
+                        <li title="@doctorInfo.fname @doctorInfo.lname">
+                            <span>@Resource1.doctoor</span>
+                            <span>@doctorInfo.fname @doctorInfo.lname</span>
+                        </li>
+                        <li title="@doctorInfo.professionTitle">
+                            @doctorInfo.professionTitle
+                        </li>
+                        <li title="@(rateValue/10)/10" class="doctorRate">
+                            <div class="rate pull-left">
+                                <div>
+                                    @for (byte i = 0; i <5; i++)
+                                    {
+                                    <i class="fa fa-star-o fa-lg"></i>
+                                    }
+                                </div>
+                                <div class="rateValue" style="width:@rateValue%">
+                                    @for (byte i = 0; i <5; i++)
+                                    {
+                                    <i class="fa fa-star fa-lg"></i>
+                                    }
+                                </div>
+                            </div>
+                            <div class="pull-right totalRaters">
+                                <span>@doctorInfo.viewers</span> @doctorVisitors
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="base" dir="@direction">
+        <ul class="list-unstyled center-block">
+            <li title="@doctorInfo.spName">
+                <p>
+                    <i class="fa fa-stethoscope fa-2x"></i>
+                    <span>
+                        @doctorInfo.spName
+                    </span>
+                </p>
+            </li>
+            <li title="@doctorInfo.clinicAddress">
+                <p>
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <span>
+                        @doctorInfo.clinicAddress
+                    </span>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fa fa-money fa-2x"></i>
+                    <span>
+                        @Resource1.examinPrice <span>@doctorInfo.price</span> @pound
+                    </span>
+                </p>
+            </li>
+            <li class="timing" title="@doctorInfo.timing">
+
+                <p>
+                    <i class="fa fa-calendar-check-o fa-2x"></i>
+                    <span>
+                        @doctorInfo.timing
+                    </span>
+                </p>
+            </li>
+            <li class="waitingTime">
+                <p class="pull-left" title="@waitingTime">
+                    <i class="glyphicon glyphicon-time fa-2x"></i>
+                    <span>
+                        @waitingTime
+                    </span>
+                </p>
+                <a class="pull-right btn btn-danger" href="/@Html.getDefaultPathFor("users", "reservingDetails")/@Model.fname/@Model.id">@Resource1.bookingDetails</a>
+                <div class="clearfix"></div>
+            </li>
+        </ul>
+        <button onclick="location.href = '/@Html.getDefaultPathFor("users", "reservingDetails")/@Model.fname/@Model.id'" class="center-block hidden">
+          <i class="	glyphicon glyphicon-info-sign"></i> @Resource1.bookingDetails
+        </button>
+    </div>
+</div>

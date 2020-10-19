@@ -1,0 +1,67 @@
+﻿@using tabeeb.Models
+@model Tuple<specialityDescription,List<doctorCard>,paginationInfo>
+@{
+    Page.Title = Resource1.titleSpecialityBrows;
+    Layout = Html.getUsersSiteLayout();
+    specialityDescription spdata =Model.Item1;
+    List<doctorCard>doctors=Model.Item2;
+    int totalDoctors = spdata.totalSpecializedDoctors; 
+}
+<!--strat specialist type-->
+<section id="specialityDetails" class="specialityNormal speciality-type">
+    <h2 class="pageHeadline">@Resource1.speciality @spdata.name</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-xs-6 speciality">
+                <img src="~/Areas/users/spImages/@spdata.image" class="img-responsive img-thumbnail">
+                <h4>@spdata.name</h4>
+            </div>
+            <div class="col-sm-9 col-xs-12 discription">
+                <p>
+                    @spdata.description
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end specialist type-->
+<!--start search result of specialist type-->
+<section class="speciality-search">  
+    @if (totalDoctors == 0)
+    {
+        <div class="alert alert-danger text-center">@Resource1.noDoctorsInSpeciality</div>
+    }
+    else
+    {
+        string doctorNumberAsString = "";
+        if (totalDoctors == 1)
+              {
+                  doctorNumberAsString=Resource1.onlyOneDoctor;
+              }
+              else if (totalDoctors == 2)
+         {
+            doctorNumberAsString=Resource1.onlyTwoDoctors;
+              }
+              else if (totalDoctors > 2 && doctors.Count < 11)
+              {
+                  doctorNumberAsString=totalDoctors + " " + Resource1.doctors;
+              }
+              else
+              {
+                  doctorNumberAsString=totalDoctors + " " + Resource1.doctor;
+              }
+        string searchHeaderString =
+           "<div class='center-block text-center specializedDoctors'>" +
+            "<h4 class='main-color'>"+Resource1.specializedDoctors+"</h4>" +
+            "<span class='resultNumber'>" + doctorNumberAsString + "</span>" +
+           " </div>";
+        Html.RenderPartial("showDoctorCards",
+            new Tuple<List<doctorCard>, MvcHtmlString,MvcHtmlString>
+                (doctors,
+                MvcHtmlString.Create(searchHeaderString),
+                Html.paginationLinks(Model.Item3, n => "/" + Html.getDefaultPathFor("users", "specialities") + "/" + spdata.name + "?pageNumber=" + n)
+                ));
+    }
+</section>
+<!--end search result of specialist type-->
+

@@ -1,0 +1,35 @@
+﻿
+<!--start call us-->
+<section id="callUs" class="call-us  text-center">
+    <h2>@Resource1.callUs</h2>
+    <p>@Resource1.aboutCallUs</p>
+    <div class="container">
+        <div class="row">
+            <div class="complainMessage alert alert-success">
+                <i class="fa fa-close"></i>
+                <p>@Resource1.complainDone</p>
+                <p>@Resource1.complainThank</p>
+            </div>
+            <form id="ContactUSForm" class="center-block">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="@Resource1.completeName" required pattern="[ا-ىA-Za-z ]{3,}" title="@Resource1.pleaseEnterCpompleteName" />
+                    <i title="user" class="fa fa-user-o"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="mail" placeholder="@Resource1.email" required />
+                    <i title="message" class="fa fa-envelope-o"></i>
+                    <i title="star" class="fa fa-star"></i>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" class="form-control input-lg" placeholder="@Resource1.yourMessage" required></textarea>
+                    <i title="send" class="fa fa-comment-o"></i>
+                    <i title="star" class="fa fa-star"></i>
+                </div>
+                <div class="form-group">
+                    <button onclick="validateComplainForm(this)" type="button"><i class="fa fa-send-o "></i> @Resource1.send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!--end call us section-->

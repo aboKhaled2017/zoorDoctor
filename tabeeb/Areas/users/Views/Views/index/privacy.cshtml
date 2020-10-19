@@ -1,0 +1,31 @@
+﻿@{
+    Page.Title = Resource1.titlePrivacy;
+    Layout = Html.getUsersSiteLayout();
+ }
+<!--search bar-->
+    @{Html.RenderPartial("reserving");}
+<!--search bar-->
+<!--start privacy section-->
+<section id="privacySection" class="privacy text-center">
+    <div>
+        <h2><i class="fa fa-unlock fa-2x"></i> @Resource1.privacyPolicy</h2>
+        <p>@Resource1.aboutPolicy</p>
+    </div>
+    <div class="socials">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-xs-12 text-center">@Resource1.socialCommunication</div>
+                <div class="col-md-8 col-xs-12 text-center">
+                    <a href=""><i class="fa fa-youtube fa-lg"></i></a>
+                    <a href=""><i class="fa fa-linkedin fa-lg"></i></a>
+                    <a href=""><i class="fa fa-instagram fa-lg"></i></a>
+                    <a href=""><i class="fa fa-google-plus fa-lg"></i></a>
+                    <a href=""><i class="fa fa-twitter fa-lg"></i></a>
+                    <a href=""><i class="fa fa-facebook fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end privacy section-->
+

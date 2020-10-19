@@ -1,0 +1,35 @@
+﻿
+<div class="modal fade" id="LogIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="overlay hidden">
+                <div class="center-block"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+            </div>
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <p class="errorMessage hidden" style="color:red">Please enter valid user name and password</p>
+                    <div class="form-group">
+                        <label for="name">User Name</label>
+                        <input type="text" class="form-control" id="userName" placeholder="User Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <label class="evaluatePassword"></label>
+                        <input type="password" id="password" onkeyup="evaluatePassword(this)" class="form-control" placeholder="password" />
+                    </div>
+                    <div class="form-group">
+                        <label for="remember">Remember me?</label>
+                        <a href="/doctors/doctor/resetPassword" class="pull-right">I can not remmember my password</a>
+                        <input type="checkbox" name="checkMe" value="false" id="checkBox" onchange="if (checkMe.value == 'true') checkMe.value = 'false'; else checkMe.value = 'true'" />
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="tryLogin()">Login</button>
+                    <button type="button" class="closeModal btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

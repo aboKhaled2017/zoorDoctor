@@ -1,0 +1,57 @@
+ .box-option .color-option,
+ .box-option i.fa-gear,
+ .main-background-color,
+ .links .dropdown-menu li:hover,
+ .scroll-btn i,
+ .sec-nav1 .main-links .dropdown-menu >li:hover,
+ .top-search button.form-control,
+ .sec-nav .main-links .dropdown-menu >li:hover,
+ .login-section .login-box .login button.form-control,
+ .reserve-section .register-section .login-section .login-box h2,
+ .sec-nav .main-dropdown-menu,
+ .navbar-toggle .icon-bar,
+ .sec-nav .main-dropdown-menu .sub-dropdown-menu{
+    background-color: #06ADDA;
+}/*for background color*/
+.links .dropdown-menu,
+.sec-nav1 .main-links .dropdown-menu,
+.top-search input.form-control,
+.login-section .login,
+.sec-nav .main-links .dropdown-menu,
+.reserve-section .register-section .login-section .login-box .login
+{
+    border: 2px solid #06ADDA;
+}/*for border color*/
+ .our-self,
+ .doctor-info .doc-card .base{
+	border-bottom: 3px solid #06ADDA;
+}
+ .main-color,
+ .top-nav .log a:hover,
+ .call-us form .form-group>i[title='send'],
+ .reserving .reserving-search form label i,
+ footer .upper-part .pages h3,
+ footer .upper-part .speciality h3,
+ footer .upper-part .adv h2,
+ .video-services h2,
+ .stats .item p,
+ .call-us h2,
+ .call-us form .form-group>i[title='user'],
+ .call-us form .form-group>i[title='message'],
+ .stats h2,
+ .our-self h2,
+ .video-services .overlay h3,
+ .our-services h2,
+ .doc-card .base ul>li>i,
+ .login-section .login-box .login form>div:nth-of-type(4) a,
+ .login-section .login-box .another-login .new-login p,
+ .register-section .login-section .login-box  .new-login p,
+ .sec-nav .main-dropdown-menu .sub-dropdown-menu i,
+ .specialities h2,
+ .sec-nav .main-dropdown-menu .sub-dropdown-menu>ul>li:hover,
+ .sec-nav .main-dropdown-menu>ul>li:hover >a,
+ .sec-nav .main-dropdown-menu .sub-dropdown-menu>ul>li:hover >a,
+ .pageHeadline,
+ .social-media h2{
+	color:#06adda;
+}/*for font color*/

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    <meta name="google-signin-client_id" content="<786343369128-t1tsgsfn3eikttv4sv2t7gt7puft812o.apps.googleusercontent.com>.apps.googleusercontent.com.apps.googleusercontent.com">
+    <meta charset="utf-8">
+    <!--IE compatibility meta-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--first mobile meta-->
+    <meta name="viewport" content="width=device-width,intial-scale=1" />
+    <!--[if It IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="images/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--for internet explorer to understand bootstrap
+    i can download this file directlly but instead we
+    cdn as source for these filles-->
+    <link rel='stylesheet' href='~/css/bootstrap.css' />
+    <!--<link rel='stylesheet' href='~/css/bootstrap-ar.css' />-->
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel='stylesheet' href='~/css/style.css' media="all" />   
+    <link href="~/css/commonDoctorsAndUsers.css" rel="stylesheet" media="all" />
+    <link rel='stylesheet' href='~/css/default-theme.css' />
+    <link href="~/css/secNavStyle.css" rel="stylesheet" media="all" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <link href="~/css/commonMediaDoctorsAndUsers.css" rel="stylesheet" media="all" />
+    <link rel='stylesheet' href='~/css/media.css' media="all" />
+    <link rel='stylesheet' href='~/css/styleEng.css' media="all" />
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/animate.css" rel="stylesheet" media="all" />
+    <script src="~/js/wow.min.js"></script>
+    <script> new WOW().init();</script>
+    <!--<script src="~/js/jquery.nicescroll.min.js"></script>-->
+    <script src="~/Areas/users/js/secNav.js"></script>
+    <script src="~/Areas/users/js/mainJS.js"></script>
+</head>
+<body dir="ltr" onload='@{Write("getStart('"+ViewBag.controller+"')");}' lang="en">
+    <header>
+        <!--start option box-->
+        @{/*Html.RenderPartial("colorBox");*/}
+        <!--end option box-->
+        <!--the top navbar-->
+        <section class="top-nav text-center">
+            <div class="container-fluid">
+                <div class="row center-block">
+                    <div class="col-sm-3 col-xs-12 log">
+                        @if (!User.Identity.IsAuthenticated || Roles.IsUserInRole("admin") || Roles.IsUserInRole("doctor"))
+                        {
+                            <div class="not-loged">
+                                <a href="/users/patient/register">Join us</a>
+                                <span>Or</span>
+                                <a href="/users/patient/login" class="main-color">Login</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="loged">
+                                <p>
+                                    <i class="glyphicon glyphicon-user fa-lg"></i>
+                                    <span class="name">@User.Identity.Name</span>
+                                </p>
+                                <div class="profile">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/users/patient/profile"><i class="fa fa-user"></i>My profile</a></li>
+                                        <li><a href="/users/patient/appointements"><i class="fa fa-calendar-check-o fa-lg"></i>My appointement</a></li>
+                                        <li><a href="/users/patient/logout"><i class="glyphicon glyphicon-log-out"></i>Log out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <div><span class="main-color">Tabeebak</span> Serve You Any Time</div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 call-div">
+                        <div>
+                              Call Us 01092 <i class="fa fa-phone fa-2x main-color"></i>
+                        </div>
+                        <div class="pull-center">
+                            <div class="logo wow bounceInUp" data-wow-duration='2s'>
+                                <img src="~/icon/logo.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--the end of top navbar-->
+        <!--start second nav bar-->
+        <div class="header">
+            <nav class="cd-main-nav-wrapper">
+                <ul class="cd-main-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/users/index/changeLanguage?lang=ar">العربية</a></li>
+                    <li class="subPage" onclick="location.href = '/users/index/index/#ourServices'; handleLocations();"><a href="">Our Services</a></li>
+                    <li class="subPage" onclick="location.href = '/users/index/index/#aboutSelf';handleLocations();"><a href=''>About Us</a></li>                    
+                    <li class="subPage" onclick="location.href = '/users/index/index/#callUs'; handleLocations();"><a href="" class="callUsLink">Call Us</a></li>
+                    <li><a target="_blank" href="/doctors">Doctors Page</a></li>
+                    <li class="otherPages">
+                        <a href="#" class="cd-subnav-trigger"><span>Other Pages</span></a>
+                        <ul>
+                            <li class="go-back"><a href="#">Other Pages</a></li>
+                            <li><a href="/users/specialities/specialities">Specialities</a></li>
+                            <li><a href="/users/search/search">Search</a></li>
+                            <li><a href="/users/advices/advices">Doctor Advices</a></li>
+                            <li><a href="/users/index/privacy">Privacy</a></li>
+                        </ul>
+                    </li>
+                </ul> <!-- .cd-main-nav -->
+            </nav> <!-- .cd-main-nav-wrapper -->
+
+            <a href="#0" class="cd-nav-trigger">
+                <span></span>
+            </a>
+        </div>
+        <!--end of second  nav bar-->
+    </header>
+    <!--end of header-->
+    @RenderSection("reserving", required: false) 
+    <div class="bodyOfPage">
+        @RenderBody()
+    </div>
+    <!--start fooetr-->
+    @{Html.RenderPartial("footerEng");}
+    <!--end footer-->
+</body>
+
+</html>

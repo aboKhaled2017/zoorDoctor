@@ -1,0 +1,58 @@
+﻿/// <reference path="../../../Scripts/jquery-1.10.2.min.js" />
+$.prototype.clearText = function (element) {
+    $(this).val('');
+}
+$.prototype.toggleLoadingIcon = function (currentIconClass) {
+    if($(this).hasClass('fa-spin'))
+    {
+        $(this).removeClass('fa-circle-o-notch fa-spin');
+        $(this).addClass($(this).data('class'));
+    }
+    else
+    {
+        $(this).data('class', currentIconClass);
+        $(this).removeClass(currentIconClass).addClass('fa-circle-o-notch fa-spin');
+    }
+}
+$.prototype.toggleTextWithLoadingIcon = function () {
+    var context = $(this);
+    if (context.data('text')!=undefined) {
+        context.find('i').remove();
+        context.text(context.data('text'));
+        context.removeData();
+    }
+    else {
+        context.data('text', context.text());
+        context.text('').append('<i class="fa fa-circle-o-notch fa-spin"></i>');
+    }
+}
+$.prototype.toggleAttribute = function () {
+    var el = $(this);
+    if (el.attr('required') == undefined) el.attr('required', 'required');
+    else el.removeAttr('required');
+}
+$.prototype.togglePassowrdShow = function () {
+    var el = $(this);
+    if (el.prop('type') == 'text') el.attr('type', 'password');
+    else el.attr('type', 'text');
+}
+$.prototype.toggleText = function () {
+    var el = $(this);
+    var currentText = el.text();
+    var alternatText = el.data('text');
+    el.data('text', currentText);
+    el.text(alternatText);
+}
+$.prototype.toggleIconWithLoadingImg=function()
+{
+    if($(this).find('i').hasClass('hidden'))
+        $(this).find('i').removeClass('hidden').end().find('img').addClass('hidden');
+    else
+        $(this).find('i').addClass('hidden').end().find('img').removeClass('hidden').css('display', 'inline-block');
+}
+$.prototype.rateMark = function (isRated) {
+    var icon = $(this);
+        if (isRated) icon.removeClass('fa-star-o').addClass('fa-star');
+        else icon.addClass('fa-star-o').removeClass('fa-star');
+        return icon;
+}

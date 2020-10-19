@@ -1,0 +1,51 @@
+
+.top-nav{
+	border-bottom: 2px solid #06adda;
+    padding: 8px 7px;
+    background-color: #ffffff;
+    position: relative;
+}
+.top-nav .call-div .pull-center{
+	position: relative;
+}
+.top-nav .call-div .logo{
+	position: absolute;
+    left: 20%;
+    top: 11px;
+    border: 1px solid;
+    border-bottom-right-radius: 40%;
+    border-bottom-left-radius: 40%;
+    padding: 22px;
+    padding-top: 0;
+}
+ .main-color{
+	color:#06adda;
+}
+.main-background-color{
+	background-color:#06adda;
+}
+.top-nav .log{
+    padding-top: 3px;
+}
+.top-nav .log a{
+	color:#c16462;
+}
+.top-nav .log a:hover{
+color:#06adda;
+}
+.top-nav .row div:nth-of-type(2)>span{
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+.top-nav i{
+	margin-right: 3px;
+}
+
+
+.navbar-center{
+	  width: 67%;
+}
+.navbar-right li>a{
+	display: inline;
+}

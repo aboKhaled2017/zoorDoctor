@@ -1,0 +1,48 @@
+﻿@model tabeeb.Areas.doctors.Models.doctorPageInfo
+@{
+    Page.Title =Resource1.titleBookingDetails;
+    Layout = Html.getUsersSiteLayout();    
+}
+<section class="doctor-profile">
+    <div class="container-fluid">
+        @if(TempData["error"]!=null)
+        {
+        <div class="alert alert-danger">
+            @TempData["error"].ToString()
+        </div>
+        }
+        <div class="row">
+            <!--Doctor profile card-->
+            <div class="col-md-4 col-xs-12">
+                @{Html.RenderPartial("~/Views/Shared/doctorCardDetails.cshtml", new Tuple<tabeeb.Areas.doctors.Models.doctorPageInfo, bool>(Model, false));}
+            </div>
+            <!--Doctor operations-->
+            <div class="col-md-8 col-xs-12">
+                <div class="left-part">
+                    <!--this view will show doctor appointements of reservings-->
+                    @{Html.RenderPartial("reservingAppointements");}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!----end doctor profile-->
+<section><!--modal section-->
+@{Html.RenderPartial("reservationForm");}
+</section>
+<script>
+    sessionStorage.setItem('doctorID', '@Model.id');
+    /// <reference path="~/Areas/users/js/mainPage.js" />
+    onMainJsLoaded = function () {
+        loadLocalScript("/Areas/users/js/reservingJs.js", function (isLoaded) {
+            /*this function get all social media links of current doctor from url string
+              and each link is found in urls string is shown as icon on html page
+            */
+            mapDoctorServices('@Model.services');
+            handleReservingTableDesgin();
+            intialTranslateDataObject();
+            activeDoctorImageAsLink();
+            mapAppointementsToTables();
+        });
+    }
+</script>

@@ -1,0 +1,77 @@
+﻿@model  Tuple<int, List<doctorCard>>
+@{   
+    Page.Title = Resource1.titleFastSearch;
+    Layout = Html.getUsersSiteLayout();
+}
+<div>
+    @Html.Action("searchBar", "search");
+</div>
+@if(Model!=null)
+{//fetched data from server
+    var totalCards = Model.Item1;
+    var cards = Model.Item2;
+    <!--start search result section-->
+    <section id="searchResult-section" class="search-result" style="display:none">
+        <div class="container-fluid">
+            <h3 class="text-center main-color">@Resource1.searchResult <i class="loadingPreviousresult fa fa-circle-o-notch fa-spin hidden"></i></h3>
+            <div class="row cards">
+               @foreach (var card in cards)
+               {
+                  <div class="outerCard col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    @{Html.RenderPartial("doctorCard", card);}
+                  </div>
+               }
+               @if(cards.Count==0)
+               {
+                   <div class="alert alert-danger">@Resource1.noResultMatch</div>
+               }
+            </div>
+        </div>
+        <!--this is pagination section that will modified by javascript-->
+        @{Html.RenderPartial("pagination",totalCards);}
+        <!--end search result section-->
+    </section>
+    <div id="clonedSection">
+        <!--this is column that will contains loaded card-->
+        <div class="outerCard hidden col-lg-4 col-md-4 col-sm-4 col-xs-6">
+            @{Html.RenderPartial("doctorCard", new doctorCard()); }
+        </div>
+    </div>  
+}
+else
+{
+    <section id="searchResult-section" class="search-result">
+        <div class="container-fluid">
+            <div class="row">
+               <!--doctor cards will be loaded here by javascript-->
+            </div>
+        </div>
+        <!--this is pagination section that will modified by javascript-->
+        @{Html.RenderPartial("pagination",0);}
+        <!--end search result section-->
+    </section>
+    <div id="clonedSection">
+        <!--this is column that will contains loaded card-->
+        <div class="outerCard hidden col-lg-4 col-md-4 col-sm-4 col-xs-6">
+            @{Html.RenderPartial("doctorCard", new doctorCard()); }
+        </div>
+    </div>
+}
+<script>
+    onMainJsLoaded = function () {
+        //if this page was as urlReferer then we load the searched ajax data
+        //if this page has not search by ajax last time,then we don't load the last data
+        //else if that page loaded data by ajax last time,then we load this data from client storage        
+        if (localStorage.islastSearchFromServer=="false")
+        {
+            getPreviousDoctorsSearchData();            
+        }
+        else {
+            settingPaginationOfQuickSearch('@Model.Item1', '@Json.Encode(Model.Item2)',false);
+        }
+        $('#searchResult-section').show()
+    }
+</script>
+
+
+

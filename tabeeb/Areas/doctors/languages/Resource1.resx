@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="addComment" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="agreeOn" xml:space="preserve">
+    <value>agee on</value>
+  </data>
+  <data name="bookingType" xml:space="preserve">
+    <value>booking type</value>
+  </data>
+  <data name="canNotRememberPassword" xml:space="preserve">
+    <value>I can't remember my password</value>
+  </data>
+  <data name="changeYourPassword" xml:space="preserve">
+    <value>Change your password</value>
+  </data>
+  <data name="chooseProveImage" xml:space="preserve">
+    <value>choose image that prove your being doctor</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>city</value>
+  </data>
+  <data name="clinicVisit" xml:space="preserve">
+    <value>clinic visit</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>confirm password</value>
+  </data>
+  <data name="contactUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="contactUsHint" xml:space="preserve">
+    <value>Your Message Will Be Notified To Our team And Served At The Best Possible Way</value>
+  </data>
+  <data name="destrict" xml:space="preserve">
+    <value>destrict</value>
+  </data>
+  <data name="disabledCookiAlert" xml:space="preserve">
+    <value>Cookies is disabled in your browser</value>
+  </data>
+  <data name="disabledCookieDescrption" xml:space="preserve">
+    <value>This website need cookies,please enable cookies from browser setting,then register or login</value>
+  </data>
+  <data name="doctorAdvices" xml:space="preserve">
+    <value>Doctor advices</value>
+  </data>
+  <data name="doctorPage" xml:space="preserve">
+    <value>Doctor page</value>
+  </data>
+  <data name="doctorPageHeader" xml:space="preserve">
+    <value>Doctor account on Zoor Doctor</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>edit</value>
+  </data>
+  <data name="emailAddress" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="fullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="giveYourComment" xml:space="preserve">
+    <value>Give Your Comment</value>
+  </data>
+  <data name="homeVisit" xml:space="preserve">
+    <value>home visit</value>
+  </data>
+  <data name="imgProfession" xml:space="preserve">
+    <value>image of profission</value>
+  </data>
+  <data name="join" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="loadingComments" xml:space="preserve">
+    <value>Loading comments...</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="loginValidation" xml:space="preserve">
+    <value>Please enter valid user name and password</value>
+  </data>
+  <data name="logOut" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="mobileNumber" xml:space="preserve">
+    <value>Mobile Number</value>
+  </data>
+  <data name="moreViews" xml:space="preserve">
+    <value>More views</value>
+  </data>
+  <data name="myAccount" xml:space="preserve">
+    <value>My account</value>
+  </data>
+  <data name="myAppointement" xml:space="preserve">
+    <value>My appointements</value>
+  </data>
+  <data name="myProfile" xml:space="preserve">
+    <value>My profile</value>
+  </data>
+  <data name="oldAdvices" xml:space="preserve">
+    <value>Old advices</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>password</value>
+  </data>
+  <data name="patientViews" xml:space="preserve">
+    <value>Patients views</value>
+  </data>
+  <data name="prevViews" xml:space="preserve">
+    <value>Previous views</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>register</value>
+  </data>
+  <data name="registerFormHeader" xml:space="preserve">
+    <value>Join as doctor With Zoor Doctor Now By Registration</value>
+  </data>
+  <data name="registerPageHeader" xml:space="preserve">
+    <value>Create account on Zoor Doctor</value>
+  </data>
+  <data name="rememberMe" xml:space="preserve">
+    <value>rememebr me?</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="showOldComments" xml:space="preserve">
+    <value>show old comments</value>
+  </data>
+  <data name="showPassword" xml:space="preserve">
+    <value>Show password</value>
+  </data>
+  <data name="speciality" xml:space="preserve">
+    <value>speciality</value>
+  </data>
+  <data name="subSpeciality" xml:space="preserve">
+    <value>sub specialitis</value>
+  </data>
+  <data name="zoorDoctor" xml:space="preserve">
+    <value>Zoor Doctor</value>
+  </data>
+  <data name="termOfuse" xml:space="preserve">
+    <value>term of use</value>
+  </data>
+  <data name="titleDoctorAccount" xml:space="preserve">
+    <value>doctor account on Zoor Doctor</value>
+  </data>
+  <data name="titleDoctorAppointement" xml:space="preserve">
+    <value>doctor appointements on Zoor Doctor</value>
+  </data>
+  <data name="titleDoctorProfile" xml:space="preserve">
+    <value>doctor profile on Zoor Doctor</value>
+  </data>
+  <data name="titleDoctorRegister" xml:space="preserve">
+    <value>doctor registration on Zoor Doctor</value>
+  </data>
+  <data name="titlePasswordchange" xml:space="preserve">
+    <value>change your password</value>
+  </data>
+  <data name="titlePasswordremember" xml:space="preserve">
+    <value>remember your password</value>
+  </data>
+  <data name="titleTermOfuse" xml:space="preserve">
+    <value>term of use-Zoor Doctor</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>username</value>
+  </data>
+  <data name="usernameChangeAlert" xml:space="preserve">
+    <value>Changing your username will force you to log out</value>
+  </data>
+  <data name="yourComment" xml:space="preserve">
+    <value>Your Comment</value>
+  </data>
+  <data name="aboutClinic" xml:space="preserve">
+    <value>About Your Clinic[optional]</value>
+  </data>
+  <data name="aboutDoctor" xml:space="preserve">
+    <value>About Doctor</value>
+  </data>
+  <data name="aboutDoctorTitle" xml:space="preserve">
+    <value>about doctor at least 30 letters</value>
+  </data>
+  <data name="availableTime" xml:space="preserve">
+    <value>Available time for reserving at general</value>
+  </data>
+  <data name="availableTimetitle" xml:space="preserve">
+    <value>The available time is at least 10 charchters</value>
+  </data>
+  <data name="clinicAddress" xml:space="preserve">
+    <value>Clinic Address</value>
+  </data>
+  <data name="clinicAddressTitle" xml:space="preserve">
+    <value>clinic address at least 10 letters</value>
+  </data>
+  <data name="downloadApp" xml:space="preserve">
+    <value>Download From App Store</value>
+  </data>
+  <data name="editMyAccount" xml:space="preserve">
+    <value>Edit my account</value>
+  </data>
+  <data name="examineFee" xml:space="preserve">
+    <value>Your examination Fees</value>
+  </data>
+  <data name="facebookurl" xml:space="preserve">
+    <value>The URL of your facebook</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="firstName" xml:space="preserve">
+    <value>Your First name</value>
+  </data>
+  <data name="firstNametitle" xml:space="preserve">
+    <value>the first name is at least 3 charchters and at max 25 characters</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="googleUrl" xml:space="preserve">
+    <value>The URL of your google-plus</value>
+  </data>
+  <data name="goToDoctorPage" xml:space="preserve">
+    <value>Go to my page</value>
+  </data>
+  <data name="instgramUrl" xml:space="preserve">
+    <value>The URL of your instagram</value>
+  </data>
+  <data name="lastName" xml:space="preserve">
+    <value>Your Last name</value>
+  </data>
+  <data name="lastnameTitle" xml:space="preserve">
+    <value>the last name is at least 3 charchters and at max 25 characters</value>
+  </data>
+  <data name="linkedInUrl" xml:space="preserve">
+    <value>The URL of your linkedin</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="onSceduale" xml:space="preserve">
+    <value>on schedule</value>
+  </data>
+  <data name="personalImageTitle" xml:space="preserve">
+    <value>personal image must has equal width and heigth and max size is 1MB</value>
+  </data>
+  <data name="pleaseFillRequiredFields" xml:space="preserve">
+    <value>Please fill all required fields to complete your profile</value>
+  </data>
+  <data name="previewArabic profil" xml:space="preserve">
+    <value>Preview arabic profile</value>
+  </data>
+  <data name="previewEnglishProfile" xml:space="preserve">
+    <value>Preview english profile</value>
+  </data>
+  <data name="previewProfile" xml:space="preserve">
+    <value>Perview my profile on Zoor Doctor that patients will see</value>
+  </data>
+  <data name="previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="priorityToAttendance" xml:space="preserve">
+    <value>priority to attendance</value>
+  </data>
+  <data name="professionalDegree" xml:space="preserve">
+    <value>Profissional Degree</value>
+  </data>
+  <data name="professionaltitle" xml:space="preserve">
+    <value>Your Professional Title</value>
+  </data>
+  <data name="profileWithArabicLanguage" xml:space="preserve">
+    <value>Your profile with Arabic language</value>
+  </data>
+  <data name="profileWithEnLanguage" xml:space="preserve">
+    <value>Your profile with English language</value>
+  </data>
+  <data name="reservationType" xml:space="preserve">
+    <value>Reservation type for attendance</value>
+  </data>
+  <data name="socialMediaHint" xml:space="preserve">
+    <value>Social media used by Zoor doctor website for communication with you</value>
+  </data>
+  <data name="socialMediaOptional" xml:space="preserve">
+    <value>Social media(optional)</value>
+  </data>
+  <data name="successAccountCreated" xml:space="preserve">
+    <value>You are successfully created account on Zoor Doctor</value>
+  </data>
+  <data name="successProfileCreated" xml:space="preserve">
+    <value>You are successfully created your profile</value>
+  </data>
+  <data name="titleProfessionaltitle" xml:space="preserve">
+    <value>profession title at least 10 letters</value>
+  </data>
+  <data name="toCompleteDownload" xml:space="preserve">
+    <value>To complete your profile please download our app from App Store</value>
+  </data>
+  <data name="twitterUrl" xml:space="preserve">
+    <value>The URL of your twitter</value>
+  </data>
+  <data name="welcom" xml:space="preserve">
+    <value>Welcom Dr.</value>
+  </data>
+  <data name="youtubeUrl" xml:space="preserve">
+    <value>The URL of your youtube</value>
+  </data>
+  <data name="addAdvice" xml:space="preserve">
+    <value>Add Advice</value>
+  </data>
+  <data name="addAdviceInArabicLang" xml:space="preserve">
+    <value>Add Advice In Arabic Language</value>
+  </data>
+  <data name="addNewInterval" xml:space="preserve">
+    <value>add new time interval</value>
+  </data>
+  <data name="addNewTimePeriod" xml:space="preserve">
+    <value>Add new booking time period</value>
+  </data>
+  <data name="addNextdayAppoint" xml:space="preserve">
+    <value>Add Your Appointements To Next Day</value>
+  </data>
+  <data name="addNthDayAppoint" xml:space="preserve">
+    <value>Add Your Appointement To Day Of</value>
+  </data>
+  <data name="addTodayAppoint" xml:space="preserve">
+    <value>Add Your Appointements Today</value>
+  </data>
+  <data name="adviceAddedSuccessfully" xml:space="preserve">
+    <value>Your Advice added Successfully</value>
+  </data>
+  <data name="afterAcceptFromAdminstration" xml:space="preserve">
+    <value>After accepting from adminstration,Patients can see your profile on Zoor  Doctor</value>
+  </data>
+  <data name="and" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="appointementSetting" xml:space="preserve">
+    <value>Appointement Setting</value>
+  </data>
+  <data name="banningMeanLose" xml:space="preserve">
+    <value>banning you mean that your profile will not bee seen by patients at that time</value>
+  </data>
+  <data name="callusOn" xml:space="preserve">
+    <value>call us on</value>
+  </data>
+  <data name="changeScedualingDays" xml:space="preserve">
+    <value>change number of scedualing dayes</value>
+  </data>
+  <data name="consults" xml:space="preserve">
+    <value>Consults</value>
+  </data>
+  <data name="daysFromNow" xml:space="preserve">
+    <value>days  starting from now</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="doctorExaminPrice" xml:space="preserve">
+    <value>Examination Price</value>
+  </data>
+  <data name="doctorTermOfuse" xml:space="preserve">
+    <value>Zoor Doctor-term of use </value>
+  </data>
+  <data name="enterusernameOrMailToregister" xml:space="preserve">
+    <value>Enter your username or email that you registered in Zoor Doctor account</value>
+  </data>
+  <data name="evalution" xml:space="preserve">
+    <value>Evalution</value>
+  </data>
+  <data name="examinationOrConsult" xml:space="preserve">
+    <value>Examination/Consult</value>
+  </data>
+  <data name="examinations" xml:space="preserve">
+    <value>Examinations</value>
+  </data>
+  <data name="firstBookingType" xml:space="preserve">
+    <value>The access to the doctor is based on priority of booking</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="icannotFindVerificationMessage" xml:space="preserve">
+    <value>I can not find the verification message</value>
+  </data>
+  <data name="infoAboutDoctor" xml:space="preserve">
+    <value>Info About Doctor</value>
+  </data>
+  <data name="loginNow" xml:space="preserve">
+    <value>Login now</value>
+  </data>
+  <data name="minimusScedualedDays" xml:space="preserve">
+    <value>At least 5 days must be scedualed</value>
+  </data>
+  <data name="myService" xml:space="preserve">
+    <value>My Services</value>
+  </data>
+  <data name="newpassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="passwordValidation" xml:space="preserve">
+    <value>password must contains at least one uppercase letter and one lowercase letter and 6 letters</value>
+  </data>
+  <data name="patientName" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="pleaseCommunicateWithTabeebakAboutBanning" xml:space="preserve">
+    <value>please communicate with website adminstration and find problem of your banning</value>
+  </data>
+  <data name="pleaseTryAgain" xml:space="preserve">
+    <value>Please send again</value>
+  </data>
+  <data name="pounds" xml:space="preserve">
+    <value>pounds</value>
+  </data>
+  <data name="prescripedTimeDescr" xml:space="preserve">
+    <value>These are prescribed and defined periods of time that patient can reserve</value>
+  </data>
+  <data name="profileHasbeenBanned" xml:space="preserve">
+    <value>Your profile timely has been banned by Zoor Doctor adminstration</value>
+  </data>
+  <data name="reservingTable" xml:space="preserve">
+    <value>Reservings Table</value>
+  </data>
+  <data name="reset password" xml:space="preserve">
+    <value>reset password</value>
+  </data>
+  <data name="resetLinkHasNotBeenSent" xml:space="preserve">
+    <value>The rest link has been not sent to my e-mail account</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>save </value>
+  </data>
+  <data name="scedualingFor" xml:space="preserve">
+    <value>Schedualing for</value>
+  </data>
+  <data name="secondBookingType" xml:space="preserve">
+    <value>The access to the doctor is based on the prescribed period that patient booked it</value>
+  </data>
+  <data name="sendMeAgain" xml:space="preserve">
+    <value>send me again</value>
+  </data>
+  <data name="sendVerificationlink" xml:space="preserve">
+    <value>Zoor Doctor will send link on your verified email to reset password</value>
+  </data>
+  <data name="sentLinkFirstHalf" xml:space="preserve">
+    <value>We have sent reset link to</value>
+  </data>
+  <data name="sentLinkSeconfHalf" xml:space="preserve">
+    <value>go to your account and click on the reset link to change your password</value>
+  </data>
+  <data name="serial" xml:space="preserve">
+    <value>Serial</value>
+  </data>
+  <data name="setAppointementsTime" xml:space="preserve">
+    <value>Set your available times for reservation appointements</value>
+  </data>
+  <data name="setDefaultAppoint" xml:space="preserve">
+    <value>Set your default appointement: note[these apponitement will be the default appointement for all days]</value>
+  </data>
+  <data name="setDefaultTimePeriods" xml:space="preserve">
+    <value>Set default appointement </value>
+  </data>
+  <data name="setTimeIntervalsDesc" xml:space="preserve">
+    <value>This type give patients ability to book withen interval of time with attendance based access</value>
+  </data>
+  <data name="statistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="successfullyPasswordChanged" xml:space="preserve">
+    <value>Your password has successfully changed</value>
+  </data>
+  <data name="thisWilltakeLitteltime" xml:space="preserve">
+    <value>This may be take some little time time from one to five hours</value>
+  </data>
+  <data name="titleDoctorpage" xml:space="preserve">
+    <value>doctor page on Zoor Doctor</value>
+  </data>
+  <data name="titleEnterusernameAndPassword" xml:space="preserve">
+    <value>enter username and password-Zoor Doctor</value>
+  </data>
+  <data name="titleResertPassword" xml:space="preserve">
+    <value>Tabeebak-reset password</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="today" xml:space="preserve">
+    <value>today</value>
+  </data>
+  <data name="todayReservings" xml:space="preserve">
+    <value>Today Reservings</value>
+  </data>
+  <data name="updatingYourPassword" xml:space="preserve">
+    <value>Updating your password</value>
+  </data>
+  <data name="verifyAccountPartOne" xml:space="preserve">
+    <value>Please go to your email</value>
+  </data>
+  <data name="verifyAccountPartTwo" xml:space="preserve">
+    <value>and verifiy your account</value>
+  </data>
+  <data name="waitingAcceptfromAdmin" xml:space="preserve">
+    <value>You are waiting the accepte from adminstration of Zoor Doctor until making sure of your data</value>
+  </data>
+  <data name="workAppointements" xml:space="preserve">
+    <value>Work Appointement in general</value>
+  </data>
+  <data name="writeMedicalAdvice" xml:space="preserve">
+    <value>Write Medical Advice</value>
+  </data>
+  <data name="youHave" xml:space="preserve">
+    <value>You have</value>
+  </data>
+  <data name="youNotPaidForWebsite" xml:space="preserve">
+    <value>make sure that you paid all worths for website(may be the root of problem)</value>
+  </data>
+  <data name="clickLinkToChangePassword" xml:space="preserve">
+    <value>click here to change your password</value>
+  </data>
+  <data name="clickOnResetLink" xml:space="preserve">
+    <value>click on the below link to rest your password</value>
+  </data>
+  <data name="passwordChangedSuccessfully" xml:space="preserve">
+    <value>password has been changed successfully</value>
+  </data>
+  <data name="professionImgNotValid" xml:space="preserve">
+    <value>Profession image is not valid</value>
+  </data>
+  <data name="registerFaild" xml:space="preserve">
+    <value>Registration has been failed</value>
+  </data>
+  <data name="professionImgNotUpdated" xml:space="preserve">
+    <value>Profession image is not valid(not updated)</value>
+  </data>
+  <data name="updateOperationFaild" xml:space="preserve">
+    <value>The update operation has been faild</value>
+  </data>
+  <data name="clickHere" xml:space="preserve">
+    <value>click here</value>
+  </data>
+  <data name="imgNotUpdated" xml:space="preserve">
+    <value>the image has not been updated,please choose valid image</value>
+  </data>
+  <data name="imgNotValid" xml:space="preserve">
+    <value>Image is not valid</value>
+  </data>
+  <data name="profileNotUpdated" xml:space="preserve">
+    <value>profile has not been updated because of some invalid fields</value>
+  </data>
+  <data name="profileRegisterAddingFailed" xml:space="preserve">
+    <value>profile registration is faild to be added</value>
+  </data>
+  <data name="serverOperationProblem" xml:space="preserve">
+    <value>operation has been faild at server</value>
+  </data>
+  <data name="thankForRegisterEmail" xml:space="preserve">
+    <value>Thank you for your registration, please click on the below link to complete your registration</value>
+  </data>
+  <data name="verifyAccount" xml:space="preserve">
+    <value>verify your account-Zoor Doctor</value>
+  </data>
+  <data name="evaluationToDoctor" xml:space="preserve">
+    <value>evaluation for doctor</value>
+  </data>
+  <data name="giveViewOnDoctor" xml:space="preserve">
+    <value>give view on doctor</value>
+  </data>
+  <data name="profImageDescription" xml:space="preserve">
+    <value>This is certificate that prove your being a doctor,
+                    please picture your certificate and load it's image so that,we can verify your identity as doctor.</value>
+  </data>
+  <data name="aboutDoctorDescrip" xml:space="preserve">
+    <value>ex:Faculty of Surgeons, Master of Orthopedics, Cairo University, hand and joint surgery, injuries and fractures of all types, rheumatic and articular diseases, such as hip joints, knees, ankle, shoulder and spine.</value>
+  </data>
+  <data name="availableTimeDescrip" xml:space="preserve">
+    <value>ex:every day except friday</value>
+  </data>
+  <data name="clinicAddressDescrip" xml:space="preserve">
+    <value>ex:sohag,dar elsalam besid hospital of el salam</value>
+  </data>
+  <data name="firstNameEx" xml:space="preserve">
+    <value>ex:mohamed</value>
+  </data>
+  <data name="lastNameEx" xml:space="preserve">
+    <value>ex:khaled solyman</value>
+  </data>
+  <data name="professionTitleDescrip" xml:space="preserve">
+    <value>ex:Professor of cardiovascular diseases</value>
+  </data>
+  <data name="professionDoctorSign" xml:space="preserve">
+    <value>This represents a sign that is attached to the door of your clinic to clarify specialties for patients</value>
+  </data>
+  <data name="waitingTimeDesc" xml:space="preserve">
+    <value>time that patients will wait before visit</value>
+  </data>
+  <data name="waitingTimerequired" xml:space="preserve">
+    <value>waiting time required</value>
+  </data>
+  <data name="reservationTypeDesc" xml:space="preserve">
+    <value>-priority on attendance:patients that will come first,will visit first at thier intervals.
+                            -on scedual:patient will visit on defined time.</value>
+  </data>
+  <data name="whatMeanByReservationtype" xml:space="preserve">
+    <value>what mean by priority on attendance/on sceduale</value>
+  </data>
+</root>

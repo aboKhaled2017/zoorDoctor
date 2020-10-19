@@ -1,0 +1,62 @@
+﻿@model externaluserProfile
+@{
+    Page.Title = Resource1.titleProfile;
+    Layout = Html.getUsersSiteLayout();
+}
+<section id="registerSection" class="register-section">
+    <div class="login-section">
+        <div class="login-box center-block">
+            <h2>@Resource1.manageProfile</h2>
+            <div class="login center-block">
+                @using (Html.BeginForm("externalProfile", "patient", FormMethod.Post, new { id = "#registerForm" }))
+                {
+                    <div class="form-group">
+                        @Html.ValidationMessage(string.Empty)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-mobile fa-lg"></i> @Resource1.phoneNumber <i class="fa fa-star fa-xs"></i>
+                        </label>
+                        @Html.EditorFor(patient => patient.phone, new { })
+                        @Html.ValidationMessageFor(p => p.phone)
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <i class="fa fa-calendar fa-lg"></i> @Resource1.birthDate <i class="fa fa-star fa-xs"></i>
+                        </label>
+                        @Html.EditorFor(patient => patient.birthDate, new { type = "date", value = Model.birthDate.ToString("yyyy-MM-dd") })
+                        @Html.ValidationMessageFor(p => p.birthDate)
+                    </div>
+                    <div class="form-group">
+                        <label style="display: block;">
+                            <img src="~/icon/type1.png"> @Resource1.gender
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(p=>p.type,true)
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(p => p.type, false)
+                        </label>
+                        @Html.ValidationMessageFor(p => p.type)
+                    </div>                    
+                    <div class="form-group">
+                        <button class="btn btn-lg form-control"><i class="fa fa-send fa-lg"></i> @Resource1.saveData</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        loadLocalScript("/validationLinks", function (isLoaded) { });
+    });
+</script>
+
+
+
+
+
+
+
+

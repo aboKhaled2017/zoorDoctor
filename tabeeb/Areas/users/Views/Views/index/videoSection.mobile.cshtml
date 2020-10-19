@@ -1,0 +1,54 @@
+﻿<!--start video-services section-->
+<section class="video-services center-block text-center hidden">
+    <h2>@Resource1.helpingServices</h2>
+    <p>@Resource1.helpingVideos</p>
+    <div class="overlay">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="video-reserve">
+                        <h3><img class="icon" src="~/icon/v1.png" /> @Resource1.reservingMethod</h3>
+                        <div class="poster-video">
+                            <video controls
+                                   onplay="$(this).parent().find('img').addClass('hidden');">
+                                <source src="~/videos/reserve.mp4" type="video/mp4">
+                                <source src="~/videos/reserve.ogg" type="video/ogg">
+                                Your browser does not support HTML5 video.
+                            </video>
+                            <img src="~/icon/video.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="video-register">
+                        <h3><img class="icon" src="~/icon/vid22.png" /> @Resource1.registerMethod</h3>
+                        <div class="poster-video">
+                            <video controls
+                                   onplay="$(this).parent().find('img').addClass('hidden');">
+                                <source src="~/videos/register.mp4" type="video/mp4">
+                                <source src="~/videos/register.ogg" type="video/ogg">
+                                Your browser does not support HTML5 video.
+                            </video>
+                            <img src="~/icon/video.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="video-search">
+                        <h3><img class="icon" src="~/icon/search.png" /> @Resource1.searchMethod</h3>
+                        <div class="poster-video">
+                            <video controls
+                                   onplay="$(this).parent().find('img').addClass('hidden');">
+                                <source src="~/videos/search.mp4" type="video/mp4">
+                                <source src="~/videos/search.ogg" type="video/ogg">
+                                Your browser does not support HTML5 video.
+                            </video>
+                            <img src="~/icon/video.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end video-services section-->

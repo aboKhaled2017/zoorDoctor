@@ -1,0 +1,195 @@
+﻿@model Tuple<paginationInfo, List<doctorCard>> 
+@{
+    Page.Title = Resource1.titleSearch;
+    Layout = Html.getUsersSiteLayout();
+    string lange = Html.getCurrentlanguage();
+    var neededData=(Tuple<List<tabeeb.Areas.doctors.Models.specialityData>, List<tabeeb.Areas.doctors.Models.cityData>>)ViewBag.neededData;
+    byte selectedCityID = 0;
+    byte selectedDestrictID = 0;
+    Dictionary<byte, string> doctorProfessionsNames = Html.getDoctorProfessionsNames();
+    List<tabeeb.Areas.doctors.Models.specialityData> specialities = neededData.Item1;
+    List<tabeeb.Areas.doctors.Models.cityData> cities = neededData.Item2;
+    //curentlly we will not use subSpecialities
+}
+@System.Web.Optimization.Styles.Render("~/bootstrapSelectCss")
+@System.Web.Optimization.Scripts.Render("~/bootstrapSelectJs")
+<!--start search page-->
+<section class="search-section">
+    <h4><i class="fa fa-info fa-lg"></i> @Resource1.whatSearch</h4>
+    <form class="container-fluid" id="searchForm" action="/@Html.getDefaultPathFor("users","search")" onsubmit="return submitSearch(this)">
+        <div class="row">
+            <div class="col-md-2 col-xs-12">
+                <div>
+                    <h5><i class="fa fa-stethoscope fa-lg"></i> @Resource1.selectSpeciality</h5>
+                    <select name="specialityIDs" class="form-control selectpicker" data-style="btn-danger">
+                        <option value="0">@Resource1.allSpecialities</option>
+                        @foreach (var speciality in specialities)
+                        {
+                            <option value="@speciality.id">@speciality.name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <div class="multi-choise educationMultiChoise">
+                    <h5><i class="glyphicon glyphicon-education fa-lg"></i> @Resource1.doctorEducation</h5>
+                    <div>
+                        <input name="education" type="checkBox" value="0">
+                        <label>@doctorProfessionsNames[0]</label>
+                    </div>
+                    <div>
+                        <input name="education" type="checkBox" value="1">
+                        <label>@doctorProfessionsNames[1]</label>
+                    </div>
+                    <div>
+                        <input name="education" type="checkBox" value="2">
+                        <label>@doctorProfessionsNames[2]</label>
+                    </div>
+                    <div>
+                        <input name="education" type="checkBox" value="3">
+                        <label>@doctorProfessionsNames[3]</label>
+                    </div>
+                    <div>
+                        <input name="education" type="checkBox" value="4">
+                        <label>@doctorProfessionsNames[4]</label>
+                    </div>
+                    <div>
+                        <input name="education" type="checkBox" value="5">
+                        <label>@doctorProfessionsNames[5]</label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <div class="multi-choise typeMultiChoise">
+                    <h5><img src="~/icon/type1.png"> @Resource1.gender</h5>
+                    <div>
+                        <input name="type" type="checkbox" value="1">
+                        <label>@Resource1.male</label>
+                    </div>
+                    <div>
+                        <input name="type" type="checkbox" value="0">
+                        <label>@Resource1.female</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <div class="multi-choise priceMultiChoise">
+                    <h5><i class="fa fa-money fa-lg"></i> @Resource1.examinPrice</h5>
+                    <div>
+                        <input name="price" type="checkBox" value="0">
+                        <label>@Resource1.less50</label>
+                    </div>
+                    <div>
+                        <input name="price" type="checkBox" value="1">
+                        <label>@Resource1.from50To100</label>
+                    </div>
+                    <div>
+                        <input name="price" type="checkBox" value="2">
+                        <label>@Resource1.from100To200</label>
+                    </div>
+                    <div>
+                        <input name="price" type="checkBox" value="3">
+                        <label>@Resource1.more100</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <div>
+                    <h5><i class="fa fa-map-marker fa-lg"></i> @Resource1.selectCity</h5>
+                    <select class="citySelect form-control selectpicker" data-style="btn-danger" name="cityID" onchange="onCitySelected(this);">
+                        <option value="0" @if (selectedCityID == 0) { Write("selected"); }>-------</option>
+                        @foreach (var city in cities)
+                        {
+                            <option value="@city.id" @if (selectedCityID == city.id) { Write("selected"); }>@city.name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <div>
+                    <h5><i class="fa fa-map-marker fa-lg"></i> @Resource1.selectDestrict</h5>
+                    <select class="areaSelect form-control selectpicker" data-style="btn-danger" name="destrictID">
+                        <option value="0" data-value="0" @if (selectedDestrictID == 0) { Write("selected"); }>@Resource1.allDestricts</option>
+                        @{string selected = "";}
+                        @foreach (var city in cities)
+                        {
+                            var destrcits = city.destricts;
+                            foreach (var area in destrcits)
+                            {
+                                if (selectedDestrictID == area.id)
+                                {
+                                    selected = "selected";
+                                }
+                                else
+                                {
+                                    selected = "";
+                                }
+                                <option value="@area.id" data-value="@city.id" @selected>@area.name</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <div class="search">
+                    <button type="submit" id="searchButton" >
+                        <i class="fa fa-search fa-lg"></i> @Resource1.search
+                        <img src="~/images/ajax-loader.gif" class="hidden center-block" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="note text-center center-block">
+        <div>
+            <h3>@Resource1.notice :</h3>
+            <p>@Resource1.aboutSearchnotice</p>
+        </div>
+    </div>
+    <div class="fast-service">
+        <div class="circle">@Resource1.or</div>
+        <div>
+            <p><span>@Resource1.moveToService </span><a href="/@Html.getDefaultPathFor("users","search")/searchFor">@Resource1.fastSearch</a></p>
+        </div>
+    </div>
+</section>
+@if(Model!=null)
+{
+    if (Model.Item2.Count == 0)
+    {
+        <div class="alert alert-danger">@Resource1.noResultMatch</div>
+    }
+    else
+    {
+        MvcHtmlString pagination = Html.paginationLinks(Model.Item1, n =>
+         Html.pageActionLink("users", "search", Html.getSearchParametersList(Request),
+           p =>
+           {
+               var oldPgaeNumber = p.FirstOrDefault(param => param.Item1 == "pageNumber");
+               p.Remove(oldPgaeNumber);
+               p.Add(new Tuple<string, string>("pageNumber", n.ToString()));
+           }).ToString());
+        MvcHtmlString searchResultHeaderString = MvcHtmlString.Create("<h3 class='text-center main-color'>" + Resource1.searchResult + "</h3>");
+        Html.RenderPartial("showDoctorCards",
+                new Tuple<List<doctorCard>, MvcHtmlString, MvcHtmlString>
+                    (Model.Item2,
+                    searchResultHeaderString,
+                    pagination
+                    ));
+    }
+    if (Model.Item2.Count> 0)
+    {
+     <div class="fast-service" style="margin-top:10px;">
+        <div class="circle">@Resource1.or</div>
+        <div>
+        <p><span>@Resource1.moveToService </span><a href="/@Html.getDefaultPathFor("users","search")/searchFor">@Resource1.fastSearch</a></p>
+    </div>
+</div>
+    }
+}
+<script>
+    onMainJsLoaded = function () {
+        makeScrollTopAnimation("#searchResult-section");
+    }
+</script>

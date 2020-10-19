@@ -1,0 +1,93 @@
+﻿@{string language = Html.getCurrentlanguage();
+  string direction = (language == "en") ? "ltr" : "rtl";}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>    
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />    
+    @if (language == "ar")
+    {       
+    <link href="~/css/bootstrap-ar.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    }
+    <link href="~/css/commonDoctorsAndUsers.css" rel="stylesheet" />
+    <link href="~/Areas/doctors/css/doctorStyle.css" rel="stylesheet" />
+    @if (language == "ar")
+    {
+        <script src="~/Areas/doctors/js/ar-EG.js"></script>
+        <link href="~/Areas/doctors/css/doctorStyleAr.css" rel="stylesheet" />
+        <link href="~/Areas/doctors/css/doctorMediaAr.css" rel="stylesheet" />
+    }
+    else
+    {
+        <script src="~/Areas/doctors/js/en-US.js"></script>
+    }
+    <link href="~/css/commonMediaDoctorsAndUsers.css" rel="stylesheet" />
+    <link href="~/Areas/doctors/css/doctorMedia.css" rel="stylesheet" />    
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>*@
+
+    @*
+    <link href="~/Scripts/jquery-ui.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>*@
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>   
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap-select.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-select.min.js"></script>
+    <script src="~/Areas/doctors/js/extensionFunctions.js"></script>
+    <script src="~/Areas/doctors/js/doctorJS.js"></script>
+</head>
+<body dir="@direction" lang="@language">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/@Html.getDefaultPathFor("doctors")">
+                    Zoor Doctor
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                @Html.Action("navBarMenu", "doctor")
+            </div>
+        </div>
+    </nav>
+    @{
+        Html.RenderPartial("LoginModal");
+        Html.RenderPartial("contactUs");
+    }
+    <div class="doctorBody">
+        @Html.Action("doctorStatus", "doctor")
+        <div class="alert alert-danger hidden" id="cookiesNotEnabled">
+            <i class="fa fa-alert"></i>
+            <h2>@Resource1.disabledCookiAlert</h2>
+            <p>@Resource1.disabledCookieDescrption</p>
+        </div>
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year @Resource1.zoorDoctor</p>
+    </footer>
+
+</body>
+</html>

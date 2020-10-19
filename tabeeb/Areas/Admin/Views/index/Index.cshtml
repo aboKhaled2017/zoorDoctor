@@ -1,0 +1,115 @@
+﻿@model int []
+@{
+    Page.Title = "admin page";
+    Layout = "~/Areas/admin/Views/adminLayout.cshtml";
+}
+<h1 class="pageHeader">صفحة المسؤل</h1>
+<section class="home-stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="stat st-members">
+                    <i class="fa fa-user-md"></i>
+                    <div class="info">
+                        أجمالى الاطباء
+                        <span><a href="/admin/doctor/doctor">@Model[0]</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6  col-xs-12">
+                <div class="stat st-pending">
+                    <i class="fa fa-user-plus"></i>
+                    <div class="info">
+                        أجمالى المرضى
+                        <span><a href="/admin/patient/patient">@Model[2]</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6  col-xs-12">
+                <div class="stat st-items">
+                    <i class="fa fa-user-md"></i>
+                    <div class="info">
+                        الأطباء المعلقة
+                        <span><a href="/admin/doctor/doctor?getDocs=pending">@Model[1]</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6  col-xs-12">
+                <div class="stat st-comments">
+                    <i class="glyphicon glyphicon-registration-mark"></i>
+                    <div class="info">
+                         حجوزات اليوم
+                        <span><a href="/admin/reserving/reserving?getRes=day"
+                                  style="@if (Model[3] == 0) { Write("opacity:.4;"); }"
+                                   onclick="if ($(this).text() == '0') { $(this).attr('href', '/admin/reserving/reserving'); }">
+                            @Model[3]
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6  col-xs-12">
+                <div class="stat st-comments">
+                    <i class="fa fa-thumbs-o-up"></i>
+                    <div class="info">
+                        <a href="/admin/doctor/doctor?getDocs=@(Model[4]/2)" class="textLink">الاطباء الاكثر طلبا للحجز <i class="fa fa-hand-pointer-o"></i></a>
+                        <span>
+                            @{int defaultValueDoc=Model[4]/2;}
+                            <input class="statisInput" name="mostReserv" type="number" value="@defaultValueDoc" min="0" max="@Model[4]"
+                                   onkeyup="if(parseInt($(this).val()) > parseInt($(this).attr('max')))
+                                   { $(this).val($(this).attr('max')); }
+                                   if (parseInt($(this).val()) < 0) { $(this).val(0) }
+                                   updateLink(this, 'doctor', 'getDocs')" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="stat st-members">
+                    <i class="fa fa-comments-o"></i>
+                    <div class="info">
+                        عدد شكاوى اطباء حديثة
+                        <span><a href="/admin/complains/doctorComplains?getRecent='getRecent'"
+                                 style="@if (Model[5] == 0) { Write("opacity:.4; "); }"
+                                 onclick="if ($(this).text().trim() == '0') { $(this).attr('href', '/admin/complains/doctorComplains'); }">
+                                @Model[5]
+                              </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="stat st-members">
+                    <i class="fa fa-comments-o"></i>
+                    <div class="info">
+                        عدد شكاوى مرضى حديثة
+                        <span>
+                            <a href="/admin/complains/patientComplains?getRecent='getRecent'"
+                               style="@if (Model[6] == 0) { Write("opacity:.4; "); }"
+                               onclick="if ($(this).text().trim() == '0') { $(this).attr('href', '/admin/complains/patientComplains'); }">
+                                @Model[6]
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="stat st-members">
+                    <i class="fa fa-comments-o"></i>
+                    <div class="info">
+                        عدد تعليقات عامة حديثة
+                        <span><a href="/admin/complains/generalComplains?getRecent='getRecent'"
+                                 style="@if (Model[7] == 0) { Write("opacity:.4; "); }"
+                                 onclick="if ($(this).text().trim() == '0') { $(this).attr('href', '/admin/complains/generalComplains'); }">
+                                @Model[7]
+                              </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

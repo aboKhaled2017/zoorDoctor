@@ -1,0 +1,25 @@
+﻿@model  doctorCard
+@{
+    string cardID = (Model.cardLanguage=="ar") ? "arProfileCard" : "engProfileCard";
+}
+    <div class="modal fade" id="@cardID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="overlay hidden">
+                    <div class="center-block"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+                </div>
+                <div class="modal-header">
+                    @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    @{
+                        string currentlanguage = Html.getCurrentlanguage();
+                        Html.RenderPartial("~/Areas/users/Views/Shared/doctorCard.cshtml",Model);
+                        globalController.setCurrentLanguage(currentlanguage);
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+

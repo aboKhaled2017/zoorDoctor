@@ -1,0 +1,35 @@
+﻿<div class="modal fade" id="ContactUS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="overlay hidden">
+                <div class="center-block"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+            </div>
+            <div class="modal-header">
+                <h3>Contact Us</h3>
+                <p>Your Message Will Be Notified To Our team And Served At The Best Possible Way</p>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="user" name="user" placeholder="Your Full Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Mobile Number*</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Mobile Number" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Email Address*</label>
+                        <input type="email" class="form-control" id="mail" name="mail" placeholder="Your Email Address" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Your Comment</label>
+                        <textarea class="form-control" id="comment" name="comment" placeholder="Your Comment"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="tryContact(user.value,phone.value,mail.value,comment.value)">Send <i class="fa fa-send"></i></button>
+                    <button type="button" class="closeModal btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model doctorPageInfo
+@{
+    ViewBag.Title =Resource1.titleDoctorpage;
+    Layout = "~/Areas/doctors/Views/Shared/doctorLayout.cshtml";
+}
+<section class="doctor-profile">
+    <div class="container-fluid">
+        <div class="row">
+            <!--Doctor profile card-->
+            <div class="col-md-4 col-xs-12">
+                @{Html.RenderPartial("~/Views/Shared/doctorCardDetails.cshtml",new Tuple<doctorPageInfo,bool>(Model,true));}
+            </div>
+            <!--Doctor operations-->
+            <div class="col-md-8 col-xs-12">
+                <div class="left-part">
+                    <!--this view will show doctor reservings-->
+                    @{Html.RenderPartial("doctorReservings");}                  
+                    @{Html.RenderPartial("addDoctorAdvice");}
+                    <!--this view will show doctor advices-->
+                    @{Html.RenderPartial("doctorAdvices");}
+                    <!--this view will show patient views on current doctor-->
+                    <!--false value mean that this view is for doctors area not users area-->
+                    @{Html.RenderPartial("patientViews",false);}                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--modals will be displayed on need-->
+@{Html.RenderPartial("commentOnAdvice",false);}
+<!--modals-->
+<!--this section will contains divs that will be cloned and copied by javascript to used it-->
+<section id="clonedItems" class="hidden">
+    @{Html.RenderPartial("adviceRecord");}
+</section>
+<!----end doctor profile-->
+<script src="~/js/ImageTools.js"></script>
+<script src="~/Areas/doctors/js/doctorPageJs.js"></script>
+<script>
+    window.onload = function () {
+        getDoctorrequests();
+        /*this function get all social media links of current doctor from url string
+          and each link is found in urls string is shown as icon on html page
+        */
+        mapDoctorLinks('@Model.urls', $('.socials>a'));
+        mapDoctorServices('@Model.services');
+    }
+</script>

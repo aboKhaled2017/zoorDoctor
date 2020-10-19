@@ -1,0 +1,202 @@
+﻿@model tabeeb.Models.doctorAccountData
+@using System.Web.Optimization;
+@{
+    ViewBag.Title =Resource1.titleDoctorRegister;
+    Layout = "~/Areas/doctors/Views/Shared/doctorLayout.cshtml";
+    byte selectedCityID =(byte) ViewBag.cityID;
+    byte selectedDestrictID = (byte)ViewBag.destrictID;
+    byte selectedSpID = (byte)ViewBag.spID;
+    IEnumerable<string> selectedSubSpID =(IEnumerable<string>)ViewBag.subSPID;
+    List<specialityData> specialities = ViewBag.specialities;
+    List<cityData> cities = ViewBag.cities;
+    List<subSpecialityData> subSpecialities = new List<subSpecialityData>();
+    foreach (var speciality in specialities)
+    {
+        var currentSupSpecialities = speciality.subSpecialities;
+        foreach (var subSpeciality in currentSupSpecialities)
+        {
+            subSpecialities.Add(subSpeciality);
+        }       
+    }
+    string selectedSpName = (selectedSpID != 0) ? specialities.Single(s => s.id == selectedSpID).name : "";
+}
+<div class="container">
+    <h2 class="pageHeader">@Resource1.registerPageHeader</h2>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ValidationMessage(string.Empty)
+            @using (Html.BeginForm("register", "doctor", FormMethod.Post, new { id = "registrationForm", @class = "registrationForm", enctype = "multipart/form-data", onsubmit = "return validateDoctorRegistrationForm('register',this)" }))
+            {
+                <label class="formHeader">@Resource1.registerFormHeader</label>
+                <div class="form-group">
+                    <i class="fa fa-user"></i>
+                    <label>
+                        @Resource1.username *
+                        <i class="hidden fa fa-circle-o-notch fa-spin"></i>
+                        <i class="hidden glyphicon glyphicon-ok-sign fa-lg"></i>
+                        <i class="hidden fa fa-close fa-lg"></i>
+                    </label>
+                    @Html.TextBoxFor(d => d.username, new { @class = "form-control", autocomplete = "off", autofocus = "autofocus", onblur = "checkDoctorProperty(this,'username')" })
+                    @Html.ValidationMessageFor(d => d.username, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-mobile"></i>
+                    <label>
+                        @Resource1.mobileNumber *
+                        <i class="hidden fa fa-circle-o-notch fa-spin"></i>
+                        <i class="hidden glyphicon glyphicon-ok-sign fa-lg"></i>
+                        <i class="hidden fa fa-close fa-lg"></i>
+                    </label>
+                    @Html.TextBoxFor(d => d.phone, new { @class = "form-control", onblur = "checkDoctorProperty(this,'phone')" })
+                    @Html.ValidationMessageFor(d => d.phone, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-envelope"></i>
+                    <label>
+                        @Resource1.emailAddress *
+                    </label>
+                    @Html.TextBoxFor(d => d.mail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.mail, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-map-marker"></i>
+                    <label>
+                        @Resource1.city *
+                    </label>
+                    <select class="citySelect form-control selectpicker" data-style="btn-default">
+                        <option value="0" @if (selectedCityID == 0) { Write("selected"); }>-------</option>
+                        @foreach (var city in cities)
+                        {
+                            <option value="@city.id" @if (selectedCityID == city.id) { Write("selected"); }>@city.name</option>
+                        }
+                    </select>
+                    @Html.HiddenFor(d => d.cityID)
+                    @Html.ValidationMessageFor(d => d.cityID, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-map-marker"></i>
+                    <label>
+                        @Resource1.destrict *
+                    </label>
+                    <select class="areaSelect form-control selectpicker" data-style="btn-default">
+                        <option value="0" data-value="0" @if (selectedDestrictID == 0) { Write("selected"); }>--------</option>
+                        @{string selected = "";}
+                        @foreach (var city in cities)
+                        {
+                            var destrcits = city.destricts;
+                            foreach (var area in destrcits)
+                            {
+                                if (selectedDestrictID == area.id)
+                                {
+                                    selected = "selected";
+                                }
+                                else
+                                {
+                                    selected = "";
+                                }
+                                <option value="@area.id" data-value="@city.id" @selected>@area.name</option>
+                            }
+                        }
+                    </select>
+                    @Html.TextBoxFor(d => d.destrictID, new { @class = "form-control hidden" })
+                    @Html.ValidationMessageFor(d => d.destrictID, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-stethoscope"></i>
+                    <label>
+                        @Resource1.speciality *
+                    </label>
+                    <select class="specialitySelect form-control selectpicker" data-style="btn-default">
+                        <option value="0" @if (selectedSpID == 0) { Write("selected"); }>.....</option>
+                        @foreach (var sp in specialities)
+                        {
+                            var currentSubSpecialities = sp.subSpecialities;
+                            string childsIDs = "";
+                            foreach (var subSp in currentSubSpecialities)
+                            {
+                                childsIDs += subSp.id + ",";
+                            }
+                            <option value="@sp.id" @if (selectedSpID == sp.id) { Write("selected"); } data-value="@currentSubSpecialities.Count" data-childs="@childsIDs">@sp.name</option>
+                        }
+                    </select>
+
+                    @Html.TextBoxFor(d => d.spID, new { @class = "form-control hidden" })
+                    @Html.ValidationMessageFor(d => d.spID, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group subSpeciality-form-group @if (!specialities.Any(s => s.id == selectedSpID && s.subSpecialities.Count > 0)) { Write("hidden"); }">
+                    <i class="fa fa-stethoscope"></i>
+                    <label>
+                        @Resource1.subSpeciality *
+                    </label>
+                    @{                     
+                        MultiSelectList subSpIDs = new MultiSelectList(subSpecialities.ToList().OrderBy(s => s.id), "id", "name", selectedSubSpID);
+                    }
+                    @Html.ListBoxFor(d => d.subSpID, subSpIDs, new { @class = "subSpeciality form-control selectpicker" })
+                    @Html.ValidationMessageFor(d => d.subSpID, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group">
+                    <i class="glyphicon glyphicon-picture"></i>
+                    <label>
+                        @Resource1.imgProfession *
+                    </label>
+                    <p class="alert alert-info">@Resource1.profImageDescription</p>
+                    <input type="file" id="uploadImage" name="img" title="@Resource1.chooseProveImage"
+                           accept=".png,.jpg,.gif,.jpeg,.PNG,.JPG,.GIF,.JPEG" />
+                    @Html.HiddenFor(d => d.proImage)
+                    <progress class="progress hidden" value="0" max="100"> </progress>
+                    @Html.ValidationMessageFor(d => d.proImage, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group type">
+                    <i class="fa fa-hospital-o"></i>
+                    <label>
+                        @Resource1.bookingType *
+                    </label>
+                    <div>
+                        @Resource1.clinicVisit   :@Html.RadioButtonFor(d => d.bookingType, true)
+                        @Resource1.homeVisit :@Html.RadioButtonFor(d => d.bookingType, false, new {disabled="disabled"})
+                    </div>
+                    @Html.ValidationMessageFor(d => d.bookingType, "", new { @class = "validationMessage" })
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-eye"></i>
+                    <label>
+                        @Resource1.password *
+                    </label>
+                    @Html.TextBoxFor(d => d.password, new { @class = "form-control", type = "password" })
+                    @Html.ValidationMessageFor(d => d.password)
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-eye"></i>
+                    <label>
+                        @Resource1.confirmPassword *
+                    </label>
+                    <input type="password" class="form-control" onkeyup="confirmPassword(this)" required />
+                    <span class="confirmPassValidationMessage"></span>
+                </div>
+                <div class="form-group">
+                    <label>@Resource1.agreeOn <a href="/doctors/doctor/termOfUse" style="text-decoration:underline">@Resource1.termOfuse</a></label>
+                    <input type="checkbox" id="termOfUse" />
+                    <div class="field-validation-error validationMessage"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger">@Resource1.join <i class="fa fa-send"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/Areas/doctors/js/registerJs.js"></script>
+@Scripts.Render("~/validationLinks")
+<script>
+    /*to validate hidden fields that by default is non validated by jquery validation*/
+    $.validator.setDefaults({
+    ignore: ""
+    });
+    $('.subSpeciality').selectpicker({
+        noneSelectedText: language.getGeneralSpecialityName('@selectedSpName'),
+        title: language.getGeneralSpecialityName('@selectedSpName')
+    }); 
+</script>
+
+
+

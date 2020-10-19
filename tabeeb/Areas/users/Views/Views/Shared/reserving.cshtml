@@ -1,0 +1,40 @@
+﻿@{
+    string tabeebakServiceNumber="12345";
+}
+<!--start reserving section-->
+<section class="reserving">
+    <div id="poster" class="hidden-xs">
+        <p>@Resource1.bookOnlineOrCallOn @tabeebakServiceNumber</p>
+    </div>
+    <div class="overlay">
+        <img src="~/images/team1.jpg" class="hidden-xs shown"/>
+        <img src="~/images/team2.jpg" class="hidden-xs" style="display:none" />
+        <img src="~/images/team3.jpg" class="hidden-xs" style="display:none" />
+        <img src="~/images/team4.jpg" class="hidden-xs" style="display:none"/>
+        <div class="container-fluid">
+            <div class="row center-block">
+                <div class="col-xs-12 center-block text-center">
+                    <form id="fast-search" onsubmit="return validateGeneralSearchPattern(this, q.value)" class="form-inline fast-search" method="get" action="/@Html.getDefaultPathFor("users","search")/searchFor">
+                        <input type="text"
+                               name="q"
+                               class="form-control input-lg"
+                               placeholder="@Resource1.searchForDocOrSpByquichSearch"
+                               value="" />
+                        <button type="submit" class="form-control btn-lg">
+                            <i class="fa fa-search fa-lg"></i> @Resource1.search
+                        </button>
+                    </form>
+                </div>
+                <div class="col-xs-12 center-block text-center">
+                    <div class="RandomRating">
+                    </div>
+                    @Html.Action("searchBar", "search");
+                </div>
+                <div class="scroll-btn col-xs-12 center-block text-center">
+                    <i class="fa fa-chevron-down fa-lg"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end reserving section-->

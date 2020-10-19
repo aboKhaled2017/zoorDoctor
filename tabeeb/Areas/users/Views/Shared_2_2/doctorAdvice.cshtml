@@ -1,0 +1,142 @@
+﻿@using tabeeb.Models
+@model Tuple<advice,string,int>
+@{
+    advice advice = Model.Item1;
+    string type = Model.Item2;
+    int currentPatientID = Model.Item3;
+    string lang = Session["usersPageLang"].ToString();
+    Dictionary<string, string> educations = new Dictionary<string, string>();
+    if(lang=="ar")
+    {
+        educations.Add("professor", "أستاذ");
+        educations.Add("lecturer", "دكتور فى");
+        educations.Add("Specialist", "أخصائى");
+        educations.Add("Assistant Lecturer", "دكتور مساعد فى");
+        educations.Add("Assistant Professor", "استاذ مساعد فى");
+        educations.Add("Consaltant", "استشارى");
+        educations.Add("FellowShip", "مرافق");
+    }
+    else
+    {
+        educations.Add("professor", "Professor of");
+        educations.Add("lecturer", "lecturer of");
+        educations.Add("Specialist", "Specialist of");
+        educations.Add("Assistant Lecturer", "Assistant Lecturer of");
+        educations.Add("Assistant Professor", "Assistant Professor of");
+        educations.Add("Consaltant", "Consaltant of");
+        educations.Add("FellowShip", "FellowShip of");
+    }
+}
+<section class="ptAdvices @if (type == "hidden") { Write("hidden clonedAdvice"); }">
+    <div class="advice">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-sm-4 col-sm-8 col-xs-4" style="padding: 0;position: relative;">
+                    <div class="card">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="record head col-xs-12">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-3 icon"><i class="fa fa-user-md"></i></div>
+                                            <div class="name col-xs-9">
+                                                @if (lang == "ar") {
+                                                <h5>@Resource1.doctoor @if(advice!=null){Write(advice.doctor.doctorInfo.fnameAr+" "+advice.doctor.doctorInfo.lnameAr);}</h5>
+                                                }
+                                                else
+                                                {
+                                                <h5>@Resource1.doctoor @if(advice!=null){Write(advice.doctor.doctorInfo.fnameEng+" "+advice.doctor.doctorInfo.fnameEng);}</h5>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="~/Areas/doctors/doctorImages/@if(advice!=null){Write(advice.doctor.doctorInfo.image);}" class="img-responsive col-xs-12" />
+                                <div class="record base col-xs-12">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-3 icon"><i class="fa fa-stethoscope"></i></div>
+                                            <div class="name sp col-xs-9">
+                                                @if (lang == "ar") {
+                                                <h5>@if (advice != null) { Write(educations.FirstOrDefault(a => a.Key == advice.doctor.doctorInfo.education).Value+ " " + advice.doctor.speciality.nameAr); }</h5>
+                                                }
+                                                else
+                                                {
+                                                <h5>@if (advice != null) { Write(educations.FirstOrDefault(a => a.Key == advice.doctor.doctorInfo.education).Value + " " + advice.doctor.speciality.nameEng); }</h5>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="socials col-xs-12" data-value="@if(advice!=null){Write(advice.doctor.doctorInfo.urls);}">
+                                    <a data-value="y" href=""><i class="fa fa-youtube fa-lg"></i></a>
+                                    <a data-value="l" href=""><i class="fa fa-linkedin fa-lg"></i></a>
+                                    <a data-value="i" href=""><i class="fa fa-instagram fa-lg"></i></a>
+                                    <a data-value="g" href=""><i class="fa fa-google-plus fa-lg"></i></a>
+                                    <a data-value="t" href=""><i class="fa fa-twitter fa-lg"></i></a>
+                                    <a data-value="f" href=""><i class="fa fa-facebook fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-lg-9 col-xs-8  advice-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="content">
+                                    @if (advice != null) { Write(advice.adviceContent); }
+                                </div>
+                            </div>
+                            <div class="notifications text-center center-block">
+                                <div>
+                                    <i data-value="0" class="fa fa-comments-o fa-lg" onclick="showCommentsOnAdvice(this,@advice.id,@advice.commentOnAdvices.Count(c=>c.comment!=null))"></i>
+                                    <div class="number">@if (advice != null) { Write(advice.commentOnAdvices.Count(c => c.comment != null)); }</div>
+                                </div>
+                                <div>
+                                    <i class="fa fa-share fa-lg"></i>
+                                    <div class="number">@if (advice != null) { Write(advice.commentOnAdvices.Count(c => c.adviceID == advice.id && c.share == true)); }</div>
+                                </div>
+                                <div>
+                                    <i class="fa fa-eye fa-lg"></i>
+                                    <div class="number">@if (advice != null) { Write(advice.commentOnAdvices.Count(c => c.adviceID == advice.id && c.seen == true)); }</div>
+                                </div>
+                                <div>
+                                    @{
+                                        bool islike = false;
+                                        if (advice != null)
+                                        {
+
+                                            islike = advice.commentOnAdvices.Any(c => c.patientID == currentPatientID && c.like == true);
+                                        }
+                                    }
+                                    <i title="@if (islike) { Write("unlike"); } else { Write("like"); }" class="fa @if (islike) { Write("fa-heart"); } else { Write("fa-heart-o"); } fa-lg" onclick="incrementNotifByOne(this,@advice.id,'like')"></i>
+                                    <div class="number">@if (advice != null) { Write(advice.commentOnAdvices.Count(c => c.adviceID == advice.id && c.like == true)); }</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-sm-9 col-xs-12 hidden-div">
+                    <div class="all-comments">
+                        <i class="fa fa-close fa-lg" onclick="$(this).parents('.hidden-div').fadeOut()"></i>
+                        <button data-value="@advice.commentOnAdvices.Count" class="hidden oldComments btn btn-default" onclick="getOldCommentsOnAdvices(this,@advice.id,@advice.commentOnAdvices.Count)"></button>
+                        <div class="container-fluid comments">
+                            <div class="loadingComment">Loading comments... <i class="fa fa-circle-o-notch fa-spin"></i></div>
+                        </div>
+                        <button data-value="@advice.commentOnAdvices.Count" class="hidden oldComments btn btn-default" onclick="getOldCommentsOnAdvices(this,@advice.id,@advice.commentOnAdvices.Count)"></button>
+                        <form class="form-inline text-center">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="comment" placeholder="@Resource1.giveComment">
+                                <button data-value="@advice.id" type="button" onclick="addCommentOnAdvice(this,comment.value)"><i class="fa fa-comment-o fa-lg"></i> @Resource1.comment</button>
+                            </div>
+                        </form>
+                        <div class="center-block hideComments" onclick="$(this).parents('.hidden-div').fadeOut();">
+                            @Resource1.hideComments
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

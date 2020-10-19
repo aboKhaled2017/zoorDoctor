@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Doctors page";
+    Layout = "~/Areas/admin/Views/adminLayout.cshtml";
+}
+
+<h2 class="pageHeader">صفحة الاطباء</h2>;
+
+<div class="container">
+    @{Html.RenderPartial("pagingControl");}
+    <div class="tableContainer">
+        <div class="specifiedFilter specifiedFilterDate">
+            <i class="fa fa-close"></i>
+            <button class="order btn  btn-info" onclick="getSortedData(this,'dateOfJoin')">Order by date Asc</button>
+            <label>get records of date</label>
+            <input type="date" onchange="getDataBasedOn(this, 'dateOfJoin')" />
+        </div>
+        <div class="specifiedFilter specifiedFilterSpeciality">
+            <i class="fa fa-close"></i>
+            <select onchange="getDataBasedOn(this, parseInt($(this).find('option:selected').val().trim()))"></select>
+        </div>
+        <div class="specifiedFilter specifiedFilterName">
+            <i class="fa fa-close"></i>
+            <input type="text" placeholder="enter your search" onkeyup="getDataByNameSearch(this.value)" />
+        </div>
+        <table class=" table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th data-value='name' class="filter filterName">
+                        الاسم
+                    </th>
+                    <th data-value='dateOfJoin' class="filter filterDate" style="position:relative">
+
+                        تاريخ التسجيل
+                    </th>
+                    <th data-value="phone">
+                        رقم الهاتف
+                    </th>
+                    <th data-value="mail">
+                        البريد الألكترونى
+                    </th>
+                    <th data-value="education">
+                        اللقب
+                    </th>
+                    <th data-value="spName" class="filter filterSp">
+                        التخصص
+                    </th>
+                    <th data-value="price" class="filter">
+                        سعر الكشف
+                    </th>
+                    <th>
+                        العملية على الحقل
+                    </th>
+                </tr>
+            </thead>
+            <tbody class=@string.Concat(ViewBag.controller,"tbody")></tbody>
+        </table>
+    </div>
+</div>
+<!--this modal is for viewing doctor details-->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">عرض معلومات الطبيب</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12 adminImage">
+                            <img class="img-responsive img-thumbnail center-block" src=""/>
+                            <div class="imageControls hidden-xs">
+                               Full Screen <i class="glyphicon glyphicon-fullscreen" onclick="fillScreenImage($('.adminImage img'),this)"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-12">
+                            <table class="table table-bordered table-hover table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th data-value='name'>
+                                            الاسم
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='dateOfJoin'>
+                                            تاريخ التسجيل
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='phone'>
+                                            رقم الهاتف
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='mail'>
+                                            البريد الالكترونى
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='type'>
+                                            النوع
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            سعر الكشف
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            التخصص
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            اللقب
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            محافظة
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            منطقة
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            عدد الحجوزات الكلية
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            حجوزات اليوم
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                شكرا على اطلاعك
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,49 @@
+﻿@model bool
+<div class="patient-view" id="patient-view">
+    <h2 class="text-center">
+        <i class="fa fa-star-o fa-lg"> @Resource1.patientViews</i>
+    </h2>
+    @if(Model)
+    {
+       <div class="addView">
+        <div class="evaluation">
+            <div class="stars pull-right" data-value="0">
+                <i class="fa fa-star-o fa-lg"></i>
+                <i class="fa fa-star-o fa-lg"></i>
+                <i class="fa fa-star-o fa-lg"></i>
+                <i class="fa fa-star-o fa-lg"></i>
+                <i class="fa fa-star-o fa-lg"></i>
+            </div>
+            <div class="hint pull-left">
+                @Resource1.evaluationToDoctor
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <form data-value="0">
+            <div class="form-group">
+                <textarea name="comment" class="form-control"></textarea>
+                <button type="button" id="addBtnView" class="btn btn-danger" onclick="addPatientComment(this,comment.value,'@User.Identity.Name');">
+                    <i class="fa fa-plus"></i> @Resource1.giveViewOnDoctor
+                </button>
+            </div>
+        </form>
+      </div>
+    }
+    <div class="loadingComments text-center center-block">
+      <i class="loading-circle fa fa-circle-o-notch fa-lg"></i>
+    </div>
+    <div class="alert alert-info hidden"></div>
+    <div id="viewControls">
+        <button class="btn btn-default hidden" id="prevViews" onclick="getPatientViewsOnDoctor(-1)">
+           @Resource1.prevViews <i class="fa fa-arrow-left"></i>
+        </button>
+        <button class="btn btn-default hidden" id="moreViews" onclick="getPatientViewsOnDoctor(1)">
+            @Resource1.moreViews <i class="fa fa-arrow-right"></i>
+        </button>        
+    </div>
+    <div class="patients">
+        <div class="body">
+            <!--all patients views will be loaded here by javascript-->
+        </div>
+    </div><!--end patient view-->
+</div>

@@ -1,0 +1,242 @@
+﻿@using tabeeb.Models
+@{
+    ViewBag.Title = "advertisement page";
+    Layout = "~/Areas/admin/Views/adminLayout.cshtml";
+    tabeebekEntities db = new tabeebekEntities();
+   var data = db.advs.ToList();}
+<h2 class="pageHeader">صفحة الاعلانات</h2>;
+<div class="container">
+    <button style="vertical-align:text-top" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox()">
+        <i class="fa fa-plus"></i>
+        أضافة اعلان
+    </button>
+    <!--paging controles-->
+   @{Html.RenderPartial("pagingControl");}
+    <div class="tableContainer">
+        <div class="specifiedFilter specifiedFilterName">
+            <i class="fa fa-close"></i>
+            <input type="text" placeholder="enter your search" onkeyup="getDataByNameSearch($(this).val());" />
+        </div>
+        <!--the table of data-->
+        <table class=" table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th data-value='description' class="filter filterName">
+                        الوصف
+                    </th>
+                    <th data-value='content' class="filter filterName" style="position:relative">
+
+                        محتوى الاعلان
+                    </th>
+                    <th data-value="startDate">
+                        بداية الاعلان
+                    </th>
+                    <th data-value="amount">
+                        مدة الاعلان
+                    </th>
+                    <th>
+                        العملية على الحقل
+                    </th>
+                </tr>
+            </thead>
+            <tbody class=@string.Concat(ViewBag.controller,"tbody")>              
+                    @foreach (var item in data)
+                    {
+                        <tr>
+                            <td>@item.description</td>
+                            <td>@item.content</td>
+                            <td>@item.startDate</td>
+                            <td>@item.amount <bdi>يوم</bdi></td>
+                            <td>
+                                <a href="#" class="btn btn-info" onclick="return getbyID(@item.id)">تعديل <i class="fa fa-edit  fa-lg"></i></a>
+                                <a href="#" class="btn btn-danger" onclick="Delete(@item.id,this)">حذف <i class="fa fa-trash  fa-lg"></i></a>
+                                @if (item.stat == false)
+                                {
+                                    <a href="#" class="btn btn-success" onclick="return activation(this,@item.id)">
+                                        <text>تفعيل</text> <i class="glyphicon glyphicon-saved  fa-lg"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="btn btn-danger" onclick="return activation(this,@item.id)">
+                                        <text>تعطيل</text> <i class="fa fa-remove  fa-lg"></i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }              
+            </tbody>
+        </table>
+        <div class="advData hidden">
+            @foreach (var item in data)
+            {
+            <ul>
+                <li>@item.id</li>
+                <li>@item.description</li>
+                <li>@item.content</li>
+                <li>@item.startDate</li>
+                <li>@item.amount</li>
+                <li>@item.image</li>
+                <li>@item.waitingTime</li>
+                <li>@item.waitingAfterClosed</li>
+                <li>@item.isViewAgain</li>
+                <li>@item.stat</li>
+                <li>
+                    @{var advPgaes = item.advRelatedPages.Select(a => new { a.pageID }).ToList();}
+                    @foreach (var p in advPgaes)
+                    {
+                      Write(p.pageID+" ");
+                    }
+                </li>
+            </ul>
+            }
+        </div>
+        @if(data.Count==0)
+        {
+            <div class="alert alert-danger text-center">لايوجد أى اعلانات مضافة</div>
+        }
+    </div>
+</div>
+<!--modal for adding or updateing-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">اضف اعلان</h4>
+            </div>
+            <div class="modal-body" style="position:relative">
+                <i class="updatingNow fa fa-circle-o-notch fa-spin hidden"></i>
+                <form>
+                    <div class="form-group hidden">
+                        <input type="hidden" class="form-control" id="id" disabled="disabled" />
+                        <input type="hidden" class="form-control" id="stat" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">الوصف</label>
+                        <input type="text" class="form-control" id="description" pattern="[ا-ى0-9a-zA-Z]{20,}" placeholder="وصف الاعلان"  required title="الوصف على الاقل يكون من 20 حرف" />
+                        <p class="text-center" style="color:red"></p>
+                     </div>
+                    <div class="form-group">
+                        <label for="content">المحتوى</label>
+                        <textarea class="form-control" id="content" placeholder="محتوى الاعلان" required title="المحتوى على الاقل يكون من 10 حرف"></textarea>
+                        <p class="text-center" style="color:red"></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="errorMessageValidation">يوجد اعلان بالفعل يبدا فى نفس التوقيت</label>
+                        <label for="startDate">تاريخ بداية الاعلان</label>
+                        <input type="datetime-local" class="form-control" id="startDate"  placeholder="تاريخ بداية الاعلان" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="page">الصفحة التى يظهر فيها الاعلان</label>
+                        <select class="mySelect form-control" id="page" multiple>
+                          @{var select = "";}
+                          @foreach (var page in ViewBag.selectPages)
+                          {
+                              <option  value="@page.id" @if (page.id == 1) { select = "selected='selected'"; } else { select = ""; }@select>@page.name</option>
+                          }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">مدة الاعلان بالأيام</label>
+                        <input type="number" class="form-control" id="amount" placeholder="مدة الاعلان بالأيام" required onblur="if ($(this).val()<1) { $(this).val(''); }"/>
+                    </div>
+                    <div class="form-group waitingTime">
+                        <label for="waitingTime">المدة التى سينتظرها الأعلان قبل الظهور فى البداية</label>
+                        <input type="number" class="form-control" id="waitingTime" placeholder="مدة الانتظار قبل الظهو رفى البداية" onblur="if ($(this).val()<1) { $(this).val(''); }" />
+                    </div>
+                    <div class="form-group">
+                        <label for="isViewAgain">هل تريد ظهور الاعلان مرة اخى بعد غلقة من قبل المستخم</label>
+                        <div class="form-group" id="isViewAgain" data-value="">
+                            <label>نعم</label>
+                            <input type="radio" name="isViewAgain" value="yes"
+                              onclick="$('form .waitingAfterClosed').removeClass('hidden');
+                                       $('#isViewAgain').attr('data-value',true);
+                                       $('#amount').css('border-color','lightgrey'); "/>
+                            <label>لا</label> 
+                            <input type="radio" name="isViewAgain" value="no"
+                             onclick="$('form .waitingAfterClosed').addClass('hidden')
+                                      $('#isViewAgain').attr('data-value',false)" />
+                        </div>
+                    </div>
+                    <div class="form-group waitingAfterClosed hidden">
+                        <label for="waitingAfterClosed">المدة التى سينتظرها الأعلان ثم يظهر مرة اخرى بعد غلقة من قبل المستخدم</label>
+                        <input type="number" class="form-control" id="waitingAfterClosed" placeholder="مدة الأنتظار ثم الظهور مرة أخرى بعد الغلق بالتوانى" onblur="if ($(this).val()<1) { $(this).val(''); }" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return AddRecord('@ViewBag.controller')">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="UpdateRecord(this)">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--this modal is for viewing advertisement details---not used untill noe-->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">عرض معلومات الاعلان</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12 adminImage">
+                            <img class="img-responsive img-thumbnail center-block" src="" style=" height: 237px;" />
+                        </div>
+                        <div class="col-md-8 col-xs-12">
+                            <table class="table table-bordered table-hover table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th data-value='name'>
+                                            وصف الاعلان
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='dateOfJoin'>
+                                            تاريخ بداية الاعلان
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='phone'>
+                                         محتوى الاعلان
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='mail'>
+                                             مدة الاعلان بالايام
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='type'>
+                                            مدة انتظار الاعلان من بداية انتهاء تحميل الصفحة
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                          امكانية الظهور مرة أخرى من بعد غلق الاعلان
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th data-value='periority'>
+                                            فترة الانتظار حتى الظهور مرة أخرى بعد الغلق
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                شكرا على اطلاعك
+            </div>
+        </div>
+    </div>
+</div>
+

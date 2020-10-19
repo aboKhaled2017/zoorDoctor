@@ -1,0 +1,135 @@
+﻿/*the smallest phone*/
+@media(max-width: 360px) {
+     .navbar-inverse .navbar-nav > li > a {
+            width: 100%;
+    margin: 1px 0;
+    }
+  .navbar-nav .dropdown a.dropdown-toggle {
+           display: inline-block;
+    width: 78%;
+   }
+  .nav > li > a {
+    padding: 7px 3px;
+}
+  .profile .formOfData{
+      width:100%;
+  }
+     .table-bordered td, .table-bordered th{
+        font-size:11px;
+        padding:3px;
+        line-height:0;
+    }
+     .btn{
+         vertical-align:initial;
+     }
+    .table > tbody > tr > td, .table > tfoot > tr > td{
+        padding:2px 0;
+        vertical-align: initial;
+    }
+.pagingControl {
+    margin-right: 0;
+    float: left;
+    font-size:11px;
+}
+    footer p {
+        font-size: 15px;
+    }
+    .pageHeader{
+       font-size: 20px;
+    margin: 0 auto 0px;
+    }
+    .adminImage{
+        margin-bottom:10px;
+        display: block;
+    }
+     .adminForm{
+         width:80%;
+     }
+    .adminForm .fa-user{
+         font-size:150px;
+     }
+}
+/*smart phone and tablets*******************************************/
+@media (max-width: 767px)and (min-width: 361px){
+   .navbar-inverse .navbar-nav > li > a {
+            width: 100%;
+    margin: 1px 0;
+    }
+    .nav > li > a {
+    padding: 7px 3px;
+}
+  .profile .formOfData{
+      width:95%;
+  }
+  .navbar-nav .dropdown a.dropdown-toggle {
+           display: inline-block;
+    width: 86%;
+   }
+    .table-bordered td, .table-bordered th{
+        font-size:9px;
+        padding:3px;
+        line-height:0;
+    }
+    .table > tbody > tr > td, .table > tfoot > tr > td{
+        padding:2px 0;
+        vertical-align: initial;
+    }
+.pagingControl {
+    margin-right: 0;
+    float: left;
+    font-size:10px;
+}
+    footer p {
+        font-size: 15px;
+    }
+.fullScreenImage {
+    height: 300px;
+    z-index: 2;
+    right: 1%;
+    top: 90px;
+}
+      .adminImage{
+        margin-bottom:10px;
+    }
+       .adminForm .fa-user{
+         font-size:100px;
+     }
+        .adminForm{
+            width:60%;
+        }
+}
+/*medium screen*******************************************/
+/*small screen**********************************************/
+@media(min-width:768px)and (max-width:991px ){
+    .navbar-inverse .navbar-nav > li > a{
+        font-size:14px;
+    }
+     .adminForm{
+         width:40%;
+     }
+     .navbar-nav .dropdown a.dropdown-toggle{
+         font-size:14px;
+     }
+    .fullScreenImage {
+    height: 290px;
+    z-index: 2;
+    right: 32%;
+    top: 90px;
+}
+    .profile .formOfData{
+        width:95%;
+        margin:auto;
+    }
+}
+/*medium screen*******************************************/
+@media(min-width:992px)and (max-width:1199px ) {
+     .adminForm .fa-user{
+         font-size:200px;
+     }
+     .fullScreenButton{
+         right:45%;
+     }
+}
+/*large screen********************************************/
+@media(min-width:1200px) {
+}

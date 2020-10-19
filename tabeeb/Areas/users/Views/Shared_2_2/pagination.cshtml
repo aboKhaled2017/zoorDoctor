@@ -1,0 +1,28 @@
+﻿@model Tuple<int,int,string,string>
+<div class="pull-left text-left pagination @Model.Item3">
+    <ul class="w3-pagination w3-border w3-round @Model.Item4">
+        @if (Model.Item2 > 5)
+        {
+            <li class="first edge"><a href="#">«</a></li>
+        }
+        @if (Model.Item1 > 9)
+        {
+            for (int i = 1; i <= Model.Item2; i++)
+            {
+                if (i == 1)
+                {
+                    <li><a class="w3-red" href="#">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="#">@i</a></li>
+                }
+            }
+        }
+        @if (Model.Item2 > 5)
+        {
+            <li class="last edge"><a href="#">»</a></li>
+        }
+    </ul>
+</div>
+<div style="clear:both"></div>

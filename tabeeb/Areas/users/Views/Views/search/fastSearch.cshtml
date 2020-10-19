@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "fast Search";
+    Layout = "~/Areas/users/Views/Shared/layout.cshtml";
+    string lange = Session["usersPageLang"].ToString();
+}
+
+@if (lange == "ar")
+{ Html.RenderPartial("reserving"); }
+else { Html.RenderPartial("reservingEng"); }
+

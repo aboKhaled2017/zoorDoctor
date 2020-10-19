@@ -1,0 +1,24 @@
+﻿
+@{
+    string tabeebakServiceNumber = "12345";
+}
+<!--start reserving section-->
+<section class="reserving">
+    <div id="poster" class="hidden-xs">
+        <p>@Resource1.bookOnlineOrCallOn @tabeebakServiceNumber</p>
+    </div>
+    <div class="overlay">
+        <div class="container-fluid">
+            <div class="row center-block">
+                <div class="col-xs-12 center-block text-center">
+                    <div class="RandomRating"></div>
+                    @Html.Action("searchBar", "search");
+                </div>
+                <div class="scroll-btn col-xs-12 center-block text-center">
+                    <i class="fa fa-chevron-down fa-lg"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end reserving section-->

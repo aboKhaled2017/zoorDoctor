@@ -1,0 +1,44 @@
+﻿
+
+<div class="modal fade" id="bookingForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="overlay hidden">
+                <div class="center-block"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+            </div>
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm" method="get" action="/@Html.getDefaultPathFor("users", "reservation")/reservation" onsubmit="return validateRegistrationForm(name.value,phone.value)">
+                    <div>@Resource1.enterBookingData</div>
+                    <div class="errorMessage">
+
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa fa-user"></i></label>
+                        <input class="form-control" required type="text" pattern="^([a-zA-Zا-ىأآ}ؤءئ]{3,15}\s){2}([a-zA-Zا-ىأةآؤءئ]{3,15})$" name="name" placeholder="@Resource1.enterFullPatientName" title="@Resource1.enterFullPatientName" />                       
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa fa-mobile"></i></label>
+                        <input class="form-control" required type="tel" name="phone" placeholder="@Resource1.phoneNumber" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{5})$" title="please enter valid phone number" />                     
+                    </div>                     
+                    <!--<div class="form-group hidden">
+                        <input class="form-control" type="email" name="mail"  placeholder="البريد الالكترونى" title="ادخل بريد الكترونى صحيح" />
+                        <i class="fa fa-envelope-o"></i>
+                    </div>-->
+                    <input id="appointementDate" type="hidden" name="appointementDate" />
+                    <input id="interval" type="hidden" name="interval" />
+                    <input id="docID" type="hidden" name="docID" />                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-danger">@Resource1.reserveNow</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@Resource1.close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

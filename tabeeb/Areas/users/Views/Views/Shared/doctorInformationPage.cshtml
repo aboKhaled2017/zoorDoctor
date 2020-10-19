@@ -1,0 +1,78 @@
+﻿@using tabeeb.Models
+<div id="doctorInfoSlid">
+    <i class="fa fa-close" onclick="closeDoctorInfoPage(this);"></i>
+    <h2 class="text-center">صفحة الطبيب</h2>
+    <section class="doctor-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    @*{ Html.RenderPartial("doctorCard", new getSearchResult_Result()); }*@
+                </div>
+                <div class="col-md-8 col-xs-12" style="position:relative">
+                    <div class="loading loadingDocInfo">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="doc-info hidden">
+                        <h3 class="center-block text-center"><i class="fa fa-info fa-lg"> معلومات عن الطبيب</i></h3>
+                        <p class="lead center-block">
+                            <!--about doctor here-->
+                        </p>
+                        <div class="social hidden">
+                            <h3>التواصل الاجتماعى</h3>
+                            <p class="icons pull-left">
+                                <a data-value="y"  href=""><i class="fa fa-youtube fa-lg"></i></a>
+                                <a data-value="l" href=""><i class="fa fa-linkedin fa-lg"></i></a>
+                                <a data-value="i" href=""><i class="fa fa-instagram fa-lg"></i></a>
+                                <a data-value="g" href=""><i class="fa fa-google-plus fa-lg"></i></a>
+                                <a data-value="t" href=""><i class="fa fa-twitter fa-lg"></i></a>
+                                <a data-value="f" href=""><i class="fa fa-facebook fa-lg"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doc-services hidden">
+                        <h2 class="text-center"><i class="fa fa-road fa-lg"></i> خدمات الطبيب</h2>
+                        <div class="services text-center center-block">
+                        </div>
+                    </div>
+                    <div class="patient-view">
+                        <h2 class="text-center">
+                            <i class="fa fa-star-o fa-lg"> اراء المرضى</i>
+                        </h2>
+                        <div class="loadingComments"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+                        <div class="hidden alert alert-danger"></div>
+                        <div class="addView">
+                            <div class="evaluation">
+                                <div class="stars" data-value="0">
+                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <i class="fa fa-star-o fa-lg"></i>
+                                </div>
+                                <div class="hint">
+                                    تقييمك للدكتور
+                                </div>
+                            </div>
+                            <form data-value="0">
+                                <div class="form-group">
+                                    <textarea name="comment" class="form-control"></textarea>
+                                    <button type="button" class="btn btn-danger" onclick="addPatientView(comment.value, $(this).parents('form').attr('data-value'), $('.evaluation .stars').attr('data-value'));">
+                                        <i class="fa fa-plus"></i> اعطى رأيك فى الدكتور
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="patients">
+                             <button class="btn btn-default hidden">الاراء السابقة</button>
+                             <div class="body"></div>                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

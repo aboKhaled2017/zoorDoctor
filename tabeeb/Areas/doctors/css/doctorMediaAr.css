@@ -1,0 +1,8 @@
+﻿@media (max-width: 361px) {
+    .w3-accordion-content div .controls button {
+        width: 95%;
+        font-size: 10px;
+        height: inherit;
+        margin-right: 0;
+    }
+}

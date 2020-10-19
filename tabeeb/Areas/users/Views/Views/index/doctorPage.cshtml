@@ -1,0 +1,40 @@
+﻿@model tabeeb.Areas.doctors.Models.doctorPageInfo
+@{
+    Page.Title =Resource1.titleDoctorPage;
+    Layout = Html.getUsersSiteLayout();
+    }
+<section class="doctor-profile">
+    <div class="container-fluid">
+        <div class="row">
+            <!--Doctor profile card-->
+            <div class="col-md-4 col-xs-12">
+                @{Html.RenderPartial("~/Views/Shared/doctorCardDetails.cshtml", new Tuple<tabeeb.Areas.doctors.Models.doctorPageInfo, bool>(Model, false));}
+            </div>
+            <!--Doctor operations-->
+            <div class="col-md-8 col-xs-12">
+                <div class="left-part">
+                    <div>
+                        <a href="/@Html.getDefaultPathFor("users", "reservingDetails")/@Model.name/@Model.id"
+                           class="btn btn-info bookingDetails">
+                           <i class="fa fa-info" ></i>  @Resource1.bookingDetails
+                        </a>
+                    </div>
+                    <!--this view will show patient views on current doctor-->
+                    <!--true value here to mean that this view is for users area not doctors area-->
+                    @{Html.RenderPartial("~/Areas/doctors/Views/Shared/patientViews.cshtml",true);}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!----end doctor profile-->
+<script>
+    /// <reference path="~/Areas/users/js/mainPage.js" />
+    onMainJsLoaded = function () {
+        loadLocalScript("/Areas/users/js/doctorJs.js", function (isLoaded) {
+            getPatientViewsOnDoctor(0,'@Model.id');
+            getCurrentPatientView('@Model.id');
+            mapDoctorServices('@Model.services');
+        });        
+    }
+</script>

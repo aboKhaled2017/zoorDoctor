@@ -1,0 +1,55 @@
+﻿@using tabeeb.Models;
+@using tabeeb.Areas.doctors.Models
+@model Tuple<bool,List<appointementData>,byte>
+@{
+    ViewBag.Title =Resource1.titleDoctorAppointement;
+    Layout = "~/Areas/doctors/Views/Shared/doctorLayout.cshtml";
+    bool bookingType = Model.Item1;
+    var appointements=Model.Item2;   
+    appointementData defaultAppointementForAllDayes = appointements.SingleOrDefault(ap => ap.dateOfBooking == null);
+    appointements.Remove(defaultAppointementForAllDayes);
+    var data = new Tuple<bool, byte, appointementData, List<appointementData>>
+        (bookingType,Model.Item3, defaultAppointementForAllDayes, appointements);
+    var scedualedDaysnumber=Model.Item3;
+    }
+<h2 class="pageHeader">@Resource1.appointementSetting</h2>
+<div class="AppointSetting">
+    <div class="form-group bookingType">
+        <label>
+            @Resource1.bookingType * <i class="loading-circle fa fa-circle-o-notch hidden"></i>
+        </label>
+        <div class="type">
+            <div>
+                <label>@Resource1.firstBookingType</label>
+                <input name="booking" type="radio" value="true" @if (bookingType) { Write("checked"); }  />
+            </div>
+            <div>
+                <label>@Resource1.secondBookingType</label> 
+                <input name="booking" type="radio" value="false" @if (!bookingType) { Write("checked");}>
+            </div>
+        </div>
+    </div>
+    <div class="scedualing">
+      <div class="pull-left">
+          <span>@Resource1.scedualingFor</span>
+          <input data-prevvalue="@scedualedDaysnumber" id="scedualedNumber" type="number" value="@scedualedDaysnumber" min="5" max="250" />
+          <span>@Resource1.daysFromNow</span>
+      </div>
+      <button class="btn btn-danger pull-right" onclick="changeAppointementScedualing(this)">@Resource1.changeScedualingDays
+          <i class="loading-circle fa fa-circle-o-notch hidden"></i>
+      </button>
+      <div class="clearfix"></div>
+      <div class="text-warning badge">@Resource1.minimusScedualedDays</div>
+    </div>
+    <section id="mainAppointementSection">
+        <!--this div[30 days schedualing] will be looped by javascript based on number of days sechedualed by doctor-->
+        <!--there are first 30 dayes of schedualing and doctor can increase this rang-->
+        <div class="monthAppointements"> 
+            @{
+                Html.RenderPartial("~/Areas/doctors/Views/doctor/priorityBasedApointements.cshtml", data);
+                Html.RenderPartial("~/Areas/doctors/Views/doctor/prescripedPeriodesBasedAppointements.cshtml", data);
+            }                                      
+        </div>
+    </section>
+</div>
+<script src="~/Areas/doctors/js/appointement.js"></script>

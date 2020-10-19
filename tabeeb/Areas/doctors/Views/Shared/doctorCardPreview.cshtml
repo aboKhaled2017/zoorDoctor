@@ -1,0 +1,74 @@
+﻿@using tabeeb.Models;
+@model Tuple<doctorInfo,string>
+@{
+    string id = (Model.Item2 == "en") ? "engProfileCard" : "arProfileCard";
+    doctorCard profileCardInfo = new doctorCard();
+    doctorInfo docInfo = Model.Item1;
+    var specialities = docInfo.doctor.specialities.Select(s => new { nameEng = s.nameEng, nameAr = s.nameAr }).ToList();
+    string spNameEng = "";
+    string spNameAr = "";
+    for (int i = 0; i < specialities.Count; i++)
+    {
+        var sp = specialities.ElementAt(i);
+        if (i == specialities.Count - 1)
+        {
+            spNameEng += sp.nameEng;
+            spNameAr += sp.nameAr;
+        }
+        else
+        {
+            spNameEng += sp.nameEng + " and ";
+            spNameAr += sp.nameAr + " و ";
+        }
+    }
+    if(Model.Item2=="en")
+    {
+        //this is for english profile
+        profileCardInfo.rate = 0;
+        profileCardInfo.viewers = 0;
+        profileCardInfo.timing = docInfo.availableTimeEng;
+        profileCardInfo.spName = spNameEng;
+        profileCardInfo.price = docInfo.examinFees; ;
+        profileCardInfo.phone = docInfo.doctor.phone;
+        profileCardInfo.fname = docInfo.fnameEng;
+        profileCardInfo.lname = docInfo.lnameEng;
+        profileCardInfo.image = docInfo.image;
+        profileCardInfo.id = docInfo.doctorID;
+        profileCardInfo.clinicAddress = docInfo.clinicAddressEng;
+        profileCardInfo.education = docInfo.education;
+    }
+    else
+    {
+        //this is for arabic profile
+        profileCardInfo.rate = 0;
+        profileCardInfo.viewers = 0;
+        profileCardInfo.timing = docInfo.availableTimeAr;
+        profileCardInfo.spName = spNameAr;
+        profileCardInfo.price = docInfo.examinFees; ;
+        profileCardInfo.phone = docInfo.doctor.phone;
+        profileCardInfo.fname = docInfo.fnameAr;
+        profileCardInfo.lname = docInfo.lnameAr; ;
+        profileCardInfo.image = docInfo.image;
+        profileCardInfo.id = docInfo.doctorID;
+        profileCardInfo.clinicAddress = docInfo.clinicAddressAr;
+        profileCardInfo.education = docInfo.education;
+    }
+}
+<div class="modal fade" id="@id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="overlay hidden">
+                <div class="center-block"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+            </div>
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                @{                  
+                    Html.RenderPartial("~/Areas/users/Views/Shared/doctorCard.cshtml", new Tuple<doctorCard, string>(profileCardInfo, Model.Item2)); 
+                 }              
+            </div>
+        </div>
+    </div>
+</div>

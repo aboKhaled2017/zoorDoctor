@@ -1,0 +1,912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4002716-1511-4D55-A491-84F84ECDE4C6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tabeeb</RootNamespace>
+    <AssemblyName>tabeeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44302</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="tabeebekEntities-Deployment" Order="1" Description="">
+          <Destination Path="Data Source=.%3bInitial Catalog=tabeebek%3bIntegrated Security=True" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=.%3bInitial Catalog=tabeebek%3bIntegrated Security=True%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\tabeebekEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+          <Object Type="DbFullSql" xmlns="">
+            <Source Path="G:\tabeeb.sql" Transacted="False" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <DeployEncryptKey>AAaa123123</DeployEncryptKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\css\adminMediaStyle.css" />
+    <Content Include="Areas\Admin\css\adminStyle.css" />
+    <Content Include="Areas\Admin\js\adminJs.js" />
+    <Content Include="Areas\Admin\js\adminTable.js" />
+    <Content Include="Areas\doctors\css\doctorMedia.css" />
+    <Content Include="Areas\doctors\css\doctorStyle.css" />
+    <Content Include="Areas\doctors\css\doctorStyleAr.css" />
+    <Content Include="Areas\doctors\js\appointement.js" />
+    <Content Include="Areas\doctors\js\ar-EG.js" />
+    <Content Include="Areas\doctors\js\doctorJS.js" />
+    <Content Include="Areas\doctors\js\doctorPageJs.js" />
+    <Content Include="Areas\doctors\js\en-US.js" />
+    <Content Include="Areas\doctors\js\extensionFunctions.js" />
+    <Content Include="Areas\doctors\js\profileJs.js" />
+    <Content Include="Areas\doctors\js\registerJs.js" />
+    <Content Include="Areas\users\cssMinified\default-theme.css" />
+    <Content Include="Areas\users\cssMinified\media.css" />
+    <Content Include="Areas\users\cssMinified\media_mobile.css" />
+    <Content Include="Areas\users\cssMinified\secNavStyle.css" />
+    <Content Include="Areas\users\cssMinified\style.css" />
+    <Content Include="Areas\users\cssMinified\styleEng.css" />
+    <Content Include="Areas\users\css\default-theme.css" />
+    <Content Include="Areas\users\css\media.css" />
+    <Content Include="Areas\users\css\media_mobile.css" />
+    <Content Include="Areas\users\css\secNavStyle.css" />
+    <Content Include="Areas\users\css\style.css" />
+    <Content Include="Areas\users\css\styleEng.css" />
+    <Content Include="Areas\users\jsMinified\ar-EG-JS.js" />
+    <Content Include="Areas\users\jsMinified\doctorJs.js" />
+    <Content Include="Areas\users\jsMinified\en-US-Js.js" />
+    <Content Include="Areas\users\jsMinified\extension.js" />
+    <Content Include="Areas\users\jsMinified\mainJS.js" />
+    <Content Include="Areas\users\jsMinified\mainPage.js" />
+    <Content Include="Areas\users\jsMinified\patient.js" />
+    <Content Include="Areas\users\jsMinified\registerAndLogin.js" />
+    <Content Include="Areas\users\jsMinified\reservingJs.js" />
+    <Content Include="Areas\users\jsMinified\sdk.js" />
+    <Content Include="Areas\users\jsMinified\secNav.js" />
+    <Content Include="Areas\users\js\ar-EG-JS.js" />
+    <Content Include="Areas\users\js\doctorJs.js" />
+    <Content Include="Areas\users\js\en-US-Js.js" />
+    <Content Include="Areas\users\js\extension.js" />
+    <Content Include="Areas\users\js\mainJS.js" />
+    <Content Include="Areas\users\js\mainPage.js" />
+    <Content Include="Areas\users\js\patient.js" />
+    <Content Include="Areas\users\js\registerAndLogin.js" />
+    <Content Include="Areas\users\js\reservingJs.js" />
+    <Content Include="Areas\users\js\sdk.js" />
+    <Content Include="Areas\users\js\secNav.js" />
+    <Content Include="Areas\users\spImages\default.png" />
+    <Content Include="Areas\users\spImages\im1.png" />
+    <Content Include="Areas\users\spImages\im10.png" />
+    <Content Include="Areas\users\spImages\im11.png" />
+    <Content Include="Areas\users\spImages\im12.png" />
+    <Content Include="Areas\users\spImages\im13.png" />
+    <Content Include="Areas\users\spImages\im14.png" />
+    <Content Include="Areas\users\spImages\im15.png" />
+    <Content Include="Areas\users\spImages\im16.png" />
+    <Content Include="Areas\users\spImages\im17.png" />
+    <Content Include="Areas\users\spImages\im18.png" />
+    <Content Include="Areas\users\spImages\im19.png" />
+    <Content Include="Areas\users\spImages\im2.png" />
+    <Content Include="Areas\users\spImages\im20.png" />
+    <Content Include="Areas\users\spImages\im21.png" />
+    <Content Include="Areas\users\spImages\im22.png" />
+    <Content Include="Areas\users\spImages\im23.png" />
+    <Content Include="Areas\users\spImages\im24.png" />
+    <Content Include="Areas\users\spImages\im25.png" />
+    <Content Include="Areas\users\spImages\im3.png" />
+    <Content Include="Areas\users\spImages\im4.png" />
+    <Content Include="Areas\users\spImages\im5.png" />
+    <Content Include="Areas\users\spImages\im6.png" />
+    <Content Include="Areas\users\spImages\im7.png" />
+    <Content Include="Areas\users\spImages\im8.png" />
+    <Content Include="Areas\users\spImages\im9.png" />
+    <Content Include="bin\tabeeb.dll" />
+    <Content Include="Content\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\blue-theme.css" />
+    <Content Include="css\bootstrap-ar.css" />
+    <Content Include="css\bootstrap-select.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\commonDoctorsAndUsers.css" />
+    <Content Include="css\commonMediaDoctorsAndUsers.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="icon\logo - Copy.png" />
+    <Content Include="icon\video.png" />
+    <Content Include="images\3324.jpg" />
+    <Content Include="images\ajax-loading.gif" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\lastLogo.png" />
+    <Content Include="images\logo3.png" />
+    <Content Include="images\male-doctor.png" />
+    <Content Include="images\mobile.png" />
+    <Content Include="images\resrevDone.png" />
+    <Content Include="images\team1.jpg" />
+    <Content Include="images\team2.jpg" />
+    <Content Include="images\team4.jpg" />
+    <Content Include="images\team3.jpg" />
+    <Content Include="Areas\users\Views\advices\advices.cshtml" />
+    <Content Include="Areas\users\Views\index\aboutUsSection.cshtml" />
+    <Content Include="Areas\users\Views\index\callUsSection.cshtml" />
+    <Content Include="Areas\users\Views\index\doctorPage.cshtml" />
+    <Content Include="Areas\users\Views\index\errorAction.cshtml" />
+    <Content Include="Areas\users\Views\index\footer.cshtml" />
+    <Content Include="Areas\users\Views\index\index.cshtml" />
+    <Content Include="Areas\users\Views\index\ourServicesSection.cshtml" />
+    <Content Include="Areas\users\Views\index\privacy.cshtml" />
+    <Content Include="Areas\users\Views\index\rulesAndCondition.cshtml" />
+    <Content Include="Areas\users\Views\index\socialMediaSection.cshtml" />
+    <Content Include="Areas\users\Views\index\statisticsSection.cshtml" />
+    <Content Include="Areas\users\Views\index\videoSection.cshtml" />
+    <Content Include="Areas\users\Views\index\videoSection.mobile.cshtml" />
+    <Content Include="Areas\users\Views\patient\appointements.cshtml" />
+    <Content Include="Areas\users\Views\patient\changePassword.cshtml" />
+    <Content Include="Areas\users\Views\patient\externalProfile.cshtml" />
+    <Content Include="Areas\users\Views\patient\login.cshtml" />
+    <Content Include="Areas\users\Views\patient\mailView.cshtml" />
+    <Content Include="Areas\users\Views\patient\profile.cshtml" />
+    <Content Include="Areas\users\Views\patient\register.cshtml" />
+    <Content Include="Areas\users\Views\patient\rememberPassword.cshtml" />
+    <Content Include="Areas\users\Views\reservation\doctorReservingsPage.cshtml" />
+    <Content Include="Areas\users\Views\reservation\thankYouForBooking.cshtml" />
+    <Content Include="Areas\users\Views\search\search.cshtml" />
+    <Content Include="Areas\users\Views\search\searchFor.cshtml" />
+    <Content Include="Areas\users\Views\Shared\adviceRecord.cshtml" />
+    <Content Include="Areas\users\Views\Shared\colorBox.cshtml" />
+    <Content Include="Areas\users\Views\Shared\doctorCard.cshtml" />
+    <Content Include="Areas\users\Views\Shared\headContent.cshtml" />
+    <Content Include="Areas\users\Views\Shared\headContent.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Shared\layout.cshtml" />
+    <Content Include="Areas\users\Views\Shared\loginOrSignUp.cshtml" />
+    <Content Include="Areas\users\Views\Shared\navBar.cshtml" />
+    <Content Include="Areas\users\Views\Shared\navBar.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Shared\pagination.cshtml" />
+    <Content Include="Areas\users\Views\Shared\reservationForm.cshtml" />
+    <Content Include="Areas\users\Views\Shared\reserving.cshtml" />
+    <Content Include="Areas\users\Views\Shared\reserving.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Shared\reservingAppointements.cshtml" />
+    <Content Include="Areas\users\Views\Shared\searchBar.cshtml" />
+    <Content Include="Areas\users\Views\Shared\searchBar.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Shared\showDoctorCards.cshtml" />
+    <Content Include="Areas\users\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\colorBox.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\doctorAdvice.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\doctorCard.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\doctorCardOnClicked.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\doctorInformationPage.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\footerAr.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\footerEng.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\headContent.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\layout.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\layoutEng.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\loginOrSignUp.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\pagination.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\reserving.cshtml" />
+    <Content Include="Areas\users\Views\Shared_2_2\searchBar.cshtml" />
+    <Content Include="Areas\users\Views\specialities\getSpecialityDoctors.cshtml" />
+    <Content Include="Areas\users\Views\specialities\specialities.cshtml" />
+    <Content Include="Areas\users\Views\web.config" />
+    <Content Include="Areas\users\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\users\Views\Views\advices\advices.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\aboutUsSection.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\callUsSection.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\doctorPage.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\errorAction.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\footer.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\index.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\ourServicesSection.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\privacy.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\rulesAndCondition.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\searchresult.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\socialMediaSection.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\statisticsSection.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\videoSection.cshtml" />
+    <Content Include="Areas\users\Views\Views\index\videoSection.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\appointements.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\changePassword.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\externalProfile.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\login.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\mailView.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\profile.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\register.cshtml" />
+    <Content Include="Areas\users\Views\Views\patient\rememberPassword.cshtml" />
+    <Content Include="Areas\users\Views\Views\reservation\doctorReservingsPage.cshtml" />
+    <Content Include="Areas\users\Views\Views\reservation\reservation.cshtml" />
+    <Content Include="Areas\users\Views\Views\reservation\thankYouForBooking.cshtml" />
+    <Content Include="Areas\users\Views\Views\search\doctorInfo.cshtml" />
+    <Content Include="Areas\users\Views\Views\search\fastSearch.cshtml" />
+    <Content Include="Areas\users\Views\Views\search\quickSearch.cshtml" />
+    <Content Include="Areas\users\Views\Views\search\search 2.cshtml" />
+    <Content Include="Areas\users\Views\Views\search\search.cshtml" />
+    <Content Include="Areas\users\Views\Views\search\searchFor.cshtml" />
+    <Content Include="Areas\users\Views\Views\search\searchFor2.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\adviceRecord.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\colorBox.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\doctorAdvice.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\doctorAdviceCard.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\doctorCard.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\doctorCardOnClicked.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\doctorInformationPage.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\footerAr.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\footerEng.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\headContent.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\headContent.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\layout.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\layoutEng.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\loginOrSignUp.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\navBar.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\navBar.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\pagination.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\reservationForm.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\reserving.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\reserving.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\reservingAppointements.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\reservingEng.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\searchBar.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\searchBar.mobile.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\showDoctorCards.cshtml" />
+    <Content Include="Areas\users\Views\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\users\Views\Views\specialities\getSpecialityDoctors.cshtml" />
+    <Content Include="Areas\users\Views\Views\specialities\specialities.cshtml" />
+    <Content Include="Areas\users\Views\Views\web.config" />
+    <Content Include="Areas\users\Views\Views\_ViewStart.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="js\ImageTools.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="icon\0117cb0129593faa02646a8277ca80e3-security-lock-icon-by-vexels.png" />
+    <Content Include="icon\1600.png" />
+    <Content Include="icon\27705-200.png" />
+    <Content Include="icon\admin.png" />
+    <Content Include="icon\age1.png" />
+    <Content Include="icon\ajax-loader.gif" />
+    <Content Include="icon\audience_growth_chart-512.png" />
+    <Content Include="icon\audience_trends-512.png" />
+    <Content Include="icon\Blood_Pressure_Kit-512.png" />
+    <Content Include="icon\dentist.png" />
+    <Content Include="icon\doc.png" />
+    <Content Include="icon\doctor-1650291_960_720.png" />
+    <Content Include="icon\doctor-icon-png-1.png" />
+    <Content Include="icon\hop1.png" />
+    <Content Include="icon\hospital.png" />
+    <Content Include="icon\hospital11.png" />
+    <Content Include="icon\icon1.png" />
+    <Content Include="icon\icon2.png" />
+    <Content Include="icon\icon3.png" />
+    <Content Include="icon\icon4.png" />
+    <Content Include="icon\icon5.png" />
+    <Content Include="icon\lab.png" />
+    <Content Include="icon\lab1.png" />
+    <Content Include="icon\loading.gif" />
+    <Content Include="icon\log-in-480.png" />
+    <Content Include="icon\logo.png" />
+    <Content Include="icon\marker.png" />
+    <Content Include="icon\marker1.png" />
+    <Content Include="icon\Medical-23-512.png" />
+    <Content Include="icon\medical_shopping-512.png" />
+    <Content Include="icon\Medicine Stethoscope.ico" />
+    <Content Include="icon\medicine-syringe-icon-29.png" />
+    <Content Include="icon\micro.png" />
+    <Content Include="icon\microscope.png" />
+    <Content Include="icon\patient-icon-9.png" />
+    <Content Include="icon\patient.png" />
+    <Content Include="icon\people.png" />
+    <Content Include="icon\pharm.png" />
+    <Content Include="icon\pharm1.png" />
+    <Content Include="icon\Pharmacy.png" />
+    <Content Include="icon\phone1.png" />
+    <Content Include="icon\price1.png" />
+    <Content Include="icon\rays.png" />
+    <Content Include="icon\rays1.png" />
+    <Content Include="icon\register-secure-security-user-login-icon--7.png" />
+    <Content Include="icon\registernav.png" />
+    <Content Include="icon\search-icon-png-0.png" />
+    <Content Include="icon\search.png" />
+    <Content Include="icon\servs.png" />
+    <Content Include="icon\servs1.png" />
+    <Content Include="icon\sp1.png" />
+    <Content Include="icon\sp2.png" />
+    <Content Include="icon\speciality.png" />
+    <Content Include="icon\statistics-icon-28058.png" />
+    <Content Include="icon\time1.png" />
+    <Content Include="icon\type1.png" />
+    <Content Include="icon\user1.png" />
+    <Content Include="icon\User_group_man_people_users_male.png" />
+    <Content Include="icon\v1.png" />
+    <Content Include="icon\vid1.png" />
+    <Content Include="icon\vid2.png" />
+    <Content Include="icon\vid22.png" />
+    <Content Include="icon\vid3.png" />
+    <Content Include="icon\video2.png" />
+    <Content Include="icon\video1.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\wow.min.js" />
+    <Content Include="Areas\Admin\Views\reserving\reserving.cshtml" />
+    <Content Include="Areas\Admin\Views\adv\adv.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\complains\doctorComplains.cshtml" />
+    <Content Include="Areas\Admin\Views\complains\patientComplains.cshtml" />
+    <Content Include="Areas\Admin\Views\complains\generalComplains.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\pagingControl.cshtml" />
+    <Content Include="Areas\doctors\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\doctors\Views\Shared\doctorLayout.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\account.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\appointementPage.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\doctorPage.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\profile.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\register.cshtml" />
+    <Content Include="client_secret.json" />
+    <Content Include="Areas\doctors\Views\doctor\resetPassword.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\changePassword.cshtml" />
+    <Content Include="Content\bootstrap-select.css.map" />
+    <Content Include="Areas\doctors\Views\doctor\passwordchanged.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\LoginModal.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\contactUs.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\termOfUse.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\doctorCardPreview.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\doctors\Views\doctor\doctorStatus.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\adviceRecord.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\commentOnAdvice.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\doctorReservings.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\doctorAdvices.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\patientViews.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\priorityBasedApointements.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\prescripedPeriodesBasedAppointements.cshtml" />
+    <Content Include="Areas\doctors\Views\doctor\mailView.cshtml" />
+    <Content Include="Areas\doctors\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\doctors\Views\Shared\addDoctorAdvice.cshtml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\external.pubxml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
+    <None Include="Properties\PublishProfiles\zoor-Doctor-ftb.pubxml" />
+    <None Include="Properties\PublishProfiles\zoor-doctor.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="js\jquery-3.1.1.js" />
+    <Content Include="js\jquery-3.1.1.min.js" />
+    <Content Include="Areas\Admin\images\default.png" />
+    <Content Include="Views\mainJS.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\bundlCreation.cs" />
+    <Compile Include="App_Start\AreaAuthorizeAttribute.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="areaAuthorize.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\accountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\adminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\advController.cs" />
+    <Compile Include="Areas\Admin\Controllers\complainsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\doctorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\indexController.cs" />
+    <Compile Include="Areas\Admin\Controllers\mainController.cs" />
+    <Compile Include="Areas\Admin\Controllers\patientController.cs" />
+    <Compile Include="Areas\Admin\Controllers\reservingController.cs" />
+    <Compile Include="Areas\Admin\Models\advPages.cs" />
+    <Compile Include="Areas\doctors\Models\cityData.cs" />
+    <Compile Include="Areas\doctors\Models\destrictData.cs" />
+    <Compile Include="Areas\doctors\Controllers\doctorController.cs" />
+    <Compile Include="Areas\doctors\Controllers\mainController.cs" />
+    <Compile Include="Areas\doctors\Controllers\partialDoctor.cs" />
+    <Compile Include="Areas\doctors\doctorsAreaRegistration.cs" />
+    <Compile Include="Areas\doctors\languages\Resource1.ar-EG.Designer.cs">
+      <DependentUpon>Resource1.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\doctors\languages\Resource1.Designer.cs">
+      <DependentUpon>Resource1.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\doctors\Models\appointementData.cs" />
+    <Compile Include="Areas\doctors\Models\cookieData.cs" />
+    <Compile Include="Areas\doctors\Models\doctorPageInfo.cs" />
+    <Compile Include="Areas\doctors\Models\specialityData.cs" />
+    <Compile Include="Areas\doctors\Models\subSpecialityData.cs" />
+    <Compile Include="Areas\users\Controllers\advicesController.cs" />
+    <Compile Include="Areas\users\Controllers\indexController.cs" />
+    <Compile Include="Areas\users\Controllers\mainController.cs" />
+    <Compile Include="Areas\users\Controllers\patientController.cs" />
+    <Compile Include="Areas\users\Controllers\reservationController.cs" />
+    <Compile Include="Areas\users\Controllers\searchController.cs" />
+    <Compile Include="Areas\users\Controllers\specialitiesController.cs" />
+    <Compile Include="Areas\users\languages\Resource1.ar-EG.Designer.cs" />
+    <Compile Include="Areas\users\languages\Resource1.Designer.cs" />
+    <Compile Include="Areas\users\Models\adviceCard.cs" />
+    <Compile Include="Areas\users\Models\doctorDataList.cs" />
+    <Compile Include="Areas\users\Models\externaluserProfile.cs" />
+    <Compile Include="Areas\users\Models\reservingData.cs" />
+    <Compile Include="Areas\users\Models\searchItems.cs" />
+    <Compile Include="Areas\users\Models\specialityDescription.cs" />
+    <Compile Include="Areas\users\Models\specialityWithDoctorsData.cs" />
+    <Compile Include="Areas\users\Models\thankForBookingData.cs" />
+    <Compile Include="Areas\users\Models\userCookieData.cs" />
+    <Compile Include="Areas\users\usersAreaRegistration.cs" />
+    <Compile Include="Controllers\extentions.cs" />
+    <Compile Include="Controllers\globalController.cs" />
+    <Compile Include="Models\admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\adv.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\advice.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\advRelatedPage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\appointement.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Applications.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetUserByUserId_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Paths.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Profile.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_SchemaVersions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_WebEvent_Events.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\checkSpecialityID.cs" />
+    <Compile Include="Models\city.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\commentOnAdvice.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\complain.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\destrict.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\doctor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\doctorAccountData.cs" />
+    <Compile Include="Controllers\apiController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\checkValueNoeEqual.cs" />
+    <Compile Include="Models\doctorCard.cs" />
+    <Compile Include="Models\doctorInfo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\doctorInfoValidate.cs" />
+    <Compile Include="Models\doctorValidate.cs" />
+    <Compile Include="Models\emailNoeExists.cs" />
+    <Compile Include="Models\externalPatient.cs" />
+    <Compile Include="Models\func_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getSearchResult_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\noDuplicatedPhone.cs" />
+    <Compile Include="Models\page.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\paginationInfo.cs" />
+    <Compile Include="Models\patient.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\patientValidate.cs" />
+    <Compile Include="Models\patientView.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\reserving.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\resetPasswordRequest.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\speciality.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subSpeciality.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userNameNotExists.cs" />
+    <Compile Include="Models\userVerification.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Applications.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Profiles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_WebPartState_User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\websiteInformation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Areas\Admin\Views\account\logIn.cshtml" />
+    <Content Include="Areas\Admin\Views\adminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\admin\admin.cshtml" />
+    <Content Include="Areas\Admin\Views\admin\myProfile.cshtml" />
+    <Content Include="Areas\Admin\Views\doctor\doctor.cshtml" />
+    <Content Include="Areas\Admin\Views\index\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\patient\patient.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Shared\doctorCardDetails.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\main\" />
+    <Folder Include="Areas\doctors\doctorImages\" />
+    <Folder Include="Areas\doctors\profImages\" />
+    <Folder Include="videos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Areas\doctors\languages\Resource1.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.ar-EG.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\doctors\languages\Resource1.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\users\languages\Resource1.ar-EG.resx" />
+    <EmbeddedResource Include="Areas\users\languages\Resource1.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>27241</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27241/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:27241</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost:27241/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

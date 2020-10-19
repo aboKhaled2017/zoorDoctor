@@ -1,0 +1,63 @@
+﻿
+@{
+    Page.Title = Resource1.titleLogin;
+    Layout = Html.getUsersSiteLayout();
+}
+
+<section class="login-section">
+    <div class="login-box center-block">
+        <h2>@Resource1.loginHeading</h2>
+        <div class="login center-block">
+            <form action="login" method="post">
+                <div class="form-group errorMessage">
+                    <p>@TempData["error"] </p>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <i class="fa fa-user fa-lg"></i> @Resource1.userName<i class="fa fa-star fa-xs"></i>
+                    </label>
+                    <input type="text" name="name" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <i class="fa fa-eye fa-lg"></i> @Resource1.passString <i class="fa fa-star fa-xs"></i>
+                    </label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg form-control"><i class="fa fa-send fa-lg"></i> @Resource1.login</button>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="checkbox" name="rememberMe" value="false" onchange="if (rememberMe.value == 'false') $(this).val(true); else $(this).val(false)">
+                        <label>@Resource1.rememberMe</label>
+                    </div>
+                    <div>
+                        <a href="/@Html.getDefaultPathFor("users","patient")/rememberPassword">@Resource1.forgotPassword</a>
+                    </div>
+                </div>
+                <div class="circle">
+                    @Resource1.or
+                </div>
+            </form>
+            <div class="another-login text-center">
+                <div class="facebook">
+                    <button class="btn"><i class="fa fa-facebook fa-lg"></i></button>
+                    <button class="btn" data-type="login" onclick="facebookLogin(this)">@Resource1.facebookLogin</button>
+                </div>
+                <div class="gmail">
+                    <button class="btn"><i class="fa fa-google-plus fa-lg"></i></button>
+                    <button data-type="login" class="btn" id="googleSignIn">@Resource1.googleLogin</button>
+                </div>
+                <div class="new-login">
+                    <p>@Resource1.AreYouNewerUser</p>
+                    <a href="/@Html.getDefaultPathFor("users","patient")/register">@Resource1.signNow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    /// <reference path="mainPage.js" />
+        onMainJsLoaded = function (isMainJsLoaded) {loadLocalScript('/Areas/users/js/registerAndLogin.js'); }
+</script>

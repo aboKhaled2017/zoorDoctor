@@ -1,0 +1,119 @@
+﻿@model Tuple<List<specialityWithDoctorsData>, List<adviceCard>, paginationInfo>
+@{
+    ViewBag.Title = Resource1.advicesPageTitle;
+    Layout = Html.getUsersSiteLayout();
+    var specialityDataList = Model.Item1;
+    var advicesCards = Model.Item2;
+    var pagingInfo = Model.Item3;
+    List<Tuple<Guid, string>> allDoctors = new List<Tuple<Guid, string>>();
+    foreach (var speciality in specialityDataList)
+    {
+        var doctors=speciality.doctors;
+        foreach (var doc in doctors)
+        {
+            allDoctors.Add(new Tuple<Guid, string>(doc.Item1,doc.Item2));
+        }
+    }
+    allDoctors=allDoctors.Distinct().ToList();
+}
+<!--start advices page for patients-->
+<section id="patientAdvices" class="patients-advices">
+    <!--start headline page-->
+    <div class="page-headline">
+        <h1 class="text-center">@Resource1.advicesPage</h1>
+        <h4 class="text-center">@Resource1.searchForAdvice</h4>
+    </div>
+    <!--end headline page-->
+    <!--start doctor form------------------>
+    <div class="doc-form">
+        <div class="container-fluid">
+            <form class="form-inline row center-block" action="/@Html.getDefaultPathFor("users","advices")">
+                <div class="col-sm-4 col-xs-12 form-group">
+                    <label><i class="fa fa-stethoscope fa-lg"></i> @Resource1.selectSpeciality</label>
+                    <select class="form-control" onchange="filterDoctorBasedOnSp(this)" name="spID">
+                        <option value="0" selected>........</option>
+                        @foreach (var speciality in specialityDataList)
+                        {
+                            <option value="@speciality.id" data-childs="@Json.Encode(speciality.doctors.Select(d=>d.Item1))">@speciality.name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-8 col-xs-12 form-group" style="position:relative">
+                    <label><i class="fa fa-user-md fa-lg"></i> @Resource1.writeDoctorName</label>
+                    <input type="hidden" id="doctorID" name="doctorID" />
+                    <input class="form-control doctorID" placeholder="@Resource1.doctorName"
+                           onkeyup="searchForDoctorName(this)"
+                           onfocus="$(this).next().removeClass('hidden')">                  
+                    <ul class="hidden selectDoctor list-unstyled">
+                        @foreach (var doctor in allDoctors)
+                        {
+                            <li onclick="setInputVal(this);" data-value="@doctor.Item1" class="selected">@doctor.Item2</li>
+                        }
+                    </ul>
+                    <button class="btn btn-lg" type="submit">
+                        <i class="fa fa-search fa-lg"></i>  @Resource1.search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--end doctor form------------------------>
+    <!--start all advices---------------->    
+    <div id="advicesPage">
+        <h3 class="text-center main-color">
+            <i class="fa fa-info fa-lg"></i> @Resource1.doctorAdvices
+        </h3>
+        @if(advicesCards.Count==0)
+        {
+            <div class="alert alert-danger">@Resource1.noResultMatch</div>
+        }
+        else
+        {
+        <div class="doc-prev-advices">
+            <div class="container-fluid advices">
+                @foreach (var adviceCard in advicesCards)
+                {
+                  Html.RenderPartial("adviceRecord",adviceCard);                   
+                }             
+            </div>
+        </div>
+        }
+    </div>
+    <!--end of all-advices section here-->
+    <div class="pull-left btn-group pagination" id="pagination">
+        @{
+            List<Tuple<string, string>> parameters = new List<Tuple<string, string>>();
+            foreach (var key in Request.QueryString.Keys)
+            {
+               string value = Request.getQueryStringValue(key.ToString());
+               if (!string.IsNullOrEmpty(value))
+               {
+                   parameters.Add(new Tuple<string,string>(key.ToString(),value));
+               }
+            } 
+        }
+        @Html.paginationLinks(pagingInfo, n =>
+         Html.pageActionLink("users", "advices", parameters,
+           p =>
+           {
+               var oldPgaeNumber = p.FirstOrDefault(param => param.Item1 == "pageNumber");
+               p.Remove(oldPgaeNumber);
+               p.Add(new Tuple<string, string>("pageNumber", n.ToString()));
+           }).ToString());
+    </div>   
+</section>
+<!--modals will be displayed on need-->
+@{Html.RenderPartial("~/Areas/doctors/Views/Shared/commentOnAdvice.cshtml", false);}
+<!--modals-->
+<!--this section will contains divs that will be cloned and copied by javascript to used it-->
+
+<script>
+    /// <reference path="~/Areas/users/js/mainPage.js" />
+    onMainJsLoaded = function () {
+        loadLocalScript("/Areas/users/js/doctorJs.js", function (isLoaded) {
+            //getDocorAdvices();
+        });
+    }
+</script>
+ 
+

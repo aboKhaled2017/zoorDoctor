@@ -1,0 +1,47 @@
+﻿@model List<string>
+<footer>
+    <div class="scroll-btn center-block text-center pull-right">
+        <i class="fa fa-chevron-up fa-lg"></i>
+    </div>
+    <div class="upper-part">
+        <div class="container-fluid">
+            <div class="row center-block">
+                <div class="col-md-2 col-sm-3 col-xs-12 pages">
+                    <h3>@Resource1.pages</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="/">@Resource1.home</a></li>
+                        <li><a href="/@Html.getDefaultPathFor("users", "specialities")">@Resource1.Specialities</a></li>
+                        <li><a href="/@Html.getDefaultPathFor("doctors")" target="_blank">@Resource1.doctorSite</a></li>
+                        <li><a href="/@Html.getDefaultPathFor("users","search")">@Resource1.search</a></li>
+                        <li><a href="/@Html.getDefaultPathFor("users","advices")">@Resource1.doctorAdvices</a></li>
+                        <li><a href="/privacy">@Resource1.privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-9 col-xs-12 speciality">
+                    <h3>@Resource1.Specialities</h3>
+                    <ul class="three-column list-unstyled">
+                        @foreach (var specialityname in Model)
+                        {
+                            <li>                                
+                              <a href="/@Html.getDefaultPathFor("users", "specialities")/@specialityname">@specialityname</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-lg-5 col-md-4 col-xs-12">
+                    <div class="adv center-block text-center">
+                        <h2>@Resource1.downloadAppNow</h2>
+                        <p>@Resource1.downloadAppDescription</p>
+                        <img src="~/images/mobile.png" class="center-block">
+                        <button>
+                            <i class="fa fa-download fa-lg"> @Resource1.directDownload</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lower-part text-center ">
+        @Resource1.rightReserverdForTabeebakUsers
+    </div>
+</footer>

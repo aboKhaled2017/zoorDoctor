@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutCallUs" xml:space="preserve">
+    <value> you can send your suggestion or point of view about site</value>
+  </data>
+  <data name="aboutDocReserve" xml:space="preserve">
+    <value>The aim of our company to access and reservation by doctors easy, simple and highly efficient, saving time and effort in the patient and reduce congestion</value>
+  </data>
+  <data name="aboutHospitals" xml:space="preserve">
+    <value>Zoor Doctor provides you with direct contact with a wide range of hospitals, access to prices and services, and the possibility of booking services</value>
+  </data>
+  <data name="aboutLabAnalysis" xml:space="preserve">
+    <value>Zoor Doctor provides you with a comprehensive guide to places of services and prices of laboratories and medical analysis near you with the possibility of electronic booking without trouble</value>
+  </data>
+  <data name="aboutOtherServices" xml:space="preserve">
+    <value>We provide you with comprehensive services to find out the availability of places in hospitals, hospitals, ambulances and medical supplies</value>
+  </data>
+  <data name="aboutPharmacies" xml:space="preserve">
+    <value>Zoor Doctor provides you with a comprehensive guide to the places of pharmacies close to where you are and the services available without worrying about your presence in any place you do not know</value>
+  </data>
+  <data name="aboutPolicy" xml:space="preserve">
+    <value>Our site does not contain any files that infringe our property rights</value>
+  </data>
+  <data name="aboutRays" xml:space="preserve">
+    <value>Zoor Doctor provides you with a comprehensive guide to the location and services of the nearest radiation center from your place of residence as well as the electronic reservation service and saves you time and effort</value>
+  </data>
+  <data name="aboutSearchnotice" xml:space="preserve">
+    <value>To improve your search results, please select an item from each section because if you do not select an item ,all search result will be appear to you.</value>
+  </data>
+  <data name="aboutTabeebakSite" xml:space="preserve">
+    <value>A company that aims to reach an integrated medical network through medical services and it is easy for the user to access it at the time he wants to sign information about the services and places of availability and prices and access to it without any trouble</value>
+  </data>
+  <data name="advices" xml:space="preserve">
+    <value>Advices</value>
+  </data>
+  <data name="advicesPage" xml:space="preserve">
+    <value>Advices page</value>
+  </data>
+  <data name="allDestricts" xml:space="preserve">
+    <value>All destricts</value>
+  </data>
+  <data name="anylisisCenter" xml:space="preserve">
+    <value>Analysis Center</value>
+  </data>
+  <data name="areWe" xml:space="preserve">
+    <value>who are we??</value>
+  </data>
+  <data name="bookingDetails" xml:space="preserve">
+    <value>Booking Details</value>
+  </data>
+  <data name="browsing The Speciality" xml:space="preserve">
+    <value>browsing The Speciality</value>
+  </data>
+  <data name="callUs" xml:space="preserve">
+    <value>Call Us</value>
+  </data>
+  <data name="cannotAccessPageLoginFirst" xml:space="preserve">
+    <value>You have no permission for accessing this page ,you must be logged in first in order to access the page</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>comment</value>
+  </data>
+  <data name="complainDone" xml:space="preserve">
+    <value>Your complaint has been sent and will be answered to you as soon as possible on your email</value>
+  </data>
+  <data name="complainThank" xml:space="preserve">
+    <value>Thank you for submitting your suggesion</value>
+  </data>
+  <data name="completeName" xml:space="preserve">
+    <value>complete name</value>
+  </data>
+  <data name="doctoor" xml:space="preserve">
+    <value>Dr.</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>doctor</value>
+  </data>
+  <data name="doctorEducation" xml:space="preserve">
+    <value>Doctor title</value>
+  </data>
+  <data name="doctorName" xml:space="preserve">
+    <value>Doctor name</value>
+  </data>
+  <data name="doctorReserve" xml:space="preserve">
+    <value>Booking a doctor</value>
+  </data>
+  <data name="doctors" xml:space="preserve">
+    <value>doctors</value>
+  </data>
+  <data name="doctorVisits" xml:space="preserve">
+    <value>doctor visitors</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>e-mail</value>
+  </data>
+  <data name="examinPrice" xml:space="preserve">
+    <value>Examin fee</value>
+  </data>
+  <data name="fastSearch" xml:space="preserve">
+    <value>Quick Search</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>female</value>
+  </data>
+  <data name="from100To200" xml:space="preserve">
+    <value>from 100 to 200</value>
+  </data>
+  <data name="from50To100" xml:space="preserve">
+    <value>from 50 to 100</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>gender</value>
+  </data>
+  <data name="giveComment" xml:space="preserve">
+    <value>Give your comment</value>
+  </data>
+  <data name="helpingServices" xml:space="preserve">
+    <value>Services help you</value>
+  </data>
+  <data name="helpingVideos" xml:space="preserve">
+    <value>Watch the video by booking, recording and searching the site</value>
+  </data>
+  <data name="hideComments" xml:space="preserve">
+    <value>Hide comments</value>
+  </data>
+  <data name="hospitals" xml:space="preserve">
+    <value>hospitals</value>
+  </data>
+  <data name="labAnalysis" xml:space="preserve">
+    <value>dissection labs</value>
+  </data>
+  <data name="less50" xml:space="preserve">
+    <value>less than 50</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>male</value>
+  </data>
+  <data name="more" xml:space="preserve">
+    <value>more</value>
+  </data>
+  <data name="more100" xml:space="preserve">
+    <value>more than 200</value>
+  </data>
+  <data name="moveToService" xml:space="preserve">
+    <value>Moving to the service of</value>
+  </data>
+  <data name="noDoctorsInSpeciality" xml:space="preserve">
+    <value>There're no doctors in this speciality untill now</value>
+  </data>
+  <data name="noResultMatch" xml:space="preserve">
+    <value>No results match search items</value>
+  </data>
+  <data name="notice" xml:space="preserve">
+    <value>Notice</value>
+  </data>
+  <data name="onlyOneDoctor" xml:space="preserve">
+    <value>Only one doctor</value>
+  </data>
+  <data name="onlyTwoDoctors" xml:space="preserve">
+    <value>Only two doctors</value>
+  </data>
+  <data name="or" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="otherServices" xml:space="preserve">
+    <value>other services</value>
+  </data>
+  <data name="ourServices" xml:space="preserve">
+    <value>our services</value>
+  </data>
+  <data name="ourServicesForYou" xml:space="preserve">
+    <value>Services provided by Zoor Doctor</value>
+  </data>
+  <data name="personalCommunication" xml:space="preserve">
+    <value>Personal communication</value>
+  </data>
+  <data name="pharmacies" xml:space="preserve">
+    <value>Pharmacies</value>
+  </data>
+  <data name="pharmacy" xml:space="preserve">
+    <value>Pharmay</value>
+  </data>
+  <data name="pleaseEnterCpompleteName" xml:space="preserve">
+    <value>please enter complete name</value>
+  </data>
+  <data name="pound" xml:space="preserve">
+    <value>pound</value>
+  </data>
+  <data name="privacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="rayCenter" xml:space="preserve">
+    <value>Radiation Center</value>
+  </data>
+  <data name="raysCenter" xml:space="preserve">
+    <value>Radiology Centers</value>
+  </data>
+  <data name="registerMethod" xml:space="preserve">
+    <value>Registration method</value>
+  </data>
+  <data name="reserveNow" xml:space="preserve">
+    <value>Book now</value>
+  </data>
+  <data name="reservingMethod" xml:space="preserve">
+    <value>Booking Method</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>search</value>
+  </data>
+  <data name="searchForAdvice" xml:space="preserve">
+    <value>Look for advice in a specialty or doctor</value>
+  </data>
+  <data name="searchMethod" xml:space="preserve">
+    <value>Search method</value>
+  </data>
+  <data name="searchResult" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="selectCity" xml:space="preserve">
+    <value>Select city</value>
+  </data>
+  <data name="selectDestrict" xml:space="preserve">
+    <value>Select Destrict</value>
+  </data>
+  <data name="selectSpeciality" xml:space="preserve">
+    <value>Select speciality</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>send</value>
+  </data>
+  <data name="serverProblem" xml:space="preserve">
+    <value>There was a problem with the server you can try later</value>
+  </data>
+  <data name="signUp" xml:space="preserve">
+    <value>Join us</value>
+  </data>
+  <data name="socialCommunication" xml:space="preserve">
+    <value>social communication</value>
+  </data>
+  <data name="Specialities" xml:space="preserve">
+    <value>The Specialities</value>
+  </data>
+  <data name="speciality" xml:space="preserve">
+    <value>Speciality of</value>
+  </data>
+  <data name="specializedDoctors" xml:space="preserve">
+    <value>The specialised doctors</value>
+  </data>
+  <data name="tabeebakWebsite" xml:space="preserve">
+    <value>Zoor Doctor site</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>user</value>
+  </data>
+  <data name="visitor" xml:space="preserve">
+    <value>Visitor</value>
+  </data>
+  <data name="websiteStatis" xml:space="preserve">
+    <value>Zoor Doctor Statistics</value>
+  </data>
+  <data name="whatSearch" xml:space="preserve">
+    <value>What you are looking for?</value>
+  </data>
+  <data name="writeDoctorName" xml:space="preserve">
+    <value>Select doctor name</value>
+  </data>
+  <data name="yourMessage" xml:space="preserve">
+    <value>your message</value>
+  </data>
+  <data name="agreeOn" xml:space="preserve">
+    <value>Agree on</value>
+  </data>
+  <data name="alreadyNumerExist" xml:space="preserve">
+    <value>This phone number is already exists</value>
+  </data>
+  <data name="areYouRegistered" xml:space="preserve">
+    <value>Are you registered already?</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="facebookRegister" xml:space="preserve">
+    <value>Join us by facebook</value>
+  </data>
+  <data name="fullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="googleRegister" xml:space="preserve">
+    <value>Join us by gmail</value>
+  </data>
+  <data name="loginHeading" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="loginNow" xml:space="preserve">
+    <value>Login Now</value>
+  </data>
+  <data name="mail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="manageProfile" xml:space="preserve">
+    <value>Manage Profile</value>
+  </data>
+  <data name="passString" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="phoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="pleaseEnterPhone" xml:space="preserve">
+    <value>Please enter phone to complete your data</value>
+  </data>
+  <data name="portablePhoneNumber" xml:space="preserve">
+    <value>Mobile number</value>
+  </data>
+  <data name="rolesAndCondictions" xml:space="preserve">
+    <value>Roles and constraints</value>
+  </data>
+  <data name="saveData" xml:space="preserve">
+    <value>Save Data</value>
+  </data>
+  <data name="signNow" xml:space="preserve">
+    <value>Join us now</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="clinicAddress" xml:space="preserve">
+    <value>Clinic Address</value>
+  </data>
+  <data name="details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="myAppointement" xml:space="preserve">
+    <value>My Appointements</value>
+  </data>
+  <data name="nextAppointement" xml:space="preserve">
+    <value>Next visites appointements</value>
+  </data>
+  <data name="noAppointementBefor" xml:space="preserve">
+    <value>There are no visits for you untill now.</value>
+  </data>
+  <data name="prevAppointement" xml:space="preserve">
+    <value>Previos visites appointements</value>
+  </data>
+  <data name="EnterPhoneNumber" xml:space="preserve">
+    <value>Enter phone number</value>
+  </data>
+  <data name="facebookLogin" xml:space="preserve">
+    <value>Login by facebook account</value>
+  </data>
+  <data name="forgotPassword" xml:space="preserve">
+    <value>Are you forgot password?</value>
+  </data>
+  <data name="googleLogin" xml:space="preserve">
+    <value>Login by gmail account</value>
+  </data>
+  <data name="rememberMe" xml:space="preserve">
+    <value>remember me</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="AreYouNewerUser" xml:space="preserve">
+    <value>Are you new user?</value>
+  </data>
+  <data name="bookingAppointDone" xml:space="preserve">
+    <value>Your booking is done</value>
+  </data>
+  <data name="bookingDate" xml:space="preserve">
+    <value>Booking date</value>
+  </data>
+  <data name="doctorInformedWithBook" xml:space="preserve">
+    <value>We have informed the doctor with your booking</value>
+  </data>
+  <data name="haveBookingAlready" xml:space="preserve">
+    <value>You have already a book on this doctor on the same day</value>
+  </data>
+  <data name="patientName" xml:space="preserve">
+    <value>Patient name</value>
+  </data>
+  <data name="atCityOf" xml:space="preserve">
+    <value>At The City Of</value>
+  </data>
+  <data name="atDestrictOf" xml:space="preserve">
+    <value>At The Destrict Of</value>
+  </data>
+  <data name="orSelectDoctorname" xml:space="preserve">
+    <value>Or Select Doctor Name</value>
+  </data>
+  <data name="searchingForSpeciality" xml:space="preserve">
+    <value>Searching For Speciality</value>
+  </data>
+  <data name="selectDocName" xml:space="preserve">
+    <value>Or Select Doctor Name</value>
+  </data>
+  <data name="searchingForDoc" xml:space="preserve">
+    <value>Searching For Doctor</value>
+  </data>
+  <data name="bookOnlineOrCallOn" xml:space="preserve">
+    <value>Book online or call to</value>
+  </data>
+  <data name="searchForDocOrSpByquichSearch" xml:space="preserve">
+    <value>Search for doctor or speciality using quick search</value>
+  </data>
+  <data name="birthDate" xml:space="preserve">
+    <value>Birth date</value>
+  </data>
+  <data name="signHeading" xml:space="preserve">
+    <value>Join us</value>
+  </data>
+  <data name="metaDescription" xml:space="preserve">
+    <value>A group of top university professors and consultants, know how people evaluate them and book online.
+Immediate booking at 2000 Doctor · Know people's assessment of doctors · Book online or call 16676
+Services: Know the check price before booking, free immediate booking, know waiting time at the clinic</value>
+  </data>
+  <data name="metaKeywords" xml:space="preserve">
+    <value>tabeebak,book a doctor,book a clinic,book the best doctor,book with tabeebak,find the best doctor in egypt,book and find doctor,get the best doctor,find doctor,find clinic,Zoor Doctor</value>
+  </data>
+  <data name="indexTitle" xml:space="preserve">
+    <value>Easly book with the best doctors in egypt by tabeebal </value>
+  </data>
+  <data name="forCallUs" xml:space="preserve">
+    <value>Call us</value>
+  </data>
+  <data name="logOut" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="profilePage" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="tabeebak" xml:space="preserve">
+    <value>Zoor Doctor</value>
+  </data>
+  <data name="withYouAnyWhere" xml:space="preserve">
+    <value>Your Doctor Serve You Any Time</value>
+  </data>
+  <data name="aboutClinicValidationAr" xml:space="preserve">
+    <value>at most 300 letters only arabic text allowed</value>
+  </data>
+  <data name="aboutClinicValidationEng" xml:space="preserve">
+    <value>at most 300 letters only english text allowed</value>
+  </data>
+  <data name="aboutDoctorLength" xml:space="preserve">
+    <value>about doctor at least 20 letters and at most 200 letters</value>
+  </data>
+  <data name="aboutDoctorrequired" xml:space="preserve">
+    <value>about doctor is required</value>
+  </data>
+  <data name="aboutDoctorValidationAr" xml:space="preserve">
+    <value>about doctor at least 20 letters and at most 200 letters arabic only</value>
+  </data>
+  <data name="aboutDoctorValidationEng" xml:space="preserve">
+    <value>about doctor at least 20 letters and at most 200 letters english only</value>
+  </data>
+  <data name="availableTimeRequired" xml:space="preserve">
+    <value>The available time is required</value>
+  </data>
+  <data name="availableTimeValidationAr" xml:space="preserve">
+    <value>The available time is at least 8 letters and at most 50 letters arabiconly</value>
+  </data>
+  <data name="availableTimeValidationEng" xml:space="preserve">
+    <value>The available time is at least 8 letters and at most 50 letters english only</value>
+  </data>
+  <data name="avialableTimeLength" xml:space="preserve">
+    <value>The available time is at least 8 letters and at most 50 letters</value>
+  </data>
+  <data name="birthDataIsRequired" xml:space="preserve">
+    <value>Your birth date is required</value>
+  </data>
+  <data name="bookingTypeRequired" xml:space="preserve">
+    <value>Booking type is required</value>
+  </data>
+  <data name="cityRequired" xml:space="preserve">
+    <value>Your city is required</value>
+  </data>
+  <data name="clinicAddressLength" xml:space="preserve">
+    <value>clinic address at least 10 letters</value>
+  </data>
+  <data name="clinicAddressrequired" xml:space="preserve">
+    <value>clinic address is required</value>
+  </data>
+  <data name="clinicAddressValidationAr" xml:space="preserve">
+    <value>clinic address at least 10 letters arabic only</value>
+  </data>
+  <data name="clinicAddressValidationEng" xml:space="preserve">
+    <value>clinic address at least 10 letters english only</value>
+  </data>
+  <data name="destrictnotValid" xml:space="preserve">
+    <value>Please select valid destrict</value>
+  </data>
+  <data name="destrictRequired" xml:space="preserve">
+    <value>Your destrict of city is required</value>
+  </data>
+  <data name="educationNotValid" xml:space="preserve">
+    <value>select valid education</value>
+  </data>
+  <data name="educationrequired" xml:space="preserve">
+    <value>education is required</value>
+  </data>
+  <data name="emailNotValid" xml:space="preserve">
+    <value>E-mail is not valid</value>
+  </data>
+  <data name="emailRequired" xml:space="preserve">
+    <value>The email address is required</value>
+  </data>
+  <data name="examinfeeRang" xml:space="preserve">
+    <value>examin fee at least 10 pounds</value>
+  </data>
+  <data name="examinFeeRequired" xml:space="preserve">
+    <value>Examin fee is required</value>
+  </data>
+  <data name="firstNameNotValid" xml:space="preserve">
+    <value>first name is invalid</value>
+  </data>
+  <data name="firstNamerequired" xml:space="preserve">
+    <value>first name is required</value>
+  </data>
+  <data name="firstNameValidation" xml:space="preserve">
+    <value>The first name is at least 3 letters and at most 25 letters</value>
+  </data>
+  <data name="genderIsRequired" xml:space="preserve">
+    <value>Your Gender is required</value>
+  </data>
+  <data name="lastnameNotvalid" xml:space="preserve">
+    <value>last name is invalid</value>
+  </data>
+  <data name="lastNameRequired" xml:space="preserve">
+    <value>last name is required</value>
+  </data>
+  <data name="lastnameValidation" xml:space="preserve">
+    <value>The last name is at least 3 letters and at most 25 letters</value>
+  </data>
+  <data name="passwordRequired" xml:space="preserve">
+    <value>The password  is required</value>
+  </data>
+  <data name="passwordValidation" xml:space="preserve">
+    <value>at least one number, one lowercase , one uppercase letter at least six characters and at most 20 characters</value>
+  </data>
+  <data name="personalImgNotValid" xml:space="preserve">
+    <value>personal image is not valid</value>
+  </data>
+  <data name="personalImgrequired" xml:space="preserve">
+    <value>The personal Image is required</value>
+  </data>
+  <data name="phoneISAlreadyExists" xml:space="preserve">
+    <value>This phone number is already reserved</value>
+  </data>
+  <data name="phoneNotValid" xml:space="preserve">
+    <value>phone format is not valid</value>
+  </data>
+  <data name="phoneRequired" xml:space="preserve">
+    <value>Phone Number Required</value>
+  </data>
+  <data name="professionImagerequired" xml:space="preserve">
+    <value>The profission Image is required</value>
+  </data>
+  <data name="professiontitleisrequired" xml:space="preserve">
+    <value>Your profession title is required</value>
+  </data>
+  <data name="professiontitleLength" xml:space="preserve">
+    <value>profession title at least 10 letters and at most 150 letters</value>
+  </data>
+  <data name="professiontitleValidationAr" xml:space="preserve">
+    <value>profession title at least 10 letters and at most 150 letters arabic only</value>
+  </data>
+  <data name="professiontitleValidationEng" xml:space="preserve">
+    <value>profession title at least 10 letters and at most 150 letters english only</value>
+  </data>
+  <data name="reservationtyperequired" xml:space="preserve">
+    <value>The reservation type is required</value>
+  </data>
+  <data name="selectAtLeastOneSubSpeciality" xml:space="preserve">
+    <value>Please select at least one sub speciality</value>
+  </data>
+  <data name="specialityNotValid" xml:space="preserve">
+    <value>select valid speciality</value>
+  </data>
+  <data name="specialityrequired" xml:space="preserve">
+    <value>Speciality is required</value>
+  </data>
+  <data name="urlNotValid" xml:space="preserve">
+    <value>url format is not valid</value>
+  </data>
+  <data name="userNameIsAlreadyExists" xml:space="preserve">
+    <value>This username is  already exists</value>
+  </data>
+  <data name="userNameMinimumLength" xml:space="preserve">
+    <value>enter valid username between 3 and 16 letters</value>
+  </data>
+  <data name="usernameRequired" xml:space="preserve">
+    <value>The username is required</value>
+  </data>
+  <data name="doctorAdvices" xml:space="preserve">
+    <value>Doctor advices</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="otherPages" xml:space="preserve">
+    <value>Other Pages</value>
+  </data>
+  <data name="privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="doctorSite" xml:space="preserve">
+    <value>Doctor site</value>
+  </data>
+  <data name="directDownload" xml:space="preserve">
+    <value>Direct Download</value>
+  </data>
+  <data name="downloadAppDescription" xml:space="preserve">
+    <value>Download our application now,and get freely and easely our services ,and save your time</value>
+  </data>
+  <data name="downloadAppNow" xml:space="preserve">
+    <value>Download Our App Now</value>
+  </data>
+  <data name="pages" xml:space="preserve">
+    <value>Pages</value>
+  </data>
+  <data name="rightReserverdForTabeebakUsers" xml:space="preserve">
+    <value>All rights are reserved for Zoor Doctor team work</value>
+  </data>
+  <data name="registerFaild" xml:space="preserve">
+    <value>Registration is faild</value>
+  </data>
+  <data name="updateProfileFaild" xml:space="preserve">
+    <value>profile update has been faild,please validate your data</value>
+  </data>
+  <data name="changePassword" xml:space="preserve">
+    <value>change password</value>
+  </data>
+  <data name="changeYourPassword" xml:space="preserve">
+    <value>change your password</value>
+  </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>confirm password</value>
+  </data>
+  <data name="emailLink" xml:space="preserve">
+    <value>Email link</value>
+  </data>
+  <data name="enterRegisteredPhone" xml:space="preserve">
+    <value>enter your phone number that you registered on Zoor Doctor</value>
+  </data>
+  <data name="enterRegisteredUsername" xml:space="preserve">
+    <value>enter your username or email that you registered on Zoor Doctor</value>
+  </data>
+  <data name="newPassword" xml:space="preserve">
+    <value>new password</value>
+  </data>
+  <data name="pleaseClickOnLinkToChangePassword" xml:space="preserve">
+    <value>Please click on this link to change your password</value>
+  </data>
+  <data name="retrievePasswordByEmail" xml:space="preserve">
+    <value>retrieve my password by sending reset link on my registered email to reset password</value>
+  </data>
+  <data name="retrievePasswordByPhone" xml:space="preserve">
+    <value>retrieve password by sending message to my registered phone to change password</value>
+  </data>
+  <data name="sendCodeToMobile" xml:space="preserve">
+    <value>send code to mobile</value>
+  </data>
+  <data name="titleAppointements" xml:space="preserve">
+    <value>my appointements with Zoor Doctor</value>
+  </data>
+  <data name="titleChangePassword" xml:space="preserve">
+    <value>Zoor Doctor-change your password</value>
+  </data>
+  <data name="titleJoin" xml:space="preserve">
+    <value>Join to Zoor Doctor</value>
+  </data>
+  <data name="titleLogin" xml:space="preserve">
+    <value>Login to Zoor Doctor</value>
+  </data>
+  <data name="titleProfile" xml:space="preserve">
+    <value>profile on Zoor Doctor</value>
+  </data>
+  <data name="titleRememerPassword" xml:space="preserve">
+    <value>Zoor Doctor-remember password</value>
+  </data>
+  <data name="welcom" xml:space="preserve">
+    <value>welcom</value>
+  </data>
+  <data name="weRememberYouUsername" xml:space="preserve">
+    <value>we remember you that your username is</value>
+  </data>
+  <data name="enterValidData" xml:space="preserve">
+    <value>please enter valid data</value>
+  </data>
+  <data name="linkExpired" xml:space="preserve">
+    <value>Password rest link has expired or invalid</value>
+  </data>
+  <data name="noDataAboutPhone" xml:space="preserve">
+    <value>We can not find this phone number that you registered in the Zoor Doctor account,please enter valid phone number</value>
+  </data>
+  <data name="noDataAboutUsernameOrEmail" xml:space="preserve">
+    <value>We can not find any username or e-mail that you registered in the Zoor Doctor account,please enter valid username or e-mail</value>
+  </data>
+  <data name="passwordRecoveryTitleToEmail" xml:space="preserve">
+    <value>Zoor Doctor-Password Recovery</value>
+  </data>
+  <data name="problemOnDoingOperationAtServer" xml:space="preserve">
+    <value>Problem occured during executing operation on server</value>
+  </data>
+  <data name="problemOnSendingResetLink" xml:space="preserve">
+    <value>Problem occured during sending reset link to your email,please try again</value>
+  </data>
+  <data name="userNameOrPasswordNotValid" xml:space="preserve">
+    <value>username or password not valid</value>
+  </data>
+  <data name="allSpecialities" xml:space="preserve">
+    <value>All specialities</value>
+  </data>
+  <data name="titleFastSearch" xml:space="preserve">
+    <value>search for the best doctors with Zoor Doctor</value>
+  </data>
+  <data name="titleSearch" xml:space="preserve">
+    <value>search for your doctor with Zoor Doctor</value>
+  </data>
+  <data name="titleSpecialities" xml:space="preserve">
+    <value>specialities page</value>
+  </data>
+  <data name="titleSpecialityBrows" xml:space="preserve">
+    <value>speciality browsing</value>
+  </data>
+  <data name="rulesAndConditions" xml:space="preserve">
+    <value>rules and conditions-Zoor Doctor</value>
+  </data>
+  <data name="titlePrivacy" xml:space="preserve">
+    <value>privacy policy-Zoor Doctor</value>
+  </data>
+  <data name="titleDoctorPage" xml:space="preserve">
+    <value>doctor page on Zoor Doctor</value>
+  </data>
+  <data name="bookYourAppointement" xml:space="preserve">
+    <value>book your appointement</value>
+  </data>
+  <data name="invalidBookingData" xml:space="preserve">
+    <value>invalid personal data for reservation,patient name or phone data was invalid</value>
+  </data>
+  <data name="maxBookingNumber" xml:space="preserve">
+    <value>you have maximum of two times of booking at the same day for the same doctor</value>
+  </data>
+  <data name="titleReservingDetailPage" xml:space="preserve">
+    <value>booking details</value>
+  </data>
+  <data name="titleReservingDonePage" xml:space="preserve">
+    <value>thank you for booking</value>
+  </data>
+  <data name="today" xml:space="preserve">
+    <value>today</value>
+  </data>
+  <data name="tomorrow" xml:space="preserve">
+    <value>tomorrow</value>
+  </data>
+  <data name="enterBookingData" xml:space="preserve">
+    <value>enter booking data</value>
+  </data>
+  <data name="bookingAppointement" xml:space="preserve">
+    <value>booking appointement</value>
+  </data>
+  <data name="titleBookingDetails" xml:space="preserve">
+    <value>Booking details</value>
+  </data>
+  <data name="titleThankBooking" xml:space="preserve">
+    <value>thank you for your booking</value>
+  </data>
+  <data name="visitPriorityToDoctor" xml:space="preserve">
+    <value>visit to doctor is based on priority of attendance at your booked interval</value>
+  </data>
+  <data name="enterFullPatientName" xml:space="preserve">
+    <value>enter three words patient name</value>
+  </data>
+  <data name="pageNotFound" xml:space="preserve">
+    <value>The page that you search for is not found</value>
+  </data>
+  <data name="waitingTimerequired" xml:space="preserve">
+    <value>waiting time required</value>
+  </data>
+  <data name="minute" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="waitingTime" xml:space="preserve">
+    <value>waiting before entrance to doctor</value>
+  </data>
+  <data name="noWaiting" xml:space="preserve">
+    <value>no waiting before entrance to doctor</value>
+  </data>
+  <data name="advicesPageTitle" xml:space="preserve">
+    <value>doctors advices page</value>
+  </data>
+</root>
